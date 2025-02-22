@@ -1,10 +1,11 @@
 \documentclass{article}
-\usepackage{LatexNotes/texmacros}
+\usepackage{texmacros}
 \usepackage{titlesec}
 \usepackage[margin=1in,footskip=0.25in]{geometry}
 
 
-
+\newcommand{\seqcl}[1]{{[#1]_{\text{seq}}}} 
+\newcommand{\nothing}{\rotatebox[origin=c]{23.8}{$\varnothing$}}
 %\pagestyle{fancy}
 %\fancyhead{}
 %\fancyfoot{}
@@ -14,29 +15,105 @@
 
 
 
-\titleformat{\section}{\normalfont\large\bfseries}{}{0cm}{}
-
-
-
 \begin{document}
 
+\section{Introduction}
+\subsection{Outline of proposed research project}
+
+The text Counterexamples in Topology by Steen and Seebach has been a fabulous resource for students and
+researchers in Topology since its publication in 1970. The book was the product of an undergraduate research
+project funded by NSF and supervised by Steen and Seebach (and including then student Gary Gruenhage) to
+systematically survey important topological counterexamples. More recently James Dabbs has implemented a
+database on Github based on the Steen and Seebach textbook called Pi-Base (see \href{https://topology.pi-base.org/}{https://topology.pi-base.org/})
+and it is currently being maintained by Dabbs and Stephen Clontz. This resource has great potential to both
+researchers and advanced undergraduate and graduate students at the start of their research careers. There are
+still big gaps in the database's subject matter, especially in relation to research in and around Frechet-Urysohn
+spaces. There is a significant body of work, and especially interesting counterexamples, concerning Michael's
+class of bisequential spaces, Arhangel'skii's alpha-i spaces and several game theoretic formulations of
+convergence which do not yet appear in the Pi-Base. The project has two goals. The first, and most accessible,
+is to give a systematic survey of the recent research which will be implemented into the Pi-Base database. The
+second half of the project will be devoted to open problems related to a recent class of examples defined from
+ladder systems (more generally on so called square-sequence) described in two 
+
+
+\section{Set Theory}
+\subsection{Ordinals}
+\subsection{Cardinals}
+\subsection{Ideals and Filters}
+
+\section{Topology}
+
+\subsection{Sequential and Fréchet-Urysohn Spaces}
+
+\begin{defn}\cite{EK89}
+    A space \(X\) is \textit{sequential} if 
+    \[
+    \displaystyle A \subset X \text{ is closed } \iff \forall (x_n) \in A\left(\lim_{n\to \infty} x_n \in A\right).
+    \] 
+\end{defn}
+
+\begin{defn}\cite{AH90}
+    For a topological space \(X\) and any set \(A \subset X\), the \textit{sequential closure of} \(A\) is  
+    \[
+        \seqcl{A} := \left\{x \in X \: : \: \exists (x_n) \in A \left(\lim_{n\to \infty} x_n = x\right) \right\}
+    \]
+
+\end{defn}
+
+\begin{defn}\cite{NY92}
+    Let \(X\) be a topological space and \(\varsigma\) be a countable family of sequences converging to a point \(x_0 \in X\). We say that \(x_0\) is an \(\alpha_i\) point for \(i = 1, 2, 3, 4\) if there exists a sequence \(\beta\) such that 
+    \begin{itemize}
+        \item \(\alpha_1\):  \(|\gamma \setminus \beta| < \aleph_0\) for every \(\gamma \in \varsigma\);
+        \item \(\alpha_2\): \(|\gamma \cap \beta| = \aleph_0\) for every \(\gamma \in \varsigma\);
+        \item \(\alpha_3\): \(|\gamma \cap \beta| = \aleph_0\) for infinitely many \(\gamma \in \varsigma\);
+        \item \(\alpha_4\): \(\gamma \cap \beta \neq \nothing\) for infinitely many \(\gamma \in \varsigma\).
+    \end{itemize}
+    Then \(X\) is an \(\alpha_i\) space if every \(x \in X\) is an \(\alpha_i\) point.
+\end{defn}
+
+
+
+
+
+\subsection{Bisequential Spaces}
+
+\begin{defn}
+    Let \(X\) be a topological space. If for all \(x \in X\) and \(\mathcal{F} \subset \P(X)\) an ultrafilter which clusters at \(x\) there exists a sequence of sets \(A_1 \supseteq A_2 \supseteq A_3 \dots\) where each \(A_i \in \F\)
+\end{defn}
+
+
+
+
+
+\subsection{Topological Games}
+\subsubsection{Two Player Convergence Game (\texorpdfstring{\cite{GH76}})}
+    Let \(X\) be a topological space and designate a point \(x_0 \in X\). The two player game is defined as follows: 
+    \begin{itemize}
+            \item On turn one player I chooses an open set \(U_1\) containing \(x_0\) and player II then chooses a point \(x_1 \in U_1\);
+            \item On the \(n\)'th turn player I chooses an open set \(U_n\) containing \(x_0\) and player II then chooses a point \(x_n \in U_n\).
+    \end{itemize}  
+    Player I wins the game if the sequence \(x_n\) converges to \(x_0\).
+
+
+    \cite{IF13}
+
+
+
+\section{Examples}
+
+\begin{exam}\cite{WL04}
+    Let \(X = \omega_1 + \{\infty\}\) with the order topology. \(X\) is not sequential, for consider \(\omega_1 \in X\), which has \(\overline{\omega_1} \setminus \omega_1 = \{\infty\}\). Then by definition, any sequence \((x_n) \in \omega_1\) cannot converge to \(\infty\), as otherwise \(\omega_1 = \sup\{x_n \: : \: n \in \bN\}\), a contradiction.
+\end{exam}
+
+\begin{exam}{Aren's Space}
+    
+\end{exam}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-
-
-
-
-sf
-
-
-
-
-
-
-
-
-
-
-
-
+\bibliographystyle{plain}
+\bibliography{bibliography}{}
 
 \end{document}
