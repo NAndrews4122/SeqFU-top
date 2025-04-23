@@ -5,7 +5,6 @@
 
 
 \newcommand{\seqcl}[1]{{[#1]_{\text{seq}}}} 
-\newcommand{\nothing}{\rotatebox[origin=c]{23.8}{$\varnothing$}}
 %\pagestyle{fancy}
 %\fancyhead{}
 %\fancyfoot{}
@@ -35,38 +34,113 @@ is to give a systematic survey of the recent research which will be implemented 
 second half of the project will be devoted to open problems related to a recent class of examples defined from
 ladder systems (more generally on so called square-sequence) described in two 
 
+\section{Meeting Log}
+\subsection*{Monday April 21} 
+\begin{enumerate}
+    \item Frechet Fan - \(S_{\omega}\): \(\omega \times (\omega + 1) / \omega \times \{\infty\}\) (i.e. \(\omega \times ( \omega + 1)\) with the points at infinity identified). Show that 
+    \begin{itemize}
+        \item \(S_{\omega}\) is not first countable \checkmark
+        \item \(S_{\omega}\) is Fréchet. \checkmark
+    \end{itemize}
 
-\section{Set Theory}
-\subsection{Ordinals}
-\subsection{Cardinals}
-\subsection{Ideals and Filters}
+    \item Product of Fréchet spaces not always Fréchet: take \((\omega + 1) \times S_{\omega}\). Let \(A = \{(m, (m, n)) \: : \: m,n \in \omega\). Show that 
+    \begin{itemize}
+        \item \((\omega + 1, \infty) \in \overline{A}\)
+        \item No sequence in \(A\) converges to \((\omega + 1, \infty)\).
+    \end{itemize}
+
+    \item Right way to think about sequences: \(A \subseteq X\) converges to \(a \in X\) if \(|A| = \aleph_0\) and for all neighboourhoods \(U_x \subseteq X\), \(|A \setminus U_x| < \aleph_0\).
+    
+    \item Right way to think about Fréchet space: take sequential closure once same as closure.
+    \item Another exercise: which \(\alpha_i\) properties does \(S_{\omega}\) have?
+\end{enumerate}
+
+%\section{Set Theory}
+%\subsection{Ordinals}
+%\subsection{Cardinals}
+%\subsection{Ideals and Filters}
+%
+%\begin{defn}\cite{KU11}
+%    Let \(X\) be a non empty set. We say that \(\I %\subseteq \P(X)\) is an \textit{ideal}  of \(X\) if 
+%    \begin{enumerate}
+%        \item[i.] \(\nothing \in \I \text{ and } X \not %\in \I\)
+%        \item[ii.] \(U, V \in \I \implies U\cup V \in \I\)
+%        \item[iii.] \(U \subset V\text{ and } V \in \I  %\implies U \in \I\)
+%    \end{enumerate}
+%\end{defn}
+%
+%\begin{defn}\cite{KU11}
+%    Let \(X\) be a non empty set. We say that \(\F %\subseteq \P(X)\) is an \textit{filter}  of \(X\) if 
+%    \begin{enumerate}
+%        \item[i.] \( X \in \F \text{ and } \nothing \not %\in \F\)
+%        \item[ii.] \(U, V \in \F \implies U\cap V \in \F\)
+%        \item[iii.] \(U \subset V \text{ and } U \in \F  %\implies V \in \F\)
+%    \end{enumerate}
+%\end{defn}
+%
+%A filter that is maximal with respect to inclusion is %called am \textbf{ultrafilter}. As a result of Zorn's %lemma, every filter sits inside of an ultrafilter.
+
 
 \section{Topology}
 
-\subsection{Sequential and Fréchet-Urysohn Spaces}
+\subsection{Basics}
 
-\begin{defn}\cite{EK89}
-    A space \(X\) is \textit{sequential} if 
-    \[
-    \displaystyle A \subset X \text{ is closed } \iff \forall (x_n) \in A\left(\lim_{n\to \infty} x_n \in A\right).
-    \] 
-\end{defn}
+\subsection{Sequential and Fréchet Spaces}
 
 \begin{defn}\cite{AH90}
-    For a topological space \(X\) and any set \(A \subset X\), the \textit{sequential closure of} \(A\) is  
+    For a topological space \(X\) and any set \(A \subset X\), the \textit{sequential closure} of \(A\) is  
     \[
-        \seqcl{A} := \left\{x \in X \: : \: \exists (x_n) \in A \left(\lim_{n\to \infty} x_n = x\right) \right\}
+        \seqcl{A} := \left\{x \in X \: : \: \exists (x_n) \in A \left(\lim_{n\to \infty} x_n = x\right) \right\}.
     \]
-
+    The \textit{total sequential closure} of \(A\) is the operation of recursively taking the sequential closure of \(A\) until 
+    \[
+        \seqcl{\seqcl{\seqcl{A}}\dots} = \overline{A}.
+    \]
 \end{defn}
 
+\begin{fact}
+    In general it takes at most \(\omega_1\) many iterations of the sequential closure to get a closed set. 
+\end{fact}
+
+\begin{defn}
+    \leavevmode
+    \begin{enumerate}
+        \item\cite{EK89} A space \(X\) is \textit{sequential} if 
+        \[
+        \displaystyle A \subset X \text{ is closed } \iff \forall (x_n) \in A\left(\lim_{n\to \infty} x_n \in A\right).
+        \] 
+        \item A space \(X\) is said to sequential if sequentially closed sets are closed.
+    \end{enumerate}
+    
+\end{defn}
+\begin{defn}
+    A space \(X\) is said to be Fréchet if \(\seqcl{A} = \overline{A}\) for all \(A \subseteq X\).
+\end{defn}
+\begin{exam}
+    Let \(X = \omega_1 + 1\) with the order topology. \(X\) is not Fréchet, since any sequence \((x_n) \in \omega_1\) cannot converge to \(\infty\), as otherwise \(\omega_1 = \sup\{x_n \: : \: n \in \bN\}\), a contradiction.
+\end{exam}
+Clearly then, if a space is Fréchet then it is also Sequential. The following example shows that the converse is not true. 
+\begin{exam}
+    Let \(X^{\ast} = \omega \times (\omega + 1)\) be given the order topology and let \(X =  X^{\ast} \cup \{\infty\}\) where the neighboourhoods  of \(\infty\) are such that there exists \(p \in \omega\) such that \(|\{(m, n) \: : \: m > p, n \in \omega + 1\} \setminus U_{\infty}| < \aleph_0\). Then \(X\) is sequential but but not Fréchet. To see this, note that for all \(m \in \omega\) the sequence \(A_m = \{(m, n) \: : \: n \in \omega\}\) converges to \((m, \omega + 1)\) and moreover \(B = \{(m, \omega + 1) \: : \: m \in \omega\}\) is a sequence that converges to \(\infty\). Then \(A = \bigcup_{m \in \omega} A_m\) is such that \(\seqcl{\seqcl{A}} = X\), hence \(X\) is sequential. On the other hand there is no sequence in \(A\) that converges to \(\infty\). Suppose there were, say some \(\gamma \to \infty\). Then for all \(m \in \omega\), \(U_m = X \setminus \{(m, n)\: : \: n \in \omega + 1\}\) is a neighboourhood of \(\infty\) such that \(|\gamma \setminus U_m| < \aleph_0\). Hence \(\gamma\) has only finitely many terms belonging to each column. If \(\alpha_m = \max\{\gamma \cap \{(m, n) \: : \: n \in \omega\}\}\), then \(U = X \setminus \bigcup_{m \in \omega} \{(m ,n )\: : \:  n \leq \alpha_m\}\) is a neighbourhood of \(\infty\) disjoint from \(\gamma\), a contradiction. Hence \(X\) is not Fréchet. 
+\end{exam} 
+\begin{prop}
+    If \(X\) is first countable then \(X\) is Fréchet.
+\end{prop}
+\begin{proof}
+    Let \(A \subseteq X\) and let \(x \in \overline{A}\). Then \(x\) has a countable neighbourhood base \(N_x\) such that \(U \cap A \neq \nothing\) for all \(U \in N_x\). Enumerating the neighboourhoods of \(x\) as \(U_1, U_2, \dots\) then the sequence \((x_n)_{n \ge 1}\) where \(x_n \in U_n \cap A\) for each \(n \in \omega\) is such that \((x_n)_{n \ge 1}\) converges to \(x\).
+\end{proof}
+The following example shows that the converse is not true. 
+\begin{exam}[Fréchet Fan]
+    Let \(S_{\omega}\) be the quotient of \(\omega \times (\omega + 1)\) obtained by identifying all the points \(\{(m, \omega + 1) \: : \: m \in \omega\}\). More precisely \(S_{\omega}\) has the quotient topology induced by the map \(h: \omega \times (\omega + 1) \to S_{\omega}\) where \(h(x) = x\) for all \(x \in \omega \times \omega\) and \(h(x) = \infty\) for all \(x \in \omega \times \{\omega + 1\}\). Then \(S_{\omega}\) is Fréchet but not 1st countable. To see that \(S_{\omega}\) is Fréchet, note that by definition of the quotient topology, the open neighbourhoods of \(\infty\) are those sets \(U \subset S_{\omega}\) such that \(\infty \in U\) and \(h^{-1}(U)\) is open in \(\omega \times (\omega + 1)\). As \(\{(m, \omega + 1) \: : \:  m \in \omega\} \subset h^{-1}(U)\) we see that \(U\) is an open neighbourhood of \(\infty\) iff \(h^{-1}(U)\) is an open neighbourhood of \((m, \omega + 1)\) for all \(m \in \omega\).  Note that  \(h^{-1}(m \times (f(m), \infty]) = m \times (f(m), \omega + 1)\) is an open neighboourhood of \((m, \omega + 1)\) for each \(m \in \omega\) where \(f: \omega \to \omega\) is just some mapping that indicates the startpoint of each interval. Hence the open neighboourhoods of \(\infty\) are of the form \(\bigcup_{m \in \omega}m \times (f(m), \infty]\). It follows that for all \(m \in \omega\) the sequence \(A_m = \{(m, n) \: : \: n \in \omega\}\) converges to \(\infty\) so that \(A = \bigcup_{m \in \omega}A_m\) is such that \(\seqcl{A} = S_{\omega}\). On the other hand it's obvious that \(\overline{A} = S_{\omega}\), so that \(S_{\omega}\) is indeed Fréchet. Now asssuming that \(S_{\omega}\) was countable, we would have a countable neighbourhood base at \(\infty\). For each \(k \in \omega\) let \(B_k = \bigcup_{m \in \omega}m \times (f_k(m), \infty]\) for some \(f_k: \omega \to \omega\) determining the startpoints of each interval. Suppose \(\B = \{B_k \: : \: k \in \omega\}\) is a base at \(\infty\), then let \(f^{\ast}: \omega \to \omega\) be defined by \(f^{\ast}(m) = f_m(m) + 1\) for all \(m \in \omega\). Letting \(B^{\ast} = \bigcup_{m \in \omega}m \times (f^{\ast}(m), \infty]\) it is clear by construction that \(B_k \not\subset B^{\ast}\) for all \(k \in \omega\). Thus \(\B\) cannot be a neighboourhood base, i.e., \(S_{\omega}\) is not first countable.
+    
+\end{exam}
 \begin{defn}\cite{NY92}
-    Let \(X\) be a topological space and \(\varsigma\) be a countable family of sequences converging to a point \(x_0 \in X\). We say that \(x_0\) is an \(\alpha_i\) point for \(i = 1, 2, 3, 4\) if there exists a sequence \(\beta\) such that 
+    Let \(X\) be a topological space and \(\xi\) be a countable family of sequences converging to a point \(x_0 \in X\). We say that \(x_0\) is an \(\alpha_i\) point for \(i = 1, 2, 3, 4\) if there exists a sequence \(\beta\) such that 
     \begin{itemize}
-        \item \(\alpha_1\):  \(|\gamma \setminus \beta| < \aleph_0\) for every \(\gamma \in \varsigma\);
-        \item \(\alpha_2\): \(|\gamma \cap \beta| = \aleph_0\) for every \(\gamma \in \varsigma\);
-        \item \(\alpha_3\): \(|\gamma \cap \beta| = \aleph_0\) for infinitely many \(\gamma \in \varsigma\);
-        \item \(\alpha_4\): \(\gamma \cap \beta \neq \nothing\) for infinitely many \(\gamma \in \varsigma\).
+        \item \(\alpha_1\):  \(|\gamma \setminus \beta| < \aleph_0\) for every \(\gamma \in \xi\);
+        \item \(\alpha_2\): \(|\gamma \cap \beta| = \aleph_0\) for every \(\gamma \in \xi\);
+        \item \(\alpha_3\): \(|\gamma \cap \beta| = \aleph_0\) for infinitely many \(\gamma \in \xi\);
+        \item \(\alpha_4\): \(\gamma \cap \beta \neq \nothing\) for infinitely many \(\gamma \in \xi\).
     \end{itemize}
     Then \(X\) is an \(\alpha_i\) space if every \(x \in X\) is an \(\alpha_i\) point.
 \end{defn}
@@ -86,7 +160,7 @@ ladder systems (more generally on so called square-sequence) described in two
 
 
 \subsection{Topological Games}
-\subsubsection{Two Player Convergence Game (\texorpdfstring{\cite{GH76}})}
+\subsubsection{Two Player Convergence Game \texorpdfstring{\cite{GH76}})}
     Let \(X\) be a topological space and designate a point \(x_0 \in X\). The two player game is defined as follows: 
     \begin{itemize}
             \item On turn one player I chooses an open set \(U_1\) containing \(x_0\) and player II then chooses a point \(x_1 \in U_1\);
@@ -95,19 +169,11 @@ ladder systems (more generally on so called square-sequence) described in two
     Player I wins the game if the sequence \(x_n\) converges to \(x_0\).
 
 
-    \cite{IF13}
 
 
 
 \section{Examples}
 
-\begin{exam}\cite{WL04}
-    Let \(X = \omega_1 + \{\infty\}\) with the order topology. \(X\) is not sequential, for consider \(\omega_1 \in X\), which has \(\overline{\omega_1} \setminus \omega_1 = \{\infty\}\). Then by definition, any sequence \((x_n) \in \omega_1\) cannot converge to \(\infty\), as otherwise \(\omega_1 = \sup\{x_n \: : \: n \in \bN\}\), a contradiction.
-\end{exam}
-
-\begin{exam}{Aren's Space}
-    
-\end{exam}
 
 
 
