@@ -173,11 +173,16 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \end{defn}
 
 \begin{exam}
-    \(S_{\omega}\) is \(\alpha_1\). Let \(x \in S_{\omega}\) and let \(\xi\) be a countable collection of sequences converging to \(x\). If \(x \neq \infty\), then since \(x\) is an isolated point any sequence converging to \(x\) will eventually be equal to \(x\), and therefore taking the constant sequence will satisfy the property. Otherwise, if \(x = \infty\), then 
+    \(S_{\omega}\) is not even \(\alpha_4\). For each \(m \in \omega\) let \(A_m = \{m\} \times (1, \infty)\). Then \(\xi = \{A_m \: : \: m \in \omega\}\) is a countable collection of sequences converging to \(\infty\). Suppose \(B\) is a sequence that converges to \(\infty\) such that \(A\cap B \neq \nothing\) for infinitely many \(A \in \xi\). In particular let \(\alpha \leq \omega\) be such that \(A_i \cap B \neq \nothing\) for all \(i \in \alpha\) and let \(f:\alpha \to \omega\) be defined by \(f(k) \in B \cap A_k\) for all \(k \in \alpha\). Then 
     \[
-    A = \bigcup_{m \in \omega}\bigcup_{1\leq i \leq m} \left(\xi_i \cap [1, \omega)\times \{m\}\right)
-    \] 
-    converges to \(\infty\) since we ensure that there are only finitely many elements per row (since each \(\xi_i\) can have only finitely many points in each row), and every sequence will appear in the union infinitely many times as we ascend. Since each \(\xi_i\) converges to \(\infty\) this guarantees that \(A\) will pick up infinitely many points of every  \(\xi_i\). 
+    U = \left(\bigcup_{k \in \alpha} \{k\} \times (f(k) + 1, \infty]\right)\times \left(\bigcup_{m \in \omega\setminus\alpha} \{m\} \times (1, \infty]\right)\] 
+    is such that \(|B \cap U^C| = \aleph_0\), hence \(B\) does not converge to \(\infty\). 
+
+    %\(S_{\omega}\) is \(\alpha_1\). Let \(x \in S_{\omega}\) and let \(\xi\) be a countable collection of sequences converging to \(x\). If \(x \neq \infty\), then since \(x\) is an isolated point any sequence converging to \(x\) will eventually be equal to \(x\), and therefore taking the constant sequence will satisfy the property. Otherwise, if \(x = \infty\), then 
+    %\[
+    %A = \bigcup_{m \in \omega}\bigcup_{1\leq i \leq m} \left(\xi_i \cap [1, \omega)\times \{m\}\right)
+    %\] 
+    %converges to \(\infty\) since we ensure that there are only finitely many elements per row (since each \(\xi_i\) can have only finitely many points in each row), and every sequence will appear in the union infinitely many times as we ascend. Since each \(\xi_i\) converges to \(\infty\) this guarantees that \(A\) will pick up infinitely many points of every  \(\xi_i\). 
 \end{exam}
 
 
