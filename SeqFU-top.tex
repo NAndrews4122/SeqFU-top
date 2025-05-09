@@ -52,7 +52,7 @@ ladder systems (more generally on so called square-sequence) described in two
     \item Right way to think about sequences: \(A \subseteq X\) converges to \(a \in X\) if \(|A| = \aleph_0\) and for all neighboourhoods \(U_x \subseteq X\), \(|A \setminus U_x| < \aleph_0\).
     
     \item Right way to think about Fréchet space: take sequential closure once same as closure.
-    \item Another exercise: which \(\alpha_i\) properties does \(\times S_{\omega}\) have? \checkmark
+    \item Another exercise: which \(\alpha_i\) properties does \(S_{\omega}\) have? \checkmark
 \end{enumerate}
 \subsection*{Thursday May 1}
 \begin{enumerate}
@@ -63,36 +63,48 @@ ladder systems (more generally on so called square-sequence) described in two
     \item For example it is consistent that both \(\alpha_1\) and countable imply first countable, and \(\alpha_2\) and countable imply  \(\alpha_1\), yet there exists a countable \(\alpha_2\) space that is not first countable.
 
     \item We talked a little bit about topological groups (a topological space equipped with group operation that is continuous) and some of the nice structure they have: the group operation being continuous and invertible implies \(G\times G \to G\) is always a homeomorphism, in particular \(aG\) is the homeomorphic image of \(G\) by left multiplication of \(a \in G\), which in often cases lets us define a nbhd base at the identity and "send" it to all points of \(G\) in order to define the topology.
+    \item Look into what it takes to contribute to the pi-base, in particular add the \(\alpha_i\) spaces.
     \item Some more exercises 
     \begin{itemize}
         \item \(X\) is \(\alpha_1\) and Fréchet, \(Y\) is Fréchet, then \(X \times Y\) is Fréchet.
         \item \(\alpha_2\) is equivalent to \(A \cap B \neq \nothing\) for infinitely many \(A \in \xi\) whenever \(\xi\) is countable collection of sequences at \(x\).
     \end{itemize}
 \end{enumerate}
-%\section{Set Theory}
-%\subsection{Ordinals}
-%\subsection{Cardinals}
-%\subsection{Ideals and Filters}
-%
-%\begin{defn}\cite{KU11}
-%    Let \(X\) be a non empty set. We say that \(\I %\subseteq \P(X)\) is an \textit{ideal}  of \(X\) if 
-%    \begin{enumerate}
-%        \item[i.] \(\nothing \in \I \text{ and } X \not %\in \I\)
-%        \item[ii.] \(U, V \in \I \implies U\cup V \in \I\)
-%        \item[iii.] \(U \subset V\text{ and } V \in \I  %\implies U \in \I\)
-%    \end{enumerate}
+\section{Set Theory}
+%\subsection{Ordinals and Cardinal}
+%\begin{defn}
+%    \(\aleph_1 = \omega_1\) (not definition but kind of?)
 %\end{defn}
-%
-%\begin{defn}\cite{KU11}
-%    Let \(X\) be a non empty set. We say that \(\F %\subseteq \P(X)\) is an \textit{filter}  of \(X\) if 
-%    \begin{enumerate}
-%        \item[i.] \( X \in \F \text{ and } \nothing \not %\in \F\)
-%        \item[ii.] \(U, V \in \F \implies U\cap V \in \F\)
-%        \item[iii.] \(U \subset V \text{ and } U \in \F  %\implies V \in \F\)
-%    \end{enumerate}
+%\begin{thm}
+%    \(|\P(\omega)| = |\bR|\).
+%\end{thm}
+%\begin{defn}[Continuum Hypothesis]
+%    CH is the statement \(2^{\aleph_0} = \aleph_1\).
 %\end{defn}
-%
-%A filter that is maximal with respect to inclusion is %called am \textbf{ultrafilter}. As a result of Zorn's %lemma, every filter sits inside of an ultrafilter.
+%CH is indepenet of ZFC: first shown by Gödel to not be inconsistent with ZFC and later shown by Cohen that its %negation is also consistent. Alternatively we can formulatie of CH as: \(\omega_1 = \P(\omega) = \mathfrak{c}\) %where \(\mathfrak{c} = |\bR|\).
+
+\subsection{Some Interesting Cardinals}
+
+\begin{defn}
+    Let \(\A\) be an infinite family of infinite subsets of \(\omega\). The family \(\A\) is said to be an almost disjoint family (ADF) of subsets of \(\omega\) if \(A \cap B \) is finite for any \(A,B \in \mathcal{A}\) with \(A \ne B\). By Zorn's lemma we can assume \(\A\) lives inside of a maximal (w.r.t. inclusion) family that is also pairwise disjoint. Such a family is a maximal almost disjoint family (MADF).
+\end{defn}
+\begin{defn}
+    Define an order \(\leq^{\ast}\) on \(^\omega\omega\) where \(f <^{\ast} g\) iff there exists \(n\) such that \(f(k) < g(k)\) for all \(k \geq n\)
+\end{defn}
+\begin{defn}
+    Let \((A, \prec)\) be a linearly ordered set. Then we say that \(B \subseteq A\) is undominating in \(A\) if there does not exist \(y \in A\) such that \(x \prec y\) for all \(x \in B\). We say that \(C \subseteq A\) is cofinal (or dominating) in \(A\) if for all \(x \in A\) there exists \(z \in C\) such that \(x \prec x\).
+\end{defn}
+
+\begin{defn}
+    \leavevmode
+    \begin{itemize}
+        \item \(\mathfrak{a} = \min\{|\A| \: : \: \A \text{ is infinte } \text{MADF}\}\)
+        \item \(\mathfrak{b} = \min\{|F| \: : \: F \text{ is } \leq^{\ast}\text{-undominated subset of }^\omega\omega\}\)
+        \item \(\mathfrak{d} = \min\{|F| \: : \: F \text{ is } \leq^{\ast}\text{-cofinal in } ^\omega\omega
+        \}\)
+    \end{itemize}
+    Each of \(\mathfrak{a}, \mathfrak{b}, \mathfrak{d}\) are at least \(\omega_1\) but at most \(\P(\omega)\).
+\end{defn}
 
 
 \section{Topology}
@@ -192,14 +204,37 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
     U = \left(\bigcup_{k \in \alpha} \{k\} \times (f(k) + 1, \infty]\right)\times \left(\bigcup_{m \in \omega\setminus\alpha} \{m\} \times (1, \infty]\right)\] 
     is such that \(|B \cap U^C| = \aleph_0\), hence \(B\) does not converge to \(\infty\). 
 
-    %\(S_{\omega}\) is \(\alpha_1\). Let \(x \in S_{\omega}\) and let \(\xi\) be a countable collection of sequences converging to \(x\). If \(x \neq \infty\), then since \(x\) is an isolated point any sequence converging to \(x\) will eventually be equal to \(x\), and therefore taking the constant sequence will satisfy the property. Otherwise, if \(x = \infty\), then 
-    %\[
-    %A = \bigcup_{m \in \omega}\bigcup_{1\leq i \leq m} \left(\xi_i \cap [1, \omega)\times \{m\}\right)
-    %\] 
-    %converges to \(\infty\) since we ensure that there are only finitely many elements per row (since each \(\xi_i\) can have only finitely many points in each row), and every sequence will appear in the union infinitely many times as we ascend. Since each \(\xi_i\) converges to \(\infty\) this guarantees that \(A\) will pick up infinitely many points of every  \(\xi_i\). 
 \end{exam}
 
+\begin{prop}
+    A space of character \(< \mathfrak{b}\) is \(\alpha_1\)
+\end{prop}
 
+\subsection{\(\Psi\)-like spaces}
+
+\begin{defn}
+    Let \(D\) be a countable set and let \(\A \subseteq \P(D)\) be an ADF. Define a topology on \(X = D \cup \A\) such that the points of \(D\) are isolated and \(D\) is dense in \(X\). Then for every \(A \in \A\) attach a point \(z_A\) where the nbhds of \(z_A\) consist of all sets of the form \(B(A, F) = \{z_A\} \cup (A \setminus F)\) where \(F \subseteq A\) is finite.
+\end{defn}
+
+\begin{prop}
+    Let \(X\) be as above. Then \(X\) is Hausdorff, first countable and locally compact. If \(X\) is constructed as above but \(\A\) is MADF then \(X\) is also pseudo-compact (i.e. all continuous real functions on \(X\) are bounded).
+\end{prop}
+
+\begin{proof}
+    To check Hausdorffness it suffices to show \(Z = X\setminus D\) is Hausdorff. Let \(z_1, z_2 \in Z\). Then \(z_1, z_2\) correspond to sets \(A_1, A_2\) such that \(A_1 \cap A_2 = I\) is finite. Then \(B(A_1, I)\) and \(B(A_2, I)\) are disjoint open sets containing \(z_1, z_2\) respectively. 
+
+    To see that \(X\) is locally compact, note that \(\{x\}\) is a compact neighbourhood base for all \(x \in D\). Local compactness of \(Z\) follows from the fact that by design each \(z_A \in Z\) is the limit of \(A\) viewed as a sequence. In other words, whenever \(B(A_z, F)\) is a basic nbhd of \(z_A\), any open cover will have a smaller nbhd \(B(A_z, F')\) that omits only finitely many points.
+\end{proof}
+
+\begin{prop}
+    The one point compactification of a \(\Psi\)-like space of cardinality \(<\mathfrak{a}\) is Fréchet. 
+\end{prop}
+
+\subsection{Constructing Examples of \(\alpha_i\) Spaces}
+
+\begin{exam}
+     Let \(D = \omega\times\omega\), let \(\F = \{f_{\alpha} \: : \: \alpha < \mathfrak{b}\} \subseteq \, ^\omega\omega\) be \(<^{\ast}\)-well-ordered and \(<^{\ast}\)-unbounded, and let \(\C = \{C_n = \{n\} \times \omega \: : \: n \in \omega\}\). Construct a \(\Psi\)-like from \(X = \F \cup \C\), where we attach compactification points \(\{n\} \times (\omega+1)\) for each \(C_n\) and compactification points \(p_{\alpha}\) for each \(f_{\alpha}\). Then the resulting one point compactification, \(X + \infty\), is \(\alpha_2\) and Fréchet but not \(\alpha_1\). \(X + \infty\) becomes \(\alpha_1\) if \(\F\) is cofinal and well ordered. 
+\end{exam}
 
 \subsection{Bisequential Spaces}
 
