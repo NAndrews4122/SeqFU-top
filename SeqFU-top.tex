@@ -67,7 +67,7 @@ ladder systems (more generally on so called square-sequence) described in two
     \item Some more exercises 
     \begin{itemize}
         \item \(X\) is \(\alpha_1\) and Fréchet, \(Y\) is Fréchet, then \(X \times Y\) is Fréchet.
-        \item \(\alpha_2\) is equivalent to \(A \cap B \neq \nothing\) for infinitely many \(A \in \xi\) whenever \(\xi\) is countable collection of sequences at \(x\).
+        \item \(\alpha_2\) is equivalent to \(A \cap B \neq \nothing\) for all \(A \in \xi\) whenever \(\xi\) is countable collection of sequences at \(x\). \checkmark
     \end{itemize}
 \end{enumerate}
 \section{Set Theory}
@@ -206,9 +206,12 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 
 \end{exam}
 
-\begin{prop}
-    A space of character \(< \mathfrak{b}\) is \(\alpha_1\)
-\end{prop}
+\begin{exercise}
+    X is \(\alpha_2\) iff whenever \(\xi\) is a countable collection of sequences converging to \(x\) there exists \(B \to x\) such \(A \cap B \neq \nothing\) for all many \(A \in \xi\).
+\end{exercise}
+\begin{soln}
+    The forward direction is obvious. Conversely, let \(\xi =\{A_1, A_2, \dots\}\) be a countable collection of sequences converging to \(x\). For every \(n\in \omega\) let \(\{a_{nm} \: : \: m \in \omega\}\) enumerate the elements of \(A_n\) and define \(A_{nm} = A_n \setminus \{a_{n1}, a_{n2}, \dots, a_{n,m-1}\}\) for each \(n,m \in \omega\). Then the \(A_{nm}\) still convege to \(x\) and  \(\A = \{A_{nm} \: : \: n,m \in \omega \}\) is a sheaf at \(x\). By hypothesis there exists a \(B\) converging to \(x\) that meets each \(A_{nm}\). Thus \(B\) meets each \(A_n\) in an infinite set.
+\end{soln}
 
 \subsection{\(\Psi\)-like spaces}
 
