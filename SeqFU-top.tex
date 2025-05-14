@@ -56,14 +56,15 @@ ladder systems (more generally on so called square-sequence) described in two
 \end{enumerate}
 \subsection*{Thursday May 1}
 \begin{enumerate}
-    \item Go over example 3.9; why is \(S_{\omega}\) Fréchet?
+    \item Go over example 3.9; why is \(S_{\omega}\) Fréchet? \checkmark
     \item Give example of space that is \(\alpha_2\) but not \(\alpha_1\), \(\alpha_3\) but not \(\alpha_2\) etc. 
-    \item Under which set theoretic assumptions do such examples exist? Look at the paper by Nyikos: Subsets of \(^\omega \omega\) and the Fréchet Urysohn and \(\alpha_i\) properties. 
+    \item Under which set theoretic assumptions do such examples exist? Look at the paper by Nyikos: Subsets of \(^\omega \omega\) and the Fréchet Urysohn and \(\alpha_i\) properties. \textcolor{red}{Solid grasp at sections 1, 2, 5, 6. Partial grasp section 3, skipped section 4}.
     
     \item For example it is consistent that both \(\alpha_1\) and countable imply first countable, and \(\alpha_2\) and countable imply  \(\alpha_1\), yet there exists a countable \(\alpha_2\) space that is not first countable.
 
     \item We talked a little bit about topological groups (a topological space equipped with group operation that is continuous) and some of the nice structure they have: the group operation being continuous and invertible implies \(G\times G \to G\) is always a homeomorphism, in particular \(aG\) is the homeomorphic image of \(G\) by left multiplication of \(a \in G\), which in often cases lets us define a nbhd base at the identity and "send" it to all points of \(G\) in order to define the topology.
     \item Look into what it takes to contribute to the pi-base, in particular add the \(\alpha_i\) spaces.
+    \textcolor{red}{Forked database to github account; properties are stored as markdown text files, should not be difficult to add properties.}
     \item Some more exercises 
     \begin{itemize}
         \item \(X\) is \(\alpha_1\) and Fréchet, \(Y\) is Fréchet, then \(X \times Y\) is Fréchet.
@@ -169,8 +170,9 @@ Then a space that is Fréchet is also sequential. The following example shows th
 
 The following example shows that the converse is not true. 
 \begin{exam}[Fréchet Fan]
-    Let \(S_{\omega}\) be the quotient of \(\omega \times (\omega + 1)\) obtained by identifying all the points \(\{(m, \omega + 1) \: : \: m \in \omega\}\) as \(\infty^{\ast}\). More precisely \(S_{\omega}\) has the quotient topology induced by the map \(h: \omega \times (\omega + 1) \to S_{\omega}\) where \(h(x) = x\) for all \(x \in \omega \times \omega\) and \(h(x) = \infty^{\ast}\) for all \(x \in \omega \times \{\omega + 1\}\). Then \(S_{\omega}\) is Fréchet but not 1st countable. To see that \(S_{\omega}\) is Fréchet, note that by definition of the quotient topology, the open neighbourhoods of \(\infty^{\ast}\) are those sets \(U \subset S_{\omega}\) such that \(\infty^{\ast} \in U\) and \(h^{-1}(U)\) is open in \(\omega \times (\omega + 1)\). As \(\{(m, \omega + 1) \: : \:  m \in \omega\} \subset h^{-1}(U)\) we see that \(U\) is an open neighbourhood of \(\infty^{\ast}\) iff \(h^{-1}(U)\) is an open neighbourhood of \((m, \omega + 1]\) for all \(m \in \omega\).  %Note that  \(h^{-1}(\{m\} \times (f(m), \infty^{\ast}]) = \{m\} \times (f(m), \omega + 1]\) is an open neighboourhood of \((m, \omega + 1]\) for each \(m \in \omega\) where \(f: \omega \to \omega\) is just some mapping that indicates the startpoint of each interval. 
-    Hence the open neighboourhoods of \(\infty^{\ast}\) are of the form \(\bigcup_{m \in \omega}\{m\} \times (f(m), \infty^{\ast}]\) where \(f: \omega \to \omega\) is just some mapping that indicates the startpoint of each interval. It follows that for all \(m \in \omega\) the sequence \(A_m = \{(m, n) \: : \: n \in \omega\}\) converges to \(\infty^{\ast}\) so that \(A = \bigcup_{m \in \omega}A_m\) is such that \(\seqcl{A} = S_{\omega}\). On the other hand it's obvious that \(\overline{A} = S_{\omega}\), so that \(S_{\omega}\) is indeed Fréchet. Now asssuming that \(S_{\omega}\) was countable, we would have a countable neighbourhood base at \(\infty^{\ast}\). For each \(k \in \omega\) let \(B_k = \bigcup_{m \in \omega}\{m\} \times (f_k(m), \infty^{\ast}]\) for some \(f_k: \omega \to \omega\) determining the startpoints of each interval. Suppose \(\B = \{B_k \: : \: k \in \omega\}\) is a base at \(\infty^{\ast}\), then let \(f^{\ast}: \omega \to \omega\) be defined by \(f^{\ast}(m) = f_m(m) + 1\) for all \(m \in \omega\). Letting \(B^{\ast} = \bigcup_{m \in \omega}\{m\} \times (f^{\ast}(m), \infty^{\ast}]\) then \(B^{\ast}\) is an open neighboourhood of \(\infty^{\ast}\) but it is clear by construction that \(B_k \not\subset B^{\ast}\) for all \(k \in \omega\). Hence \(\B\) cannot be a neighboourhood base and   \(S_{\omega}\) is not first countable.
+    Let \(S_{\omega}\) be the quotient of \(\omega \times (\omega + 1)\) obtained by identifying all the points \(\{(m, \omega + 1) \: : \: m \in \omega\}\) as \(\infty^{\ast}\). More precisely \(S_{\omega}\) has the quotient topology induced by the map \(h: \omega \times (\omega + 1) \to S_{\omega}\) where \(h(x) = x\) for all \(x \in \omega \times \omega\) and \(h(x) = \infty^{\ast}\) for all \(x \in \omega \times \{\omega + 1\}\). Then \(S_{\omega}\) is Fréchet but not 1st countable. To see that \(S_{\omega}\) is Fréchet, let \(A \subseteq S_{\omega}\) such that \(\infty \in \overline{A}\). If \(A\) meets at least one column of \(S_{\omega}\) in an infinite set then that intersection will serve as a convergent sequence to \(\infty\). Otherwise, if \(A\) meets no column in an infinte set, then \(A\) necessarily meets infinitely many columns. Moreover, A must meet infintely many rows, otherwise we would find a nbhd of \(\infty\) disjoint from A. Hence, by picking a point from each non-empty row we obtain an increasing that converges to \(\infty\).
+    
+    Now asssuming that \(S_{\omega}\) was countable, we would have a countable neighbourhood base at \(\infty^{\ast}\). For each \(k \in \omega\) let \(B_k = \bigcup_{m \in \omega}\{m\} \times (f_k(m), \infty^{\ast}]\) for some \(f_k: \omega \to \omega\) determining the startpoints of each interval. Suppose \(\B = \{B_k \: : \: k \in \omega\}\) is a base at \(\infty^{\ast}\), then let \(f^{\ast}: \omega \to \omega\) be defined by \(f^{\ast}(m) = f_m(m) + 1\) for all \(m \in \omega\). Letting \(B^{\ast} = \bigcup_{m \in \omega}\{m\} \times (f^{\ast}(m), \infty^{\ast}]\) then \(B^{\ast}\) is an open neighboourhood of \(\infty^{\ast}\) but it is clear by construction that \(B_k \not\subset B^{\ast}\) for all \(k \in \omega\). Hence \(\B\) cannot be a neighboourhood base and   \(S_{\omega}\) is not first countable.
 \end{exam}
 
 As the following example shows, the product of Fréchet spaces need not be Fréchet.
@@ -244,8 +246,6 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \begin{defn}
     
 \end{defn}
-
-
 
 
 
