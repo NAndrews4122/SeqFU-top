@@ -58,7 +58,7 @@ ladder systems (more generally on so called square-sequence) described in two
 \begin{enumerate}
     \item Go over example 3.9; why is \(S_{\omega}\) Fréchet? \checkmark
     \item Give example of space that is \(\alpha_2\) but not \(\alpha_1\) \checkmark, \(\alpha_3\) but not \(\alpha_2\) etc. 
-    \item Under which set theoretic assumptions do such examples exist? Look at the paper by Nyikos: Subsets of \(^\omega \omega\) and the Fréchet Urysohn and \(\alpha_i\) properties. \textcolor{red}{Good grasp at sections 1, 2, 5, 6; partial understanding section 3; skipped section 4}.
+    \item Under which set theoretic assumptions do such examples exist? Look at the paper by Nyikos: Subsets of \(^\omega \omega\) and the Fréchet Urysohn and \(\alpha_i\) properties. \textcolor{red}{Good grasp at sections 1, 2, 5; partial understanding section 3; skipped section 4, 6}.
     
     \item For example it is consistent that both \(\alpha_1\) and countable imply first countable, and \(\alpha_2\) and countable imply  \(\alpha_1\), yet there exists a countable \(\alpha_2\) space that is not first countable.
 
@@ -71,13 +71,13 @@ ladder systems (more generally on so called square-sequence) described in two
         \item \(\alpha_i\) and if \(\alpha_i\) then \(\alpha_{i + 1}\)
         \item bisequential
         \item v-space (w-space exists already)
-        \item if 1st countable then \(\alpha_1\)
+        \item if 1st countable then \(\alpha_1\) Frechet
         \item if bisequential then Frechet
         \item w-space iff Frechet and \(\alpha_2\)   
     \end{itemize}
     \item Some more exercises 
     \begin{itemize}
-        \item \(X\) is \(\alpha_1\) and Fréchet, \(Y\) is Fréchet, then \(X \times Y\) is Fréchet.
+        \item \(X\) is \(\alpha_1\) and Fréchet, \(Y\) is Fréchet, then \(X \times Y\) is Fréchet. \textcolor{red}{this is not true, take $(\omega + 1) \times S_{\omega}$.}
         \item \(\alpha_2\) is equivalent to \(A \cap B \neq \nothing\) for all \(A \in \xi\) whenever \(\xi\) is countable collection of sequences at \(x\). \checkmark
     \end{itemize}
 \end{enumerate}
@@ -161,7 +161,9 @@ Then a space that is Fréchet is also sequential. The following example shows th
 
 The following example shows that the converse is not true. 
 \begin{exam}[Fréchet Fan]
-    Let \(S_{\omega}\) be the quotient of \(\omega \times (\omega + 1)\) obtained by identifying all the points \(\{(m, \omega + 1) \: : \: m \in \omega\}\) as \(\infty^{\ast}\). More precisely \(S_{\omega}\) has the quotient topology induced by the map \(h: \omega \times (\omega + 1) \to S_{\omega}\) where \(h(x) = x\) for all \(x \in \omega \times \omega\) and \(h(x) = \infty^{\ast}\) for all \(x \in \omega \times \{\omega + 1\}\). Then \(S_{\omega}\) is Fréchet but not 1st countable. To see that \(S_{\omega}\) is Fréchet, let \(A \subseteq S_{\omega}\) such that \(\infty \in \overline{A}\). If \(A\) meets at least one column of \(S_{\omega}\) in an infinite set then that intersection will serve as a convergent sequence to \(\infty\). Otherwise, if \(A\) meets no column in an infinte set, then \(A\) necessarily meets infinitely many columns. Moreover, A must meet infintely many rows, otherwise we would find a nbhd of \(\infty\) disjoint from A. Hence, by picking a point from each non-empty row we obtain an increasing that converges to \(\infty\).
+    Let \(S_{\omega}\) be the quotient of \(\omega \times (\omega + 1)\) obtained by identifying all the points \(\{(m, \omega + 1) \: : \: m \in \omega\}\) as \(\infty^{\ast}\). More precisely \(S_{\omega}\) has the quotient topology induced by the map \(h: \omega \times (\omega + 1) \to S_{\omega}\) where \(h(x) = x\) for all \(x \in \omega \times \omega\) and \(h(x) = \infty^{\ast}\) for all \(x \in \omega \times \{\omega + 1\}\). Then \(S_{\omega}\) is Fréchet but not 1st countable. 
+    
+    To see that \(S_{\omega}\) is Fréchet, let \(A \subseteq S_{\omega}\) such that \(\infty \in \overline{A}\). \(A\) must meet at least one column of \(S_{\omega}\) in an infinite set, otherwise we could find a nbhd of \(\infty^{\ast}\) disjoint from \(A\). Then \(A\) restricted to that column will be a convergent sequence to \(\infty\).
     
     Now asssuming that \(S_{\omega}\) was countable, we would have a countable neighbourhood base at \(\infty^{\ast}\). For each \(k \in \omega\) let \(B_k = \bigcup_{m \in \omega}\{m\} \times (f_k(m), \infty^{\ast}]\) for some \(f_k: \omega \to \omega\) determining the startpoints of each interval. Suppose \(\B = \{B_k \: : \: k \in \omega\}\) is a base at \(\infty^{\ast}\), then let \(f^{\ast}: \omega \to \omega\) be defined by \(f^{\ast}(m) = f_m(m) + 1\) for all \(m \in \omega\). Letting \(B^{\ast} = \bigcup_{m \in \omega}\{m\} \times (f^{\ast}(m), \infty^{\ast}]\) then \(B^{\ast}\) is an open neighboourhood of \(\infty^{\ast}\) but it is clear by construction that \(B_k \not\subset B^{\ast}\) for all \(k \in \omega\). Hence \(\B\) cannot be a neighboourhood base and   \(S_{\omega}\) is not first countable.
 \end{exam}
