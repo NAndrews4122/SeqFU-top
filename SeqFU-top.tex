@@ -114,32 +114,63 @@ ladder systems (more generally on so called square-sequence) described in two
 %CH is indepenet of ZFC: first shown by Gödel to not be inconsistent with ZFC and later shown by Cohen that its %negation is also consistent. Alternatively we can formulatie of CH as: \(\omega_1 = \P(\omega) = \mathfrak{c}\) %where \(\mathfrak{c} = |\bR|\).
 
 \subsection{Some Interesting Cardinals}
+\subsubsection{Subsets of $^\omega\omega$ and Almost Disjoint Familes}
 
 \begin{defn}
     Let \(\A\) be an infinite family of infinite subsets of \(\omega\). The family \(\A\) is said to be an almost disjoint family (ADF) of subsets of \(\omega\) if \(A \cap B \) is finite for any \(A,B \in \mathcal{A}\) with \(A \ne B\). By Zorn's lemma we can assume \(\A\) lives inside of a maximal (w.r.t. inclusion) family that is also pairwise disjoint. Such a family is a maximal almost disjoint family (MADF).
 \end{defn}
 \begin{defn}
-    Define an order \(\leq^{\ast}\) on \(^\omega\omega\) where \(f <^{\ast} g\) iff there exists \(n\) such that \(f(k) < g(k)\) for all \(k \geq n\)
+    Define an order \(\leq^{\ast}\) on \(^\omega\omega\) where \(f <^{\ast} g\) if \(f(n) < g(n)\) for all but finitely many \(n \in  \omega\)
 \end{defn}
 \begin{defn}
-    Let \((A, \prec)\) be a linearly ordered set. Then we say that \(B \subseteq A\) is undominating in \(A\) if there does not exist \(y \in A\) such that \(x \prec y\) for all \(x \in B\). We say that \(C \subseteq A\) is cofinal (or dominating) in \(A\) if for all \(x \in A\) there exists \(z \in C\) such that \(x \prec x\).
+    Let \((A, \prec)\) be a linearly ordered set. We say that  \(B \subseteq A\) is unbounded in \(A\) if there does not exist \(y \in A\) such that \(x \prec y\) for all \(x \in B\). We say that \(C \subseteq A\) is cofinal (or dominating) in \(A\) if for all \(x \in A\) there exists \(z \in C\) such that \(x \prec x\).
 \end{defn}
-
 \begin{defn}
     \leavevmode
     \begin{itemize}
         \item \(\mathfrak{a} = \min\{|\A| \: : \: \A \text{ is infinte } \text{MADF}\}\)
-        \item \(\mathfrak{b} = \min\{|F| \: : \: F \text{ is } \leq^{\ast}\text{-undominated subset of }^\omega\omega\}\)
-        \item \(\mathfrak{d} = \min\{|F| \: : \: F \text{ is } \leq^{\ast}\text{-cofinal in } ^\omega\omega
+        \item \(\mathfrak{b} = \min\{|B| \: : \: B \text{ is } \leq^{\ast}\text{-unbounded subset of }^\omega\omega\}\)
+        \item \(\mathfrak{d} = \min\{|D| \: : \: D \text{ is } \leq^{\ast}\text{-cofinal in } ^\omega\omega
         \}\)
     \end{itemize}
     Each of \(\mathfrak{a}, \mathfrak{b}, \mathfrak{d}\) are at least \(\omega_1\) but at most \(\P(\omega)\).
 \end{defn}
+\subsubsection{Towers and Pseudo-Intersections}
+\begin{defn}
+    Define an order on \(\P(X)\) for some set \(X\). We say \(A \asubseteq B\) if \(B\) contains all but finitely many points of \(A\). If \(\F \subseteq \P(X)\) is a collection of (infinite) sets, then \(A\) is a pseudo-intersection of \(\F\) if \(A \asubseteq F\) for all \(F \in \F\).
+\end{defn}
+\begin{defn}
+    We call \(\T \subseteq [\omega]^{\omega}\) a tower if \(\T\) is well ordered by \(\asubseteq\) and has no infinite intersection.
+\end{defn}
+\begin{lem}
+    If \(\A = \{A_n \: : \: n \in \omega\} \subseteq [\omega]^{\omega}\) such that for all \(n \in \omega\)
+    \[
+        A_0 \asupseteq  A_1 \asupseteq \dots \asupseteq  A_n
+    \]
+    then \(\A\) has infintie pseudo-intersection.
+\end{lem}
+\begin{thm}
+    There exists a tower.
+\end{thm}
+\begin{proof}
+    Define \(\langle A_{\alpha} \: : \: \alpha < \mathfrak{c}\rangle\) as follows: 
+    \begin{enumerate}
+        \item \(A_{\alpha} = \omega \setminus n\) for \(\alpha < \omega\)
+        \item If \(\alpha\) is a successor ordinal, define \(A_{\alpha}\) such that \(|A_{\alpha - 1}\setminus A_{\alpha}| =\aleph_0\)
+        \item If \(\alpha\) is a limite ordinal then define \(A_{\alpha}\) such that \(A_{\alpha} \asubseteq A_{\beta}\) for all \(\beta < \alpha\)
+    \end{enumerate}
+    Suppose \(\gamma\) is given and \(\langle A_{\alpha} \: : \: \alpha < \gamma \rangle\) has been defined. If \(\gamma\) is a successor then define \(A_{\gamma}\) as in (2). Otherwise \(\gamma\) is a limite ordinal: if (3) isn't possible then \(\langle A_{\alpha} \: : \: \alpha < \gamma \rangle\) is a tower; otherwise define \(A_{\gamma}\) as in (3) and continue. 
 
-
+    This process eventually terminates, otherwise we obtain \(\mathfrak{c}\) many distint subsets of \(\omega\), a contradiction. \textcolor{red}{TODO: elaborate}
+\end{proof}
+\begin{defn}
+    \leavevmode
+    \begin{itemize}
+        \item \(\mathfrak{t} = \min\{|\T| \: : \: \T \text{ is a tower}\)
+        \item \(\mathfrak{p} = \min\{|\P| \: : \: \P \text{ is a filter base for a free filter on } \omega \text{ with no infinite pseudo-intersection}\)
+    \end{itemize}
+\end{defn}
 \section{Topology}
-
-\subsection{Basics}
 
 \subsection{Sequential and Fréchet Spaces}
 
@@ -198,6 +229,16 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
     %\] 
     is an open neighbourhood of \(\infty\) which by construction is disjoint from \(\gamma\). Hence \(\gamma\) cannot converge to \(\infty\) showing that \(X\) is not Fréchet.
 \end{exam}
+
+\subsection{Finite Frechet-Urysohn spaces}
+
+\begin{defn}
+    A network of a space \(X\) is a collection \(\F \subseteq \P(X)\) such that for all \(x \in X\) and for all nbhds \(U_x\) there is \(F \in \F\) such that \(x \in F \subseteq U_x\).
+\end{defn}
+
+\begin{defn}
+    \(X\) is Fréchet-Urysohn Finite (FUF) if whenever \(\F\) is a network in \(X\) there exists \(\{F_n \: : \: n \in \omega\} \subseteq \F\) such that for all nbhds \(U\) there exists \(n \in \omega\) such that \(x \in F_m \subseteq U\) for all \(m > n\).
+\end{defn}
 
 \subsection{\(\alpha_i\) notions of convergence}
 
@@ -259,6 +300,9 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
     
 \end{defn}
 
+\subsection{Topological Groups}
+
+\subsection{Games}
 
 
 %\subsection{Topological Games}
