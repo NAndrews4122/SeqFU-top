@@ -49,7 +49,7 @@ ladder systems (more generally on so called square-sequence) described in two
         \item No sequence in \(A\) converges to \((\omega + 1, \infty)\). \checkmark
     \end{itemize}
 
-    \item Right way to think about sequences: \(A \subseteq X\) converges to \(a \in X\) if \(|A| = \aleph_0\) and for all neighboourhoods \(U_x \subseteq X\), \(|A \setminus U_x| < \aleph_0\).
+    \item Right way to think about sequences: \(A \subset X\) converges to \(a \in X\) if \(|A| = \aleph_0\) and for all neighboourhoods \(U_x \subset X\), \(|A \setminus U_x| < \aleph_0\).
     
     \item Right way to think about Fréchet space: take sequential closure once same as closure.
     \item Another exercise: which \(\alpha_i\) properties does \(S_{\omega}\) have? \checkmark
@@ -88,13 +88,13 @@ ladder systems (more generally on so called square-sequence) described in two
     \item historical note: the cardinals that lay between \(\omega_1\) and \(\P(\omega)\) came from attempts to solve CH, for example, if \(\mathfrak{t} \leq \mathfrak{c}\) then, finding the cardinality for \(\mathfrak{t}\) would help in finding cardinality of \(\mathfrak{c}\).
     \item Proximal game
     \item Uniformities
-    \item Homogeneity in Top group used to determine uniformity for player 1 in prox game
+    \item Homogeneity in Top group used to determine uniformity for player 1 in version of prox game for top groups
     \item FUF and 2FUF
     \item exercises:
     \begin{itemize}
         \item prove lemmas used in existence proof of towers.
-        \item If \(\{A_{\alpha} \: : \: \alpha \subseteq \gamma \}\) is a tower and \(\{\alpha_{\xi} \: : \: \xi < \lambda\}\) is increasing and cofinal in \(\gamma\) then \(A_{\alpha_\xi} \: : \: \xi < \lambda\) is a tower.
-        \item \(S_{\omega}\) is neither FUF or \(2FUF\)
+        \item If \(\{A_{\alpha} \: : \: \alpha \subset \gamma \}\) is a tower and \(\{\alpha_{\xi} \: : \: \xi < \lambda\}\) is increasing and cofinal in \(\gamma\) then \(A_{\alpha_\xi} \: : \: \xi < \lambda\) is a tower.
+        \item \(S_{\omega}\) is neither FUF or \(2FUF\) \checkmark
         \item Proximal game is equivalent to Gruenhage game.
     \end{itemize}
     \item note: send Paul changes to databse before pushing to github
@@ -123,7 +123,7 @@ ladder systems (more generally on so called square-sequence) described in two
     Define an order \(\leq^{\ast}\) on \(^\omega\omega\) where \(f <^{\ast} g\) if \(f(n) < g(n)\) for all but finitely many \(n \in  \omega\)
 \end{defn}
 \begin{defn}
-    Let \((A, \prec)\) be a linearly ordered set. We say that  \(B \subseteq A\) is unbounded in \(A\) if there does not exist \(y \in A\) such that \(x \prec y\) for all \(x \in B\). We say that \(C \subseteq A\) is cofinal (or dominating) in \(A\) if for all \(x \in A\) there exists \(z \in C\) such that \(x \prec x\).
+    Let \((A, \prec)\) be a linearly ordered set. We say that  \(B \subset A\) is unbounded in \(A\) if there does not exist \(y \in A\) such that \(x \prec y\) for all \(x \in B\). We say that \(C \subset A\) is cofinal (or dominating) in \(A\) if for all \(x \in A\) there exists \(z \in C\) such that \(x \prec x\).
 \end{defn}
 \begin{defn}
     \leavevmode
@@ -137,15 +137,15 @@ ladder systems (more generally on so called square-sequence) described in two
 \end{defn}
 \subsubsection{Towers and Pseudo-Intersections}
 \begin{defn}
-    Define an order on \(\P(X)\) for some set \(X\). We say \(A \asubseteq B\) if \(B\) contains all but finitely many points of \(A\). If \(\F \subseteq \P(X)\) is a collection of (infinite) sets, then \(A\) is a pseudo-intersection of \(\F\) if \(A \asubseteq F\) for all \(F \in \F\).
+    Define an order on \(\P(X)\) for some set \(X\). We say \(A \asubset B\) if \(B\) contains all but finitely many points of \(A\). If \(\F \subset \P(X)\) is a collection of (infinite) sets, then \(A\) is a pseudo-intersection of \(\F\) if \(A \asubset F\) for all \(F \in \F\).
 \end{defn}
 \begin{defn}
-    We call \(\T \subseteq [\omega]^{\omega}\) a tower if \(\T\) is well ordered by \(\asubseteq\) and has no infinite intersection.
+    We call \(\T \subset [\omega]^{\omega}\) a tower if \(\T\) is well ordered by \(\asubset\) and has no infinite intersection.
 \end{defn}
 \begin{lem}
-    If \(\A = \{A_n \: : \: n \in \omega\} \subseteq [\omega]^{\omega}\) such that for all \(n \in \omega\)
+    If \(\A = \{A_n \: : \: n \in \omega\} \subset [\omega]^{\omega}\) such that for all \(n \in \omega\)
     \[
-        A_0 \asupseteq  A_1 \asupseteq \dots \asupseteq  A_n
+        A_0 \asupset  A_1 \asupset \dots \asupset  A_n
     \]
     then \(\A\) has infintie pseudo-intersection.
 \end{lem}
@@ -157,7 +157,7 @@ ladder systems (more generally on so called square-sequence) described in two
     \begin{enumerate}
         \item \(A_{\alpha} = \omega \setminus n\) for \(\alpha < \omega\)
         \item If \(\alpha\) is a successor ordinal, define \(A_{\alpha}\) such that \(|A_{\alpha - 1}\setminus A_{\alpha}| =\aleph_0\)
-        \item If \(\alpha\) is a limite ordinal then define \(A_{\alpha}\) such that \(A_{\alpha} \asubseteq A_{\beta}\) for all \(\beta < \alpha\)
+        \item If \(\alpha\) is a limite ordinal then define \(A_{\alpha}\) such that \(A_{\alpha} \asubset A_{\beta}\) for all \(\beta < \alpha\)
     \end{enumerate}
     Suppose \(\gamma\) is given and \(\langle A_{\alpha} \: : \: \alpha < \gamma \rangle\) has been defined. If \(\gamma\) is a successor then define \(A_{\gamma}\) as in (2). Otherwise \(\gamma\) is a limite ordinal: if (3) isn't possible then \(\langle A_{\alpha} \: : \: \alpha < \gamma \rangle\) is a tower; otherwise define \(A_{\gamma}\) as in (3) and continue. 
 
@@ -188,13 +188,13 @@ ladder systems (more generally on so called square-sequence) described in two
 \end{fact}
 
 \begin{defn}
-    A space \(X\) is said to be Fréchet if \(\seqcl{A} = \overline{A}\) for all \(A \subseteq X\).
+    A space \(X\) is said to be Fréchet if \(\seqcl{A} = \overline{A}\) for all \(A \subset X\).
 \end{defn}
 \begin{exam}
     Let \(X = \omega_1 + 1\) with the order topology. \(X\) is not Fréchet, since any sequence \((x_n) \in \omega_1\) cannot converge to \(\infty\), as otherwise \(\omega_1 = \sup\{x_n \: : \: n \in \bN\}\), a contradiction.
 \end{exam}
 \begin{defn}
-    A space \(X\) is sequential if any closed set \(A \subseteq X\) is equal to its total sequential closure.
+    A space \(X\) is sequential if any closed set \(A \subset X\) is equal to its total sequential closure.
 \end{defn}
 Then a space that is Fréchet is also sequential. The following example shows that the converse is not true.
 
@@ -206,14 +206,14 @@ Then a space that is Fréchet is also sequential. The following example shows th
     If \(X\) is first countable then \(X\) is Fréchet.
 \end{prop}
 \begin{proof}
-    Let \(A \subseteq X\) and let \(x \in \overline{A}\). Then \(x\) has a countable neighbourhood base \(N_x\) such that \(U \cap A \neq \nothing\) for all \(U \in N_x\). Enumerating the neighboourhoods of \(x\) as \(U_1, U_2, \dots\) then the sequence \((x_n)_{n \ge 1}\) where \(x_n \in U_n \cap A\) for each \(n \in \omega\) is such that \((x_n)_{n \ge 1}\) converges to \(x\).
+    Let \(A \subset X\) and let \(x \in \overline{A}\). Then \(x\) has a countable neighbourhood base \(N_x\) such that \(U \cap A \neq \nothing\) for all \(U \in N_x\). Enumerating the neighboourhoods of \(x\) as \(U_1, U_2, \dots\) then the sequence \((x_n)_{n \ge 1}\) where \(x_n \in U_n \cap A\) for each \(n \in \omega\) is such that \((x_n)_{n \ge 1}\) converges to \(x\).
 \end{proof}
 
 The following example shows that the converse is not true. 
 \begin{exam}[Fréchet Fan]
     Let \(S_{\omega}\) be the quotient of \(\omega \times (\omega + 1)\) obtained by identifying all the points \(\{(m, \omega + 1) \: : \: m \in \omega\}\) as \(\infty^{\ast}\). More precisely \(S_{\omega}\) has the quotient topology induced by the map \(h: \omega \times (\omega + 1) \to S_{\omega}\) where \(h(x) = x\) for all \(x \in \omega \times \omega\) and \(h(x) = \infty^{\ast}\) for all \(x \in \omega \times \{\omega + 1\}\). Then \(S_{\omega}\) is Fréchet but not 1st countable. 
     
-    To see that \(S_{\omega}\) is Fréchet, let \(A \subseteq S_{\omega}\) such that \(\infty \in \overline{A}\). \(A\) must meet at least one column of \(S_{\omega}\) in an infinite set, otherwise we could find a nbhd of \(\infty^{\ast}\) disjoint from \(A\). Then \(A\) restricted to that column will be a convergent sequence to \(\infty\).
+    To see that \(S_{\omega}\) is Fréchet, let \(A \subset S_{\omega}\) such that \(\infty \in \overline{A}\). \(A\) must meet at least one column of \(S_{\omega}\) in an infinite set, otherwise we could find a nbhd of \(\infty^{\ast}\) disjoint from \(A\). Then \(A\) restricted to that column will be a convergent sequence to \(\infty\).
     
     Now asssuming that \(S_{\omega}\) was countable, we would have a countable neighbourhood base at \(\infty^{\ast}\). For each \(k \in \omega\) let \(B_k = \bigcup_{m \in \omega}\{m\} \times (f_k(m), \infty^{\ast}]\) for some \(f_k: \omega \to \omega\) determining the startpoints of each interval. Suppose \(\B = \{B_k \: : \: k \in \omega\}\) is a base at \(\infty^{\ast}\), then let \(f^{\ast}: \omega \to \omega\) be defined by \(f^{\ast}(m) = f_m(m) + 1\) for all \(m \in \omega\). Letting \(B^{\ast} = \bigcup_{m \in \omega}\{m\} \times (f^{\ast}(m), \infty^{\ast}]\) then \(B^{\ast}\) is an open neighboourhood of \(\infty^{\ast}\) but it is clear by construction that \(B_k \not\subset B^{\ast}\) for all \(k \in \omega\). Hence \(\B\) cannot be a neighboourhood base and   \(S_{\omega}\) is not first countable.
 \end{exam}
@@ -230,15 +230,25 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
     is an open neighbourhood of \(\infty\) which by construction is disjoint from \(\gamma\). Hence \(\gamma\) cannot converge to \(\infty\) showing that \(X\) is not Fréchet.
 \end{exam}
 
-\subsection{Finite Frechet-Urysohn spaces}
+\subsection{Frechet-Urysohn for Finite Sets}
 
 \begin{defn}
-    A network of a space \(X\) is a collection \(\F \subseteq \P(X)\) such that for all \(x \in X\) and for all nbhds \(U_x\) there is \(F \in \F\) such that \(x \in F \subseteq U_x\).
+    A \(\pi\)-network at a point \(x \in X\) is a collection \(\F \subset \P(X)\) such that for all open nbhds \(U_x\) there is \(F \in \F\) such that \(F \subset U_x\).
+\end{defn}
+\begin{defn}
+    We say that an infinite family of sets  \(\langle F_n \subset \P(X) \: : \: n \in \omega\rangle\) converges to a point \(x \in X\) if \(|\{F_n \: : \: F_n \not \subset U_x\}| < \aleph_0\) for every open nbhd \(U_x\). 
+\end{defn}
+\begin{defn}
+    \(X\) is Fréchet-Urysohn Finite (FUF) if for all \(x \in X\) whenever \(\F \subset [X]^{<\omega}\) is a \(\pi\)-network at \(x\) there exists \(\langle F_n \: : \: n \in \omega\rangle \subset \F\) such that the \(F_n\) converge to \(x\). We say that \(X\) is \(n\)FUF if the condition holds for all \(\pi\)-networks \(\F \subset [X]^n\) and we say that \(X\) is boundedly FUF if \(X\) is \(n\)FUF for all \(n \in \omega\).
 \end{defn}
 
-\begin{defn}
-    \(X\) is Fréchet-Urysohn Finite (FUF) if whenever \(\F\) is a network in \(X\) there exists \(\{F_n \: : \: n \in \omega\} \subseteq \F\) such that for all nbhds \(U\) there exists \(n \in \omega\) such that \(x \in F_m \subseteq U\) for all \(m > n\).
-\end{defn}
+\begin{exam}
+    \(S_{\omega}\) is not 2FUF (and hence not FUF). Let \(F_m^n = \{(1, m), (m + 1, n)\}\) and let \(\F = \{F_m^n \: : \: m,n \in \omega\}\). Then \(\F\) is a \(\pi\)-network at \(\infty\) with no convergent subcollection. 
+    
+    To see that \(\F\) is a \(\pi\)-network, let \(U\) be an open nbhd of \(\infty\). Then \(U = \bigcup_{k \in \omega} \{k\} \times (f(k), \infty]\) for some \(f \in \, ^{\omega}\omega\). Letting \(m = f(1) + 1\) and \(n = f(m) + 1\), then \(F_m^n \subset U\).
+
+    Suppose \(\G \subset \F\) converges to \(\infty\). Then since \(V_n = S_{\omega}\setminus \left(\{1\} \times (1, n]\right)\) is an open nbhd of \(\infty\) for each \(n \in \omega\), we see that the sets \(\{G \in \G \: : \: G \not \subset V_n\}\) are each finite. In particular, this shows that there are only finitely many \(G \in \G\) that meet each column, hence for each \(n \in \omega\) there exists \(a_n \in \omega\) such that for all \(b \geq a_n\), \(F_n^b \not \in \G\). Letting \(g:\omega \to \omega\) be defined by \(g(n) = a_n\) we obtain the open nbhd \(W = \bigcup_{n \in \omega} \{n\} \times (g(k), \infty]\) which is such that \(G \not \in W\) for all \(G \in \G\), i.e. \(\{G \in \G \: : \: G \not \subset W\}\) is infinite so that \(\G\) does not converge to \(\infty\).
+\end{exam}
 
 \subsection{\(\alpha_i\) notions of convergence}
 
@@ -265,13 +275,13 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
     X is \(\alpha_2\) iff whenever \(\xi\) is a countable collection of sequences converging to \(x\) there exists \(B \to x\) such \(A \cap B \neq \nothing\) for all many \(A \in \xi\).
 \end{exercise}
 \begin{soln}
-    The forward direction is obvious. Conversely, let \(\xi =\{A_1, A_2, \dots\}\) be a countable collection of sequences converging to \(x\). For every \(n\in \omega\) let \(\{a_{nm} \: : \: m \in \omega\}\) enumerate the elements of \(A_n\) and define \(A_{nm} = A_n \setminus \{a_{n1}, a_{n2}, \dots, a_{n,m-1}\}\) for each \(n,m \in \omega\). Then the \(A_{nm}\) still convege to \(x\) and  \(\A = \{A_{nm} \: : \: n,m \in \omega \}\) is a sheaf at \(x\). By hypothesis there exists a \(B\) converging to \(x\) that meets each \(A_{nm}\). Thus \(B\) meets each \(A_n\) in an infinite set.
+    The forward direction is obvious. Conversely, let \(\xi =\{A_1, A_2, \dots\}\) be a countable collection of sequences converging to \(x\). For every \(n\in \omega\) let \(\{a_{nm} \: : \: m \in \omega\}\) enumerate the elements of \(A_n\) and define \(A_{nm} = A_n \setminus \{a_{n1}, a_{n2}, \dots, a_{n,m-1}\}\) for each \(n,m \in \omega\). Then the \(A_{nm}\) still convege to \(x\) and  \(\A = \{A_{nm} \: : \: n,m \in \omega \}\) is a sheaf at \(x\). By hypothesis there exists a \(B\) converging to \(x\) that meets each \(A_{nm}\), and thus meets each \(A_n\) in an infinite set.
 \end{soln}
 
 \subsection{\(\Psi\)-like spaces}
 
 \begin{defn}
-    Let \(D\) be a countable set and let \(\A \subseteq \P(D)\) be an ADF. Define a topology on \(X = D \cup \A\) such that the points of \(D\) are isolated and \(D\) is dense in \(X\). Then for every \(A \in \A\) attach a point \(z_A\) where the nbhds of \(z_A\) consist of all sets of the form \(B(A, F) = \{z_A\} \cup (A \setminus F)\) where \(F \subseteq A\) is finite.
+    Let \(D\) be a countable set and let \(\A \subset \P(D)\) be an ADF. Define a topology on \(X = D \cup \A\) such that the points of \(D\) are isolated and \(D\) is dense in \(X\). Then for every \(A \in \A\) attach a point \(z_A\) where the nbhds of \(z_A\) consist of all sets of the form \(B(A, F) = \{z_A\} \cup (A \setminus F)\) where \(F \subset A\) is finite.
 \end{defn}
 
 \begin{prop}
@@ -291,7 +301,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \subsection{Constructing Examples of \(\alpha_i\) Spaces}
 
 \begin{exam}
-     Let \(D = \omega\times\omega\), let \(\F = \{f_{\alpha} \: : \: \alpha < \mathfrak{b}\} \subseteq \, ^\omega\omega\) be \(<^{\ast}\)-well-ordered and \(<^{\ast}\)-unbounded, and let \(\C = \{C_n = \{n\} \times \omega \: : \: n \in \omega\}\). Construct a \(\Psi\)-like from \(X = \F \cup \C\), where we attach compactification points \(\{n\} \times (\omega+1)\) for each \(C_n\) and compactification points \(p_{\alpha}\) for each \(f_{\alpha}\). Then the resulting one point compactification, \(X + \infty\), is \(\alpha_2\) and Fréchet but not \(\alpha_1\). \(X + \infty\) becomes \(\alpha_1\) if \(\F\) is cofinal and well ordered. 
+     Let \(D = \omega\times\omega\), let \(\F = \{f_{\alpha} \: : \: \alpha < \mathfrak{b}\} \subset \, ^\omega\omega\) be \(<^{\ast}\)-well-ordered and \(<^{\ast}\)-unbounded, and let \(\C = \{C_n = \{n\} \times \omega \: : \: n \in \omega\}\). Construct a \(\Psi\)-like from \(X = \F \cup \C\), where we attach compactification points \(\{n\} \times (\omega+1)\) for each \(C_n\) and compactification points \(p_{\alpha}\) for each \(f_{\alpha}\). Then the resulting one point compactification, \(X + \infty\), is \(\alpha_2\) and Fréchet but not \(\alpha_1\). \(X + \infty\) becomes \(\alpha_1\) if \(\F\) is cofinal and well ordered. 
 \end{exam}
 
 \subsection{Bisequential Spaces}
