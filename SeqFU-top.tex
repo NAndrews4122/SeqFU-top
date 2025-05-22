@@ -4,6 +4,7 @@
 \usepackage[margin=1in,footskip=0.25in]{geometry}
 
 
+
 \newcommand{\seqcl}[1]{{[#1]_{\text{seq}}}} 
 %\pagestyle{fancy}
 %\fancyhead{}
@@ -171,7 +172,6 @@ ladder systems (more generally on so called square-sequence) described in two
     \end{itemize}
 \end{defn}
 \section{Topology}
-
 \subsection{Sequential and Fréchet Spaces}
 
 \begin{defn}
@@ -271,7 +271,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 
 \end{exam}
 
-\begin{exercise}
+\begin{exercise}{\label{var_alpha2}}
     X is \(\alpha_2\) iff whenever \(\xi\) is a countable collection of sequences converging to \(x\) there exists \(B \to x\) such \(A \cap B \neq \nothing\) for all many \(A \in \xi\).
 \end{exercise}
 \begin{soln}
@@ -304,33 +304,43 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
      Let \(D = \omega\times\omega\), let \(\F = \{f_{\alpha} \: : \: \alpha < \mathfrak{b}\} \subset \, ^\omega\omega\) be \(<^{\ast}\)-well-ordered and \(<^{\ast}\)-unbounded, and let \(\C = \{C_n = \{n\} \times \omega \: : \: n \in \omega\}\). Construct a \(\Psi\)-like from \(X = \F \cup \C\), where we attach compactification points \(\{n\} \times (\omega+1)\) for each \(C_n\) and compactification points \(p_{\alpha}\) for each \(f_{\alpha}\). Then the resulting one point compactification, \(X + \infty\), is \(\alpha_2\) and Fréchet but not \(\alpha_1\). \(X + \infty\) becomes \(\alpha_1\) if \(\F\) is cofinal and well ordered. 
 \end{exam}
 
-\subsection{Bisequential Spaces}
-
-\begin{defn}
-    
-\end{defn}
-
 \subsection{Topological Groups}
 
-\subsection{Games}
+\section{Topological Games}
+
+\subsection{Gruenhage Game}
+
+Let \(x \in X\) be a point chosen before the start of game. On the first turn, player 1 chooses an open nbhd \(U_1\) of \(x\) and player 2 chooses a point \(x_1 \in U_1\); on the \(n\)'th turn player one chooses an open nbhd \(U_n\) of \(x\) and player 2 chooses a point \(x_n \in U_n\). Player 1 wins if the sequence of points \(\{x_n \: : \: n \in \omega\}\) converges to \(x\).
+
+Formally, we can describe a strategy for player 1 as a mapping \(\sigma: [X]^{<\omega} \to \O_x\) from finite sequences in \(X\) to the collection of open sets containing \(x\). In particular we say that \(\langle x_n \: : \: n \in \omega\rangle\) is a \(\sigma\)-sequence provided \(x_{n + 1} \in \sigma(\{x_1, \dots, x_n\})\) for all \(n\). We say that \(\sigma\) is a winning strategy if every \(\sigma\)-sequence converges to \(x\).
+
+A strategy for play 2 is a mapping \(\tau: [X]^{<\omega} \times \O_x \to X\) such that \(\tau(F, U) \in U\) for all \(F \in [X]^{<\omega}\) and \(U \in \O_x\).
+
+\begin{defn}
+    We say that \(X\) is a W-space if there is a winning strategy for player 1 at every point \(x \in X\).  We say that \(X\) is a w-space if for every strategy for player 2 there exists a counterstraty for player 1 that wins.
+\end{defn}
+\begin{prop}
+    Every W-space is \(\alpha_2\) and Fréchet.
+\end{prop}
+\begin{proof}
+    Let \(X\) be a W-space. Let \(A \subset X\) and \(x \in \overline{A}\). If \(\sigma_x: [X]^{<\omega} \to \O_x\) is a winning strategy at \(x\) then the sequence \(\langle x_n \: : \: n \in \omega\rangle\) where \(x_{n + 1} \in \sigma(\{x_1, \dots, x_{n + 1}\})\cap A\) for all \(n\) is a \(\sigma_x\)-sequence and therefore converges to \(x\). Supposing \(\xi\) to be a sheaf at some \(y \in X\) and \(\sigma_y\) a winning strategy at \(y\), we define a sequence as follows: \(y_1 \in \xi_1\) and \(y_{n + 1} \in \sigma_y(\{y_1, \dots, y_n\}) \cap \xi_{n + 1}\). Then \(\langle y_n \: : \: n \in \omega\rangle\) is a \(\sigma_y\)-sequence and converges to \(y\); moreover it has non-empty intersection with each member of \(\xi\) which by \ref{var_alpha2} this is equivalent to the \(\alpha_2\) property.
+\end{proof}
+\begin{prop}
+    \(X\) is a w-space iff it is  \(\alpha_2\) and Fréchet.
+\end{prop}
+\begin{proof}
+    The forward direction is similar to above result, with the difference that we define a strategy \(\tau\) for player 2 such that \(\tau(F, U_x) \in U_x \cap A\) on the one hand, and \(\tau(F, U_y) \in U_y \cap \xi_{|F|}\) on the other hand; then since \(X\) is a w-space, we obtain a counter strategy that wins for player 1, i.e., the desired convergent sequence.
+
+    Now suppose \(X\) is \(\alpha_2\) and Fréchet and let \(\tau: [X]^{<\omega} \times \O_x(X) \to X\) be a strategy for player 2 at \(x\). For each \(F \in [X]^{<\omega}\) let \(\tau_F = \{\tau(F, U) \: : \: U \in \O_x\}\) and note that \(x \in \overline{\tau_F}\) for all \(F\). By Fréchetness, each \(\tau_F\) contains an \(A_F\) that converges to \(x\) and \(\xi = \langle A_F \: : \: F \in [X]^{<\omega}\) is a sheaf at \(x\). Let \(B\) be a sequence that converges to \(x\) which meets each \(A_F\) and let \(\sigma: [X]^{< \omega} \to \O_x\) be a counterstrategy for player 1 such that \(\tau(F, \sigma(F)) \in B \cap A_F\) for all \(F \in [X]^{< \omega}\). Then \(\sigma\) wins for player 1. \textcolor{red}{This assumes X is countable. TODO: FIX}
+    
+\end{proof}
+
+\subsection{Proximal Game}
 
 
-%\subsection{Topological Games}
-%\subsubsection{Two Player Convergence Game }
-%    Let \(X\) be a topological space and designate a point %\(x_0 \in X\). The two player game is defined as %follows: 
-%    \begin{itemize}
-%            \item On turn one player I chooses an open set %\(U_1\) containing \(x_0\) and player II then %chooses a point \(x_1 \in U_1\);
-%            \item On the \(n\)'th turn player I chooses an %open set \(U_n\) containing \(x_0\) and player %II then chooses a point \(x_n \in U_n\).
-%    \end{itemize}  
-%    Player I wins the game if the sequence \(x_n\) %converges to \(x_0\).
-%
-%
-%
-%
-%
-%\section{Examples}
-
-
+\begin{prop}
+    The Proximal game is equivalent to the Gruenhage game.
+\end{prop}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
