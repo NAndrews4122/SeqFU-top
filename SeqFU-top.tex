@@ -96,6 +96,7 @@ ladder systems (more generally on so called square-sequence) described in two
         \item prove lemmas used in existence proof of towers.
         \item If \(\{A_{\alpha} \: : \: \alpha \subset \gamma \}\) is a tower and \(\{\alpha_{\xi} \: : \: \xi < \lambda\}\) is increasing and cofinal in \(\gamma\) then \(A_{\alpha_\xi} \: : \: \xi < \lambda\) is a tower.
         \item \(S_{\omega}\) is neither FUF or \(2FUF\) \checkmark
+        \item Winning strategy in proximal game implies Frechet
         \item Proximal game is equivalent to Gruenhage game.
     \end{itemize}
     \item note: send Paul changes to databse before pushing to github
@@ -299,12 +300,29 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \end{prop}
 
 \subsection{Constructing Examples of \(\alpha_i\) Spaces}
+\subsubsection{Squares of \(\alpha_i\) Spaces} 
+\begin{exam}
+    If \(X, Y\) are \(\alpha_1\), then so is \(X \times Y\). Let \(\xi = \langle \xi_n \: : \: n \in \omega \rangle \) be a  sheaf at some \(x\times y \in X \times Y\). Then \(\pi_i(\xi) := \langle \pi_i(\xi_n) \: : \: n \in \omega\rangle\) is a sheaf at \(\pi_i(x\times y)\) in \(X, Y\) respectively for \(i = 1, 2\). Hence there exists \(\alpha_1\) sequences \(B_x, B_y\) for \(\pi_i(\xi)\). Letting \(M_n = \max\{k \in \omega \: : \: x_{n,k} \not \in \pi_1(\xi_n) \vee y_{n,k} \not \in \pi_2(\xi_n)\} \) for each \(n \in \omega\), the sequence \(B = \bigcup_{n \in \omega}B_x \cap (\xi_n\setminus {x_{n1}, \dots, x_{n, M_n}}) \times B_y \cap (\xi_n\setminus {y_{n1}, \dots, y_{n, M_n}})\) is as desired.
+\end{exam}
+
+\subsubsection{Misc \(\alpha_i\) Spaces}
 
 \begin{exam}
      Let \(D = \omega\times\omega\), let \(\F = \{f_{\alpha} \: : \: \alpha < \mathfrak{b}\} \subset \, ^\omega\omega\) be \(<^{\ast}\)-well-ordered and \(<^{\ast}\)-unbounded, and let \(\C = \{C_n = \{n\} \times \omega \: : \: n \in \omega\}\). Construct a \(\Psi\)-like from \(X = \F \cup \C\), where we attach compactification points \(\{n\} \times (\omega+1)\) for each \(C_n\) and compactification points \(p_{\alpha}\) for each \(f_{\alpha}\). Then the resulting one point compactification, \(X + \infty\), is \(\alpha_2\) and Fréchet but not \(\alpha_1\). \(X + \infty\) becomes \(\alpha_1\) if \(\F\) is cofinal and well ordered. 
 \end{exam}
+\subsection{Uniformities}
 
 \subsection{Topological Groups}
+\begin{defn}
+    A topological group \(G\) is a group whose underlying set has a topology such that 
+    \begin{itemize}
+        \item the group operation is continuous;
+        \item the map that sends \(x \mapsto x^{-1}\) is continuous.
+    \end{itemize}
+    For sets \(A, B \subset G\) and any point \(g \in G\) we denote \(AB = \{a\cdot b \: : \: a \in A, b \in B\}\) and \(gA = \{g\cdot a \: : \: a \in A\}\).
+\end{defn}
+ 
+Topological groups provide a natural way of defining uniform covers on \(G\). Fix \(V\) an open set containing \(e\) and let \(\U = \{gV \: : \: g \in G\}\). Then \(G\) is a uniform cover. (check this)
 
 \section{Topological Games}
 
@@ -317,7 +335,7 @@ Formally, we can describe a strategy for player 1 as a mapping \(\sigma: [X]^{<\
 A strategy for play 2 is a mapping \(\tau: [X]^{<\omega} \times \O_x \to X\) such that \(\tau(F, U) \in U\) for all \(F \in [X]^{<\omega}\) and \(U \in \O_x\).
 
 \begin{defn}
-    We say that \(X\) is a W-space if there is a winning strategy for player 1 at every point \(x \in X\).  We say that \(X\) is a w-space if for every strategy for player 2 there exists a counterstraty for player 1 that wins.
+    We say that \(X\) is a W-space if there is a winning strategy for player 1 at every point \(x \in X\).  We say that \(X\) is a w-space if for every strategy for player 2 there exists a counterstrategy for player 1 that wins.
 \end{defn}
 \begin{prop}
     Every W-space is \(\alpha_2\) and Fréchet.
@@ -325,6 +343,9 @@ A strategy for play 2 is a mapping \(\tau: [X]^{<\omega} \times \O_x \to X\) suc
 \begin{proof}
     Let \(X\) be a W-space. Let \(A \subset X\) and \(x \in \overline{A}\). If \(\sigma_x: [X]^{<\omega} \to \O_x\) is a winning strategy at \(x\) then the sequence \(\langle x_n \: : \: n \in \omega\rangle\) where \(x_{n + 1} \in \sigma(\{x_1, \dots, x_{n + 1}\})\cap A\) for all \(n\) is a \(\sigma_x\)-sequence and therefore converges to \(x\). Supposing \(\xi\) to be a sheaf at some \(y \in X\) and \(\sigma_y\) a winning strategy at \(y\), we define a sequence as follows: \(y_1 \in \xi_1\) and \(y_{n + 1} \in \sigma_y(\{y_1, \dots, y_n\}) \cap \xi_{n + 1}\). Then \(\langle y_n \: : \: n \in \omega\rangle\) is a \(\sigma_y\)-sequence and converges to \(y\); moreover it has non-empty intersection with each member of \(\xi\) which by \ref{var_alpha2} this is equivalent to the \(\alpha_2\) property.
 \end{proof}
+%\begin{defn}
+%    Let \(x \in X\) and let \(\tau: [X]^{<\omega} \times \O_x(X) %\to X\) be a strategy for player 2 at \(x\). Say that \(\F_%{\tau} = \langle F_n  \: : \: n \in \omega\rangle\) is a \%(\tau\)-chain if for all \(n \in \omega\) we have \(F_n \subset %F_{n + 1}\) and \(F_{n + 1} = F_n \cup \{\tau(F_n, U)\}\) for %some \(U \in \O_x\).
+%\end{defn}
 \begin{prop}
     \(X\) is a w-space iff it is  \(\alpha_2\) and Fréchet.
 \end{prop}
@@ -332,16 +353,31 @@ A strategy for play 2 is a mapping \(\tau: [X]^{<\omega} \times \O_x \to X\) suc
     The forward direction is similar to above result, with the difference that we define a strategy \(\tau\) for player 2 such that \(\tau(F, U_x) \in U_x \cap A\) on the one hand, and \(\tau(F, U_y) \in U_y \cap \xi_{|F|}\) on the other hand; then since \(X\) is a w-space, we obtain a counter strategy that wins for player 1, i.e., the desired convergent sequence.
 
     Now suppose \(X\) is \(\alpha_2\) and Fréchet and let \(\tau: [X]^{<\omega} \times \O_x(X) \to X\) be a strategy for player 2 at \(x\). For each \(F \in [X]^{<\omega}\) let \(\tau_F = \{\tau(F, U) \: : \: U \in \O_x\}\) and note that \(x \in \overline{\tau_F}\) for all \(F\). By Fréchetness, each \(\tau_F\) contains an \(A_F\) that converges to \(x\) and \(\xi = \langle A_F \: : \: F \in [X]^{<\omega}\) is a sheaf at \(x\). Let \(B\) be a sequence that converges to \(x\) which meets each \(A_F\) and let \(\sigma: [X]^{< \omega} \to \O_x\) be a counterstrategy for player 1 such that \(\tau(F, \sigma(F)) \in B \cap A_F\) for all \(F \in [X]^{< \omega}\). Then \(\sigma\) wins for player 1. \textcolor{red}{This assumes X is countable. TODO: FIX}
-    
+
+    %Suppose \(X\) is \(\alpha_2\) and Fréchet and let \(\tau: [X]^%{<\omega} \times \O_x(X) \to X\) be a strategy  at \(x \in X\)%for player 2. For each \(F \in [X]^{<\omega}\) let \(\tau_F = \%{\tau(F, U) \: : \: U \in \O_x\}\) and note that \(x \in %\overline{\tau_F}\) for all \(F\). By Fréchetness, each \%(\tau_F\) contains an \(A_F\) that converges to \(x\).  Let \%(\mathfrak{F}\) be the set of all \(\tau\)-chains in \(X\) and %note that for each \(\F_\tau \in \mathfrak{F}\) there exists a %corresponding countable sheaf \(\xi_{\F_\tau} = \langle A_F \: %: \: F \in \F_\tau\rangle\) as well as a sequence \(B_{\F_\tau}%\) that meets each \(A_F \in \xi_{\F_\tau}\) and converges to \%(x\). Now, recursively construct a counterstrategy for player 1 %as follows: let \(\sigma_1: [X]^1 \to \O_x\) be such that \(\tau%(F, \sigma(F)) \in B_{\F_{\tau}} \cap A_F\) for all \(F \in [X]%^1\) where \(\F_{\tau}\) is a \(\tau\)-chain containing \(F\) %and let \(\sigma_{n + 1}: [X]^{n + 1} \to \O_x\) be such that \%(\tau(F, \sigma_n(F)) \in \). To see that \(\sigma\) wins for %player 1, let \(\langle x_n \: : \: n \in \omega\rangle\) be a \%(\sigma\)-sequence. Letting \(F_n = \{x_1, \dots, x_n\}\) for %all \(n \in \omega\) we observe on the one hand that \(x_{n + %1} \in \sigma(F_n)\), since \(\langle x_n\rangle\) is a \%(\sigma\)-sequence, and on the other hand, that \(x_{n+1} = \tau%(F_n, \sigma(F_n))\). Thus the collection \(\langle F_n \: : \: %n \in \omega\rangle\) forms a \(\tau\)-chain \(\F_{\tau}\). %Thus \(\langle x_n \rangle \subset B_{\F_{\tau}}\) and %therefore converges to \(x\).
 \end{proof}
 
 \subsection{Proximal Game}
 
+This game is due to Bell and is described as follows. Let \((X, \D)\) be a uniform space. On turn one, player 1 chooses an entourage \(D_1 \in \D\) and player 2 chooses a point \(x_1 \in X\). On the second turn, player 1 chooses \(D_2 \in \D\) with \(D_2 \subset D_1\) and player 2 chooses \(x_2 \in D_1[x_1]\). The game continues and in general on the \(n\)'th turn player 1 chooses \(D_{n + 1} \in \D\) with \(D_{n + 1} \subset D_n\) and player 2 chooses \(x_{n + 1} \in D_n[x_n]\). Player 1 wins if either: 
 
+\begin{enumerate}
+    \item there exists \(x \in X\) such that the \(\langle x_n \: : \: n \in \omega\rangle\) converge to \(x\);
+    \item \(\bigcap_{n \in \omega}D_n[x_n] = \nothing\).
+\end{enumerate}
+
+\begin{rem}
+    Paul explained the game to me in a slightly different way. \(X\) is assumed to be compact. On turn one player 1 begins by playing a finite open cover (FOC) \(\U_1\) and player 2 continues by picking a point \(x_1 \in X\). On the second turn player 1 chooses a FOC \(\U_2\) such that \(\U_2 \prec \U_1\) and player 2 picks a point \(x_2 \in \st(x_1, \U_2)\). Then player 1 wins if either \(\bigcap_{n \in \omega}\st[x_n, \U_n] = \nothing\) or the \(\langle x_n \rangle\) converge to some point. 
+\end{rem}
+A particular flavour of this game can be played in the setting of topological groups where the uniformity is defined in the natural way.
+\begin{exercise}
+    If player 1 (player 2) has a winning strategy (no winning strategy) in proximal game on \(X\) then \(X\) is Fréchet.
+\end{exercise}
 \begin{prop}
     The Proximal game is equivalent to the Gruenhage game.
 \end{prop}
-
+ Using topological groups to de
+ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newpage
