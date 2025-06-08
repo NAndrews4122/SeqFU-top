@@ -109,14 +109,14 @@ ladder systems (more generally on so called square-sequence) described in two
         \item Different metrics generate different Uniformities, for example discrete metric vs \(d(m, n) = |\frac{1}{m} - \frac{1}{n}|\) on \(\omega\), Uniformities from those metrics still generate the same (discrete) metric on \(\omega\)
         \item star refinements generalize triangle inequality, for example \(\{\ball(x, \frac{1}{2^{n + 1}}): x \in X\}\) star refines \(\{\ball(x, \frac{1}{2^n}): x \in X\}\) and gives triangle inequality
     \end{itemize}
-    \item went over "proof" that proximal implies W, however Paul raised issue that player 2 in proximal game can use Hausdorffness to always pick points \(z\) that prompt player 1 in Proximal game to choose entourages \(U\) such that \(U[x] \cap U[p] = \nothing\), where \(p\) is where Gruenhage game being played. 
-    \item paul says that in general there should be extra conditions on \(X\) in order that proximal implies W
+    \item went over "proof" that proximal implies W, however Paul raised issue that player 2 in proximal game can use Hausdorffness to always pick points \(z\) that prompt player 1 in Proximal game to choose entourages \(U\) such that \(U[x] \cap U[p] = \nothing\), where \(p\) is where Gruenhage game being played. \textcolor{red}{this problem is fixed by starting Gruenhage game one round later than proximal game and player 2 pick p on turn 1 of proximal game}
+    %\item paul says that in general there should be extra conditions on \(X\) in order that proximal implies W
     \item Exercises:
     \begin{itemize}
-        \item If \(X\) semi-proximal then is FUF?
-        \item \(X\) with one non-isolated point is such that Proximal implies W
-        \item Is double arrow space Proximal?
-        \item Semi Proximal is \(\alpha_2\).
+        \item If \(X\) semi-proximal then is FUF?  \textcolor{red}{turns out this isn't known (yet)}
+        %\item \(X\) with one non-isolated point is such that Proximal implies W
+        \item Is double arrow space Proximal?\checkmark
+        \item Semi Proximal is \(\alpha_2\). \checkmark
     \end{itemize}
     \item Paul showed me proof that semi Proximal is Frechet
     \item Malykhin's problem: If \(G\) is a seperable Frehcet topological group, is it metrizable? Answer: Con(yes) and Con(No)
@@ -267,26 +267,6 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
     is an open neighbourhood of \(\infty\) which by construction is disjoint from \(\gamma\). Hence \(\gamma\) cannot converge to \(\infty\) showing that \(X\) is not Fréchet.
 \end{exam}
 
-\subsection{Frechet-Urysohn for Finite Sets}
-
-\begin{defn}
-    A \(\pi\)-network at a point \(x \in X\) is a collection \(\F \subset \P(X)\) such that for all open nbhds \(U_x\) there is \(F \in \F\) such that \(F \subset U_x\).
-\end{defn}
-\begin{defn}
-    We say that an infinite family of sets  \(\langle F_n \subset \P(X) \: : \: n \in \omega\rangle\) converges to a point \(x \in X\) if \(|\{F_n \: : \: F_n \not \subset U_x\}| < \aleph_0\) for every open nbhd \(U_x\). 
-\end{defn}
-\begin{defn}
-    \(X\) is Fréchet-Urysohn Finite (FUF) if for all \(x \in X\) whenever \(\F \subset [X]^{<\omega}\) is a \(\pi\)-network at \(x\) there exists \(\langle F_n \: : \: n \in \omega\rangle \subset \F\) such that the \(F_n\) converge to \(x\). We say that \(X\) is \(n\)FUF if the condition holds for all \(\pi\)-networks \(\F \subset [X]^n\) and we say that \(X\) is boundedly FUF if \(X\) is \(n\)FUF for all \(n \in \omega\).
-\end{defn}
-
-\begin{exam}
-    \(S_{\omega}\) is not 2FUF (and hence not FUF). Let \(F_m^n = \{(1, m), (m + 1, n)\}\) and let \(\F = \{F_m^n \: : \: m,n \in \omega\}\). Then \(\F\) is a \(\pi\)-network at \(\infty\) with no convergent subcollection. 
-    
-    To see that \(\F\) is a \(\pi\)-network, let \(U\) be an open nbhd of \(\infty\). Then \(U = \bigcup_{k \in \omega} \{k\} \times (f(k), \infty]\) for some \(f \in \, ^{\omega}\omega\). Letting \(m = f(1) + 1\) and \(n = f(m) + 1\), then \(F_m^n \subset U\).
-
-    Suppose \(\G \subset \F\) converges to \(\infty\). Then since \(V_n = S_{\omega}\setminus \left(\{1\} \times (1, n]\right)\) is an open nbhd of \(\infty\) for each \(n \in \omega\), we see that the sets \(\{G \in \G \: : \: G \not \subset V_n\}\) are each finite. In particular, this shows that there are only finitely many \(G \in \G\) that meet each column, hence for each \(n \in \omega\) there exists \(a_n \in \omega\) such that for all \(b \geq a_n\), \(F_n^b \not \in \G\). Letting \(g:\omega \to \omega\) be defined by \(g(n) = a_n\) we obtain the open nbhd \(W = \bigcup_{n \in \omega} \{n\} \times (g(k), \infty]\) which is such that \(G \not \in W\) for all \(G \in \G\), i.e. \(\{G \in \G \: : \: G \not \subset W\}\) is infinite so that \(\G\) does not converge to \(\infty\).
-\end{exam}
-
 \subsection{\(\alpha_i\) notions of convergence}
 
 \begin{defn}
@@ -346,6 +326,44 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \begin{exam}
      Let \(D = \omega\times\omega\), let \(\F = \{f_{\alpha} \: : \: \alpha < \mathfrak{b}\} \subset \, ^\omega\omega\) be \(<^{\ast}\)-well-ordered and \(<^{\ast}\)-unbounded, and let \(\C = \{C_n = \{n\} \times \omega \: : \: n \in \omega\}\). Construct a \(\Psi\)-like from \(X = \F \cup \C\), where we attach compactification points \(\{n\} \times (\omega+1)\) for each \(C_n\) and compactification points \(p_{\alpha}\) for each \(f_{\alpha}\). Then the resulting one point compactification, \(X + \infty\), is \(\alpha_2\) and Fréchet but not \(\alpha_1\). \(X + \infty\) becomes \(\alpha_1\) if \(\F\) is cofinal and well ordered. 
 \end{exam}
+
+\subsection{Frechet-Urysohn for Finite Sets}
+
+\begin{defn}
+    A \(\pi\)-network at a point \(x \in X\) is a collection \(\F \subset \P(X)\) such that for all open nbhds \(U_x\) there is \(F \in \F\) such that \(F \subset U_x\).
+\end{defn}
+\begin{defn}
+    We say that an infinite family of sets  \(\langle F_n \subset \P(X) \: : \: n \in \omega\rangle\) converges to a point \(x \in X\) if \(|\{F_n \: : \: F_n \not \subset U_x\}| < \aleph_0\) for every open nbhd \(U_x\). 
+\end{defn}
+\begin{defn}
+    \(X\) is Fréchet-Urysohn Finite (FUF) if for all \(x \in X\) whenever \(\F \subset [X]^{<\omega}\) is a \(\pi\)-network at \(x\) there exists \(\langle F_n \: : \: n \in \omega\rangle \subset \F\) such that the \(F_n\) converge to \(x\). We say that \(X\) is \(n\)FUF if the condition holds for all \(\pi\)-networks \(\F \subset [X]^n\) and we say that \(X\) is boundedly FUF if \(X\) is \(n\)FUF for all \(n \in \omega\).
+\end{defn}
+
+\begin{exam}
+    \(S_{\omega}\) is not 2FUF (and hence not FUF). Let \(F_m^n = \{(1, m), (m + 1, n)\}\) and let \(\F = \{F_m^n \: : \: m,n \in \omega\}\). Then \(\F\) is a \(\pi\)-network at \(\infty\) with no convergent subcollection. 
+    
+    To see that \(\F\) is a \(\pi\)-network, let \(U\) be an open nbhd of \(\infty\). Then \(U = \bigcup_{k \in \omega} \{k\} \times (f(k), \infty]\) for some \(f \in \, ^{\omega}\omega\). Letting \(m = f(1) + 1\) and \(n = f(m) + 1\), then \(F_m^n \subset U\).
+
+    Suppose \(\G \subset \F\) converges to \(\infty\). Then since \(V_n = S_{\omega}\setminus \left(\{1\} \times (1, n]\right)\) is an open nbhd of \(\infty\) for each \(n \in \omega\), we see that the sets \(\{G \in \G \: : \: G \not \subset V_n\}\) are each finite. In particular, this shows that there are only finitely many \(G \in \G\) that meet each column, hence for each \(n \in \omega\) there exists \(a_n \in \omega\) such that for all \(b \geq a_n\), \(F_n^b \not \in \G\). Letting \(g:\omega \to \omega\) be defined by \(g(n) = a_n\) we obtain the open nbhd \(W = \bigcup_{n \in \omega} \{n\} \times (g(k), \infty]\) which is such that \(G \not \in W\) for all \(G \in \G\), i.e. \(\{G \in \G \: : \: G \not \subset W\}\) is infinite so that \(\G\) does not converge to \(\infty\).
+\end{exam}
+
+\begin{defn}
+    \(\A \subset \P(X)\) is a network if for all \(x \in X\) and for all nhds \(U \ni x\) there is \(A \in \A\) such that \(x \in A \subset U\). If \(\F\) is a filter, then we might also refer to a filterbase for \(\F\) as a network. 
+\end{defn}
+\begin{rem}
+    A network is a generalization of a base since we no longer require the elements to be open sets.
+\end{rem}
+\begin{defn}[FUF filters]
+    A filter \(\F\) on \(\omega\) is FUF if whenever \(A \subset [\omega]^{<\omega}\) is a network for \(\F\) then there exists \(B \subset A\) such that \(B\) converges wrt to \(\F\).
+\end{defn}
+
+\begin{prop}
+    Assume CH. Then there exists a FUF filter \(\F\) that is not countably generated.
+\end{prop}
+\begin{proof}
+    
+\end{proof}
+
 \subsection{Uniformities}
     In general uniformities provide an alternate way to generalize metric spcaes. Topological spaces generalize metric spaces while preserving the notion of continuous functions whereas uniform spaces preserve  uniformly continuous functions. Given a set \(X\) there are two ways to contruct a uniformity \(\D\) on \(X\). 
     
@@ -378,13 +396,13 @@ We will often construct topological groups from topological space. Take \(X = \{
 \begin{prop}
     \leavevmode
     \begin{enumerate}
-        \item[(1)] (Sipocheva) If \(\F\) is FUF then \(G\) is Frechet
+        \item[(1)] (Sipacheva) If \(\F\) is FUF then \(G\) is Frechet
         \item[(2)] \(\F\) is countably generated \(\iff\) \(G\) is secound countable \(\iff\) \(G\) is metrizable.
     \end{enumerate}
 \end{prop}
 
 \section{Topological Games}
-In this chpater we assume \(X\) to always be Hausdorff.
+%In this chpater we assume \(X\) to always be Hausdorff.
 \subsection{Gruenhage Game}
 
 Let \(x \in X\) be a point chosen before the start of game. On turn zero, player 1 chooses an open nbhd \(U_0\) of \(x\) and player 2 chooses a point \(x_0 \in U_0\); on the \(n\)'th turn player one chooses an open nbhd \(U_n\) of \(x\) and player 2 chooses a point \(x_n \in U_n\). Player 1 wins if the sequence of points \(\{x_n \: : \: n \in \omega\}\) converges to \(x\).
@@ -439,7 +457,7 @@ This game is due to Bell and is described as follows. Let \((X, \D)\) be a unifo
     Paul explained the game to me in a slightly different way. \(X\) is assumed to be compact. On turn one player 1 begins by playing a finite open cover (FOC) \(\U_1\) and player 2 continues by picking a point \(x_1 \in X\). On the second turn player 1 chooses a FOC \(\U_2\) such that \(\U_2 \prec \U_1\) and player 2 picks a point \(x_2 \in \st(x_1, \U_2)\). Then player 1 wins if either \(\bigcap_{n \in \omega}\st(x_n, \U_n) = \nothing\) or the \(\langle x_n \rangle\) converge to some point. 
 \end{rem}
 \begin{exam}
-    The double arrom space is not Semi-Proximal.
+    The double arrow space is \(X = [0, 1]\times\{0, 1\}\) with the order topology; it is not Semi-Proximal. As \(X\) is compact, there exists a unique uniformity that generates the topology. Player 1 plays FOCs of the form \(\U = \{(a, b] \times \{0\} \cup [a, b) \times \{1\} \: : \: a,b \in [0, 1]\}\) and player 2 picks points from alternating rows every turn. Player 2's strategy will always be viable, since the star of any point wrt to any FOC will always intersect both rows.
 \end{exam}
 \begin{prop}
     If \(X\) is semi-proximal then \(X\) is \(\alpha_2\) Fréchet. 
@@ -462,11 +480,12 @@ This game is due to Bell and is described as follows. Let \((X, \D)\) be a unifo
 \end{proof}
 
 \begin{rem}[Proximal Game on Topological Groups]
-    The game is played the same but we note that the uniformities chosen by player 1 are formed as follows. On any given turn player 1 picks \(U \in \F\) which corresponds to \(D_U = \bigcup_[a \in [\omega]^{<\omega}]\left(a\Delta V_U\right)^2\). In terms of FOCs, we might can also talk about \(\U_U = \{(a\Delta V_U):a \in [\omega]^{<\omega}\}\). The game then proceeds as usual.
+    The game is played the same but we note that the uniformities chosen by player 1 are formed as follows. On any given turn player 1 picks \(U \in \F\) which corresponds to \(D_U = \bigcup_{a \in [\omega]^{<\omega}}\left(a\Delta V_U\right)^2\). In terms of FOCs, we might can also talk about \(\U_U = \{(a\Delta V_U):a \in [\omega]^{<\omega}\}\). The game then proceeds as usual.
 \end{rem}
 
 
-
+\section{Musings}
+The point of this section is to keep track of thoughts relating to problems whose solutions are maybe not be clear or known. 
 
 
 
