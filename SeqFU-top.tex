@@ -133,7 +133,7 @@ ladder systems (more generally on so called square-sequence) described in two
     \end{itemize}    
     \item Exercises: 
     \begin{itemize}
-        \item Assume CH, construct FUF filter that is not countable generated.
+        \item Assume CH, construct FUF filter that is not countable generated. \checkmark
         \item What does it mean for a sequence in \((a_n)\) to converge to a point in \(G\), i.e., \((a_n)\to a\) iff what?
         \item Consider a play of the Proximal game which yields sequences \((a_n)\) and \((V_{U_n})\). What does it mean for there to exist some \(b \in G\) such that \(b \in \bigcap_{n \in \omega}(a_n \Delta V_{U_n})\)? What does that look like?
     \end{itemize}
@@ -204,8 +204,8 @@ ladder systems (more generally on so called square-sequence) described in two
 \begin{defn}
     \leavevmode
     \begin{itemize}
-        \item \(\mathfrak{t} = \min\{|\T| \: : \: \T \text{ is a tower}\)
-        \item \(\mathfrak{p} = \min\{|\P| \: : \: \P \text{ is a filter base for a free filter on } \omega \text{ with no infinite pseudo-intersection}\)
+        \item \(\mathfrak{t} = \min\{|\T| \: : \: \T \text{ is a tower}\}\)
+        \item \(\mathfrak{p} = \min\{|\P| \: : \: \P \subset [\omega]^\omega\text{ is a family with the SFIP that has no pseudo-intersection}\}\)
     \end{itemize}
 \end{defn}
 \section{Topology}
@@ -346,9 +346,14 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 
     Suppose \(\G \subset \F\) converges to \(\infty\). Then since \(V_n = S_{\omega}\setminus \left(\{1\} \times (1, n]\right)\) is an open nbhd of \(\infty\) for each \(n \in \omega\), we see that the sets \(\{G \in \G \: : \: G \not \subset V_n\}\) are each finite. In particular, this shows that there are only finitely many \(G \in \G\) that meet each column, hence for each \(n \in \omega\) there exists \(a_n \in \omega\) such that for all \(b \geq a_n\), \(F_n^b \not \in \G\). Letting \(g:\omega \to \omega\) be defined by \(g(n) = a_n\) we obtain the open nbhd \(W = \bigcup_{n \in \omega} \{n\} \times (g(k), \infty]\) which is such that \(G \not \in W\) for all \(G \in \G\), i.e. \(\{G \in \G \: : \: G \not \subset W\}\) is infinite so that \(\G\) does not converge to \(\infty\).
 \end{exam}
-
+\begin{prop}
+    If \(X\) is first countable then \(X\) is FUF.
+\end{prop}
+\begin{proof}
+    Suppose \(X\) is first countable, let \(x \in X\), and let \(\F\) be a \(\pi\)-network at \(x\). Let \(\U = \{U_0, U_1, \dots\}\) be a nbhd base at \(x\) and WLOG assume  that \(U_0 \supset U_1 \supset \dots\) (since otherwise we could just take \(U_0, U_0\cap U_1, \dots\)). Then for each \(n \in \omega\) there is a \(\F \ni F_n \subset U_n\) and the \(F_n\) converge to \(x\).
+\end{proof}
 \begin{defn}
-    \(\A \subset \P(X)\) is a network if for all \(x \in X\) and for all nhds \(U \ni x\) there is \(A \in \A\) such that \(x \in A \subset U\). If \(\F\) is a filter, then we might also refer to a filterbase for \(\F\) as a network. 
+    \(\A \subset \P(X)\) is a network if for all \(x \in X\) and for all nhds \(U \ni x\) there is \(A \in \A\) such that \(x \in A \subset U\). If \(\F\) is a filter, then we might also refer to a network \(\A\) for \(\F\) where every \(F \in \F\) contains some \(A \in \A\).
 \end{defn}
 \begin{rem}
     A network is a generalization of a base since we no longer require the elements to be open sets.
@@ -356,12 +361,26 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \begin{defn}[FUF filters]
     A filter \(\F\) on \(\omega\) is FUF if whenever \(A \subset [\omega]^{<\omega}\) is a network for \(\F\) then there exists \(B \subset A\) such that \(B\) converges wrt to \(\F\).
 \end{defn}
-
+\begin{lem}
+    Let \(\F\) be a filter on \([\omega]^{\omega}\). If \(\F\) is countably generated then \(\F\) has pseudo-intersection.
+\end{lem}
+%\begin{proof}
+%    Suppose \(\{F_n : n < \omega\}\) generates \(\F\). Let \%(a_n \in (\bigcap_{i < n}F_i)\setminus\{a_i:i<n\}\). Then \%(\{a_n:n<\omega\} \asubset F\) for all \(F \in \F\).
+%\end{proof}
+\newpage
 \begin{prop}
     Assume CH. Then there exists a FUF filter \(\F\) that is not countably generated.
 \end{prop}
 \begin{proof}
-    
+    Starting with \(\F_0\) the cofinite filter on \(\omega\), we will recursively construct a filter by adding a new set to our filter at each stage such that the FUF condition is preserved. We assume that \(\P([\omega]^{<\omega}) = \{A_n : n < \omega_1\}\) and will construct our filter in \(\omega_1\) many steps.
+
+    On step 0, take \(A_0 \subset [\omega]^{<\omega}\). If it's a network for \(\F_0\) then we find \(B_0 \subset A_0\) such that \(B_0 \to \F_0\), which exists since \(\omega\) is first countable. Otherwise, if \(A_0\) isn't a network, we proceed to the next step. 
+
+    On step \(\alpha\), let \(\F_{\alpha}^{\ast} = \F_0\cup \left(\bigcup_{i < \alpha}\{X_i\}\right)\) and let \(\F_{\alpha} = F_{\alpha}^{\ast}\cup\{X_{\alpha}\}\) where \(X_{\alpha}\) will be defined in such a way as to preserve any previous convergent sequences, which we denote \(\{B_{\beta}:\beta < \alpha\}\). Note that \(\F_{\alpha}^{\ast}\) is countably generated, as \(\F_0\) is countably generated and we have progressed only countably many steps. So we have \(F_0 \supset F_1 \supset \dots\) which generate \(\F_{\alpha}^{\ast}\). Let \(X_{\alpha} = \bigcup_{i < \alpha}F_i\cap (\cup B_i)\). Since each \(F_i\) contains a tail of every \(B_{\beta}\), we have that \(X_{\alpha} \asupset B_{\beta}\) for all \(\beta\). On the other hand, none of the \(F_n\) generate \(X_{\alpha}\) since \(F_1 \cap B_1 \not\supset F_k\) for all \(k \geq 1\) and in general \(F_n \cap B_n \not \supset F_k\) for all \(n \in \omega, k \geq n\). Hence \(X_{\alpha}\not\in \F_{\alpha}^{\ast}\) and \(\F_{\alpha}\) is as desired.
+
+    We continue step \(\alpha\) by taking \(A_{\alpha} \subset [\omega]^{\omega}\). If it's a network for \(\F_{\alpha}\), find another sequence \(B_\alpha \subset A_{\alpha}\) that converges with respect to \(\F_{\alpha}\), otherwise proceed to the next step.
+
+    Let \(\F\) be the filter obtained after recursively iterating through all \(A_n \subset [\omega]^{<\omega}\), i.e. \(\F = \F_0 \cup \left(\bigcup_{\alpha < \omega_1}\{X_\alpha\}\right)\). By construction \(\F\) is FUF and to see that its uncountably generated let \(\G \subset \F\) be a generating set. Then for some \(\alpha < \omega_1\) there's \(\G_{\alpha} \subset \G\) which generates \(\F_{\alpha}^{\ast}\). But \(\F_{\alpha}^{\ast}\) was also generated by \(F_0 \supset F_1 \supset \dots\) and \(X_{\alpha}\) was such that \(X_{\alpha}\not\supset F_n\) for all \(n \in \omega\). Since the \(F_n\) would necessarily also generate \(\G_{\alpha}\) this implies that \(X_{\alpha} \not \supset G_n\) for all \(n \in \omega\). Hence \(\G_{\alpha}\) generates \(\F_{\alpha}^{\ast}\) but not \(\F_{\alpha}\). Furthermore, \(\G_{\alpha}\) cannot generate \(\F_{\eta}\) either, for \(\alpha < \eta < \omega_1\), which follows from the definition of the \(X_{\eta}\). Thus as \(\F\) is obtained from \(F_{\alpha}\) by adding uncountably many new sets, each of which not generated by \(\G_{\alpha}\), it must be the case that \(\G\) is uncountable. 
 \end{proof}
 
 \subsection{Uniformities}
@@ -394,13 +413,16 @@ We will often construct topological groups from topological space. Take \(X = \{
 \in \F\}\) is a base for a topology on \(G\).
 
 \begin{prop}
-    \leavevmode
-    \begin{enumerate}
-        \item[(1)] (Sipacheva) If \(\F\) is FUF then \(G\) is Frechet
-        \item[(2)] \(\F\) is countably generated \(\iff\) \(G\) is secound countable \(\iff\) \(G\) is metrizable.
-    \end{enumerate}
+    If \(\F\) is FUF then \(\tau_{\F}\) is Frechet.
 \end{prop}
+\begin{proof}
+    Let \(\F\) be FUF and let \(A \subset \tau_{\F}\) be such that \(x \in \overline{A}\). WLOG assume that \(x = \nothing\). Then \(\A = \{a \in A \cap [F]^{\leq\omega}: F \in \F\) is a network for \(\F\) and hence there is a \(B \subset \A\) such that \(B \to \F\), i.e., \(B \to x\).
 
+    Conversely, let \(\A\) be a network for \(\F\) and let \([\A]^{<\omega} = \{[a]^{<\omega}:a \in \A\}\). Then \(\nothing \in \overline{[\A]^{<\omega}}\) since there is \(a \subset F\) implies \([a]^{<\omega} \subset [F]^{<\omega}\) hence \([\A]^{<\omega}\cap [F]^{<\omega}\neq \nothing\) for all \(F \in \F\). Thus there is a \(B \subset [\A]^{<\omega} \) that converges to \(\nothing\) and hence \(B \to \F\).
+\end{proof}
+\begin{prop}
+    \(\F\) is countably generated \(\iff\) \(G\) is secound countable \(\iff\) \(G\) is metrizable.
+\end{prop}
 \section{Topological Games}
 %In this chpater we assume \(X\) to always be Hausdorff.
 \subsection{Gruenhage Game}
@@ -484,11 +506,18 @@ This game is due to Bell and is described as follows. Let \((X, \D)\) be a unifo
 \end{rem}
 
 
-\section{Musings}
-The point of this section is to keep track of thoughts relating to problems whose solutions are maybe not be clear or known. 
+%\section{Musings}
+%The point of this section is to keep track of thoughts relating to problems whose solutions are maybe not be clear or known. 
 
 
+%\subsection{FUF implies SP}
 
+%Let \(\F\) be a FUF filter and let \(\tau_{\F}\) be the corresponding topological group.
+%\begin{itemize}
+    %\item \(x_n \to x, \in \tau_{\F} \iff a\Delta x_n \to a\Delta x\)
+    %\item WLOG we can assume \(x = \nothing\)
+    %\item \(x_n \to x \iff \{x_n\}\) is a network for \(\F\).
+%\end{itemize}
 
 
 
