@@ -16,7 +16,6 @@
 
 
 \begin{document}
-
 \section{Introduction}
 \subsection{Outline of proposed research project}
 
@@ -437,8 +436,13 @@ We will often construct topological groups from topological space. Take \(X = \{
     Conversely, let \(\A\) be a network for \(\F\) and let \([\A]^{<\omega} = \{[a]^{<\omega}:a \in \A\}\). Then \(\nothing \in \overline{[\A]^{<\omega}}\) since there is \(a \subset F\) implies \([a]^{<\omega} \subset [F]^{<\omega}\) hence \([\A]^{<\omega}\cap [F]^{<\omega}\neq \nothing\) for all \(F \in \F\). Thus there is a \(B \subset [\A]^{<\omega} \) that converges to \(\nothing\) and hence \(B \to \F\).
 \end{proof}
 \begin{prop}
-    \(\F\) is countably generated \(\iff\) \(G\) is secound countable \(\iff\) \(G\) is metrizable.
+    \(\F\) is countably generated \(\iff\) \(\tau_{\F}\) is secound countable \(\iff\) \(\tau_{\F}\) is metrizable.
 \end{prop}
+
+\begin{exam}
+    If \(\F\) is the cofinite filter on \(\omega\) then in the group \(\tau_{\F}\) the sequence defined by \(x_n^m = \{n, n + 1, \dots, n + m\}\), for any \(m < \omega\),  converges to \(\nothing\). Letting \(m = 1\) and using the homogeneity of \(\tau_{\F}\) we obtain a simple recipe to construct sequences converging to any point \(p \in [\omega]^{<\omega}\); just take \(y_n = x_n^1 \Delta p\) for all \(n \in \omega\).
+\end{exam}
+
 \section{Topological Games}
 %In this chpater we assume \(X\) to always be Hausdorff.
 \subsection{Gruenhage Game}
@@ -522,20 +526,58 @@ This game is due to Bell and is described as follows. Let \((X, \D)\) be a unifo
 \end{rem}
 
 
-%\section{Musings}
-%The point of this section is to keep track of thoughts relating to problems whose solutions are maybe not be clear or known. 
+\section{Musings}
+The point of this section is to keep track of thoughts relating to problems whose solutions are maybe not be clear or known (yet). 
 
 
-%\subsection{FUF implies SP}
 
 %Let \(\F\) be a FUF filter and let \(\tau_{\F}\) be the corresponding topological group.
-%\begin{itemize}
-    %\item \(x_n \to x, \in \tau_{\F} \iff a\Delta x_n \to a\Delta x\)
-    %\item WLOG we can assume \(x = \nothing\)
-    %\item \(x_n \to x \iff \{x_n\}\) is a network for \(\F\).
-%\end{itemize}
+\subsection{Behaviour \dots}
 
+\subsubsection*{\dots of Sequences}
 
+\begin{itemize}
+    \item \(x_n \to x, \in \tau_{\F} \iff a\Delta x_n \to a\Delta x\)
+    \item WLOG we can assume \(x = \nothing\)
+    \item \(x_n \to x \iff \{x_n\}\) is a network for \(\F\).
+\end{itemize}
+\begin{prop}
+    Let \(\F\) be cofinite filter on \(\omega\) and let \(\langle x_n :n < \omega\} \subset [\omega]^{<\omega}\) such that there exists \(k \in \omega\) such that 
+\end{prop}
+\begin{proof}
+    
+\end{proof}
+\subsubsection*{\dots of Stars}
+
+Let \(p \in [\omega]^{<\omega}\), let \(F \in \F\). What does \(S :=\st(p, V_F)\) look like?
+
+If \(p \subset F\), then
+\begin{itemize}
+    \item \( p \in a\Delta V_F \iff p \not \subset a\)
+    \item \([\omega\setminus p]^{<\omega} \subset S\) (take \(x \in [\omega\setminus p]^{<\omega}\) and let \(a = x\cap F^C, b = x\cap F\), then \(x = a\Delta b\) and \(b \in V_F\) so \(x \in S\)).
+\end{itemize}
+If \(p \not\subset F\), then
+\begin{itemize}
+    \item \( p \in a\Delta V_F \iff p \subset a\)
+    \item \(S = [\omega]^{<\omega}\) (\(p\Delta V_F = [F\cup p]^{<\omega} = V_{F\cup p} \in S\), so for any \(x \in [\omega]^{<\omega}\) letting \(a = x\cap (V_{F\cup a})^C\) then \(x = a\Delta F_{F\cup a} \in S\))
+\end{itemize}
+Actually for any \(F \in \F\) and any \(p \in [\omega]^{<\omega}\), \(\st(p, V_F) = [\omega]^{\omega}\): let \(\alpha = p \cap F^C\), then \(p \in \alpha\Delta V_F =[F\cup\alpha]^{<\omega} = V_{F\cup\alpha} \in \st(p, V_F)\). For \(x\in [\omega]^{<\omega}\), take \(a = x \cap (F\cup\alpha)^C\) so that \(x \in a\Delta V_{F\cup\alpha}\).
+
+\begin{rem}
+    The above shows that the only way for player 1 to wins in the proximal game on \(\tau_{\F}\) is for the sequence of points picked by player 2 to converges, i.e., the intersection of the stars will just always be the entire space. 
+\end{rem}
+
+\subsubsection*{\dots of Intersections}
+
+Suppose \(\langle a_n:n < \omega\rangle \subset  [\omega]^{<\omega}\) and \(\langle F_n : n < \omega\rangle \subset \F\) and \(b \in \bigcap_{n < \omega} a_n \Delta V_{F_n}\). 
+
+\begin{itemize}
+    \item this does not imply that \(a_n \to b\). For example \(b \not \subset a_n\) and \(b \subset F_n\) for all \(n \in \omega\) is possible but we still have \(b \in a_n \Delta V_{F_n}\) for all \(n\).
+    \item On the other hand, if \(b \in \bigcap_{n < \omega} a_n \Delta V_{F_n}\) and we want \(a_n \to b\), this would only be possible if \(b \not \subset F_n\) for all \(n > k\) for some \(k\).
+\end{itemize}
+
+\subsubsection*{\dots of Filters}
+The choice of \(\F\) directly determines the topological properties of \(\tau_{\F}\). Thus if \(\F\) is a countably generated filter then \(\tau_{\F}\) is first countable and it follows that \(\tau_{\F}\) is Proximal. \textcolor{red}{TODO: describe the winning strategy for player 1, it has to exist.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newpage
