@@ -521,11 +521,20 @@ This game is due to Bell and is described as follows. Let \((X, \D)\) be a unifo
     As the elements of \(\D\) are symmetric, we have both \(x \in \ \rho\left(\langle x_1, \dots, x_n\rangle\right)[x_{n + 1}]\) and \(x \in \rho\left(\langle x_1, \dots, x_{n - 1}\rangle\right)[x_n]\), which implies \(x_{n + 1} \in \left(\rho\left(\langle x_1, \dots, x_n\rangle\right) +  \rho\left(\langle x_1, \dots, x_{n - 1}\rangle\right)\right)[x_n]\). Thus \(x_{n + 1} \in \rho\left(\langle x_1, \dots, x_{n - 1}\rangle\right)[x_n]\) as \(\rho\left(\langle x_1, \dots, x_{n - 1}\rangle\right) \supset \rho\left(\langle x_1, \dots, x_n\rangle\right)\) since \(\rho\) is a well defined strategy. Hence \(\langle x_n : n \in \omega \rangle\) is a \(\rho\)-sequence and \(x \in \bigcap_{n \in \omega}\rho\left(\langle x_1, \dots, x_{n - 1}\rangle\right)[x_n]\), which implies that \(\langle x_n \in \omega \: : \: n \in \omega\rangle\) must converge to \(x\), which follows by our assumption that \(X\) is Hausdorff.
 \end{proof}
 
-\begin{rem}[Proximal Game on Topological Groups]
-    The game is played the same but we note that the uniformities chosen by player 1 are formed as follows. On any given turn player 1 picks \(U \in \F\) which corresponds to \(D_U = \bigcup_{a \in [\omega]^{<\omega}}\left(a\Delta V_U\right)^2\). In terms of uniform covers we might can also talk about \(\U_U = \{(a\Delta V_U):a \in [\omega]^{<\omega}\}\). The game then proceeds as usual.
-\end{rem}
+\subsection{Proximal Game on Topological Groups}
 
+The game is played the same but we note that the uniformities chosen by player 1 are formed as follows. On any given turn player 1 picks \(U \in \F\) which corresponds to \(D_U = \bigcup_{a \in [\omega]^{<\omega}}\left(a\Delta V_U\right)^2\). In terms of uniform covers we might can also talk about \(\U_U = \{(a\Delta V_U):a \in [\omega]^{<\omega}\}\). The game then proceeds as usual.
 
+\begin{exam}
+    \((\bR, +)\) is Proximal. A winning strategy for player 1 consists of picking uniform covers of radius \(\frac{1}{2^k}\) on turn \(k\).
+\end{exam}
+
+\begin{prop}
+    There exists a first countable topological group that is not Proximal. 
+\end{prop}
+\begin{proof}
+    Let \(\F\) be the cofinite filter on \(\omega\) and consider \(\tau_{\F}\). First observe that for any \(p \in [\omega]^{< \omega}\) and any \(F \in \F\) that \(\st(p, \U_F) = [\omega]^{< \omega}\): let \(x \in [\omega]^{< \omega}\), let \(\alpha = = p \cap F^C\), let \(\beta = x \cap \alpha^C \cap F^C\). Then \(x, p \in (\beta\Delta\alpha)\Delta [F]^{< \omega}\). Thus any seqeunces of points and covers \(x_n\) and \(\U_{F_n}\) is such that \(\bigcap \st(x_n, \U_{F_n}) = [\omega]^{<\omega} (\neq \nothing)\) and player 2 is free to play an alternating sequence that doesn't converge (for example alternating between \(\{1\}\) and \(\{1, 2\}\)).
+\end{proof}
 \section{Musings}
 The point of this section is to keep track of thoughts relating to problems whose solutions are maybe not be clear or known (yet). 
 
@@ -542,11 +551,23 @@ The point of this section is to keep track of thoughts relating to problems whos
     \item \(x_n \to x \iff \{x_n\}\) is a network for \(\F\).
 \end{itemize}
 \begin{prop}
-    Let \(\F\) be cofinite filter on \(\omega\) and let \(\langle x_n :n < \omega\} \subset [\omega]^{<\omega}\) such that there exists \(k \in \omega\) such that 
+    Let \(\F\) be cofinite filter on \(\omega\) and let \(\langle x_n :n < \omega\} \subset [\omega]^{<\omega}\) such that \(x_n \to x\) for some \(x \in [\omega]^{<\omega}\). There exists \(k \in \omega\) such that \(x = \bigcap_{n > k}x_n\).
 \end{prop}
 \begin{proof}
-    
+    We show first that there exists \(k \in \omega\) such that \(x \subset \bigcap_{n > k}x_n\) and then show that the inclusion cannot be proper. Let \(p \in x\) and assume there is no \(k\) such that \(x \in  \bigcap_{n > k}x_n\). Then we can find a subsequence \(y_n\) such that \(p \not \in y_n\) for all \(n\). Let \(F = \omega\setminus p\). Then \(p \in a\) for all \(a \in x\Delta V_F\), so that \(y_n \not \in x\Delta V_F\) for all \(n \in \omega\), contradiction. 
+
+    We have a \(k\) such that \(x \subset \bigcap_{n > k}x_n\). Suppose there's a \(b \in \bigcap_{n > k}x_n\) but \(b \not \in x\). Let \(F = \omega \setminus\bigcap_{n > k}x_n\). Then \(b \not \in a\) for all \(a \in x\Delta V_F\) so that \(x_n \not \in x\Delta V_F\) for all \(n > k\).
 \end{proof}
+\begin{rem}
+    The above proposition goes only one way. Take 
+    \[
+        x_n = \begin{dcases}
+        \{1\} &  n \text{ is odd}\\
+        \{1, 2\} & n \text{ is even.}
+        \end{dcases}
+    \]
+    Then \(\bigcap_{n > k}x_n = \{1\}\) for all \(k < \omega\) but \(x_n \not \to \{1\}\) (or \(\{1, 2\}\)) . In fact \(x_n\) doesn't converge to anything. Firstly, take \(F = \omega \setminus \{1, 2\}\), then \(2 \not \in a\) for all \(a \in \{1\}\Delta V_F\) but \(2 \in a\) for all \(a \in \{1, 2\}\Delta V_F\) so that neither \(\langle x_n \rangle \asubset \{1\}\Delta V_F\) nor \(\langle x_n \rangle \asubset \{1,2\}\Delta V_F\). Moreover, its clear that \(\langle x_n \rangle \not\asubset p\Delta V_F\) for any other \(p \in [\omega]^{<\omega}\).
+\end{rem}
 \subsubsection*{\dots of Stars}
 
 Let \(p \in [\omega]^{<\omega}\), let \(F \in \F\). What does \(S :=\st(p, V_F)\) look like?
@@ -566,6 +587,9 @@ Actually for any \(F \in \F\) and any \(p \in [\omega]^{<\omega}\), \(\st(p, V_F
 \begin{rem}
     The above shows that the only way for player 1 to wins in the proximal game on \(\tau_{\F}\) is for the sequence of points picked by player 2 to converges, i.e., the intersection of the stars will just always be the entire space. 
 \end{rem}
+\begin{rem}
+    Actually \(\tau_{\F}\) is not Proximal (at least when \(\F\) is the cofinite filter). Since the star of any point w.r.t. any \(F \in \F\) is always equal the entire space, there is nothing to prevent player 2 from picking a divergent sequence. So there is a first countable topological group that is not proximal.
+\end{rem}
 
 \subsubsection*{\dots of Intersections}
 
@@ -577,7 +601,11 @@ Suppose \(\langle a_n:n < \omega\rangle \subset  [\omega]^{<\omega}\) and \(\lan
 \end{itemize}
 
 \subsubsection*{\dots of Filters}
-The choice of \(\F\) directly determines the topological properties of \(\tau_{\F}\). Thus if \(\F\) is a countably generated filter then \(\tau_{\F}\) is first countable and it follows that \(\tau_{\F}\) is Proximal. \textcolor{red}{TODO: describe the winning strategy for player 1, it has to exist.}
+The choice of \(\F\) directly determines the topological properties of \(\tau_{\F}\). \sout{Thus if \(\F\) is a countably generated filter then \(\tau_{\F}\) is first countable and it follows that \(\tau_{\F}\) is Proximal.} \textcolor{red}{\sout{TODO: describe the winning strategy for player 1, it has to exist.}} \textbf{FIRST COOUNTABLE DOES NOT IMPLY PROXIMAL!}
+
+
+\subsubsection*{\dots of Covers}
+Given that our favourite topological group is essentially useless in terms of uniform covers and the proximal game, check to see if theres another way to go about dealing with uniformities in top groups or a way of modifying the Proximal game in order to obtain more meaningfull properties. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newpage
