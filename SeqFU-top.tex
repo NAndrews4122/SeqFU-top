@@ -49,7 +49,7 @@ ladder systems (more generally on so called square-sequence) described in two
         \item No sequence in \(A\) converges to \((\omega + 1, \infty)\). \checkmark
     \end{itemize}
 
-    \item Right way to think about sequences: \(A \subset X\) converges to \(a \in X\) if \(|A| = \aleph_0\) and for all neighboourhoods \(U_x \subset X\), \(|A \setminus U_x| < \aleph_0\).
+    \item Right way to think about sequences: \(A \subset X\) converges to \(a \in X\) if \(|A| = \aleph_0\) and for all neighboourhoods \(U_x \subset X\), \(|A - U_x| < \aleph_0\).
     
     \item Right way to think about Fréchet space: take sequential closure once same as closure.
     \item Another exercise: which \(\alpha_i\) properties does \(S_{\omega}\) have? \checkmark
@@ -126,7 +126,7 @@ ladder systems (more generally on so called square-sequence) described in two
     \item Discussed impliciations of conditions on filter \(\F\) when going from top space to top group 
     \item Questions:
     \begin{itemize}
-        \item If \(\F\) is FUF, is \(\tau_{\F}\) semiproximal?
+        \item If \(\F\) is FUF, is \(\tau_{\F}\) semiproximal? \textcolor{red}{no??? see prop 5.11}
         \item If \(\tau_{\F}\) is semiproximal, is \(\F\) countable generated?
         \item Assuming CH, does there exist filters \(\F_0, \F_1\) both FUF neither countably generated where \(\tau_{\F_0}\) is semiproximal but \(\tau_{\F_1}\) isn't.
     \end{itemize}    
@@ -151,8 +151,20 @@ ladder systems (more generally on so called square-sequence) described in two
     \item Check mathscinet for resources that could be helpful
 \end{enumerate}
 
-
-
+\subsection*{Wednesday June 25}
+\begin{enumerate}
+    \item Due to the imlicit assumption that \(\nothing \in a\Delta V_F \forall a\in\oml\forall F \in \F\) I was wrong about \(\st(p, V_F) = \oml\), in fact it is equal to \(z\Delta V_F\) where \(z = p - F\). 
+    \item Task: describe what the winning strategy for player 1 looks like in the proximal game on \(\tau_{\F}\) when \(\F\) is  countable generated:
+    \begin{itemize}
+        \item \(\{F_n: n < \omega\}\) generated \(\F\)
+        \item Game has 3 data: \((F_n, a_n, z_n)\), where \(z_n = a_n - F_n\)
+        \item Player 1 player \(F_{n_{k+1}} \subset F_{n_k}\) such that \(F_{n_{k+1}}\cap a_k = \nothing\)
+        \item 3 cases: \(\bigcap z_n = \nothing, < \aleph_0, = \aleph_0\)
+    \end{itemize}
+    \item Prove that \(\tau_{\F}\) is not proximal when \(\F\) is uncountably generated
+    \item with the above established, and a clearer picture of what \(\tau_{\F}\) looks like, attack Paul's questions.
+    
+\end{enumerate}
 \section{Set Theory}
 %\subsection{Ordinals and Cardinal}
 %\begin{defn}
@@ -252,7 +264,7 @@ Then a space that is Fréchet is also sequential. The following example shows th
 
  
 \begin{exam}
-    Let \(X^{\ast} = \omega \times (\omega + 1)\) be given the order topology and let \(X =  X^{\ast} \cup \{\infty\}\) where the neighboourhoods  of \(\infty\) are such that there exists \(p \in \omega\) such that \(|\{(m, n) \: : \: m > p, n \in \omega + 1\} \setminus U_{\infty}| < \aleph_0\). Then \(X\) is sequential but but not Fréchet. To see this, note that for all \(m \in \omega\) the sequence \(A_m = \{(m, n) \: : \: n \in \omega\}\) converges to \((m, \omega + 1)\) and moreover \(B = \{(m, \omega + 1) \: : \: m \in \omega\}\) is a sequence that converges to \(\infty\). Then \(A = \bigcup_{m \in \omega} A_m\) is such that \(\seqcl{\seqcl{A}} = X\), hence \(X\) is sequential. On the other hand there is no sequence in \(A\) that converges to \(\infty\). Suppose there were, say some \(\gamma \to \infty\). Then for all \(m \in \omega\), \(U_m = X \setminus \{(m, n)\: : \: n \in \omega + 1\}\) is a neighboourhood of \(\infty\) such that \(|\gamma \setminus U_m| < \aleph_0\). Hence \(\gamma\) has only finitely many terms belonging to each column. If \(\alpha_m = \max\{\gamma \cap \{(m, n) \: : \: n \in \omega\}\}\), then \(U = X \setminus \bigcup_{m \in \omega} \{(m ,n )\: : \:  n \leq \alpha_m\}\) is a neighbourhood of \(\infty\) disjoint from \(\gamma\), a contradiction. Hence \(X\) is not Fréchet. 
+    Let \(X^{\ast} = \omega \times (\omega + 1)\) be given the order topology and let \(X =  X^{\ast} \cup \{\infty\}\) where the neighboourhoods  of \(\infty\) are such that there exists \(p \in \omega\) such that \(|\{(m, n) \: : \: m > p, n \in \omega + 1\} - U_{\infty}| < \aleph_0\). Then \(X\) is sequential but but not Fréchet. To see this, note that for all \(m \in \omega\) the sequence \(A_m = \{(m, n) \: : \: n \in \omega\}\) converges to \((m, \omega + 1)\) and moreover \(B = \{(m, \omega + 1) \: : \: m \in \omega\}\) is a sequence that converges to \(\infty\). Then \(A = \bigcup_{m \in \omega} A_m\) is such that \(\seqcl{\seqcl{A}} = X\), hence \(X\) is sequential. On the other hand there is no sequence in \(A\) that converges to \(\infty\). Suppose there were, say some \(\gamma \to \infty\). Then for all \(m \in \omega\), \(U_m = X - \{(m, n)\: : \: n \in \omega + 1\}\) is a neighboourhood of \(\infty\) such that \(|\gamma - U_m| < \aleph_0\). Hence \(\gamma\) has only finitely many terms belonging to each column. If \(\alpha_m = \max\{\gamma \cap \{(m, n) \: : \: n \in \omega\}\}\), then \(U = X - \bigcup_{m \in \omega} \{(m ,n )\: : \:  n \leq \alpha_m\}\) is a neighbourhood of \(\infty\) disjoint from \(\gamma\), a contradiction. Hence \(X\) is not Fréchet. 
 \end{exam} 
 \begin{prop}
     If \(X\) is first countable then \(X\) is Fréchet.
@@ -272,7 +284,7 @@ The following example shows that the converse is not true.
 
 As the following example shows, the product of Fréchet spaces need not be Fréchet.
 \begin{exam}
-    Let \(X = (\omega + 1) \times S_\omega\), and consider the set \(A = \{(m, (m, n))\: : \:  m, n \in \omega\}\). If \(\infty^{\ast}\) is the identified point of \(S_{\omega}\), let \(\infty = \{\omega + 1\} \times \infty^{\ast}\). Then \(\infty \in \overline{A}\) but \(\infty \not \in \seqcl{A}\). The open neighboourhoods of \(\infty\) are are of the form \((\alpha, \omega + 1] \times\left(\bigcup_{m \in \omega}\{m\} \times (f(m), \infty^{\ast}]\right)\), which clearly always has non emtpy intersection with \(A\). Hence \(\infty \in \overline{A}\). To see that \(\infty \not \in \seqcl{A}\), suppose \(\gamma\) is a sequence in \(A\) that converges to \(\infty\). Since the sets \(U_k = (k, \omega + 1] \times\left(\bigcup_{m \in \omega}\{m\} \times (f(m), \infty^{\ast}]\right)\) are open neighbourhoods of \(\infty\) it must be the case that \(|\gamma \setminus U_k | < \aleph_0\) for all \(k \in \omega\). Thus  \(\gamma\cap\left(\{k\}\times\{k\}\times(1,\omega + 1]\right)\) is finite for every \(k\). Let \(h:\omega \to \omega\) be defined by \(h(k) = \max\{\pi_3(\gamma\cap\left(\{k\}\times\{k\}\times(1,\infty^{\ast}]\right)\} + 1\) for \(k \in \omega\). Pictorially, \(h\) is picking the point on each spine beyond which no elements of \(\gamma\) exist. Thus 
+    Let \(X = (\omega + 1) \times S_\omega\), and consider the set \(A = \{(m, (m, n))\: : \:  m, n \in \omega\}\). If \(\infty^{\ast}\) is the identified point of \(S_{\omega}\), let \(\infty = \{\omega + 1\} \times \infty^{\ast}\). Then \(\infty \in \overline{A}\) but \(\infty \not \in \seqcl{A}\). The open neighboourhoods of \(\infty\) are are of the form \((\alpha, \omega + 1] \times\left(\bigcup_{m \in \omega}\{m\} \times (f(m), \infty^{\ast}]\right)\), which clearly always has non emtpy intersection with \(A\). Hence \(\infty \in \overline{A}\). To see that \(\infty \not \in \seqcl{A}\), suppose \(\gamma\) is a sequence in \(A\) that converges to \(\infty\). Since the sets \(U_k = (k, \omega + 1] \times\left(\bigcup_{m \in \omega}\{m\} \times (f(m), \infty^{\ast}]\right)\) are open neighbourhoods of \(\infty\) it must be the case that \(|\gamma - U_k | < \aleph_0\) for all \(k \in \omega\). Thus  \(\gamma\cap\left(\{k\}\times\{k\}\times(1,\omega + 1]\right)\) is finite for every \(k\). Let \(h:\omega \to \omega\) be defined by \(h(k) = \max\{\pi_3(\gamma\cap\left(\{k\}\times\{k\}\times(1,\infty^{\ast}]\right)\} + 1\) for \(k \in \omega\). Pictorially, \(h\) is picking the point on each spine beyond which no elements of \(\gamma\) exist. Thus 
     \[
     W = (1, \omega + 1] \times\left(\bigcup_{n \in \omega}\{n\}\times(h(n), \infty^{\ast}]\right)
     \] 
@@ -287,7 +299,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \begin{defn}
     Let \(X\) be a topological space and \(\xi\) be a countable family of sequences converging to a point \(x \in X\). We say that \(x\) is an \(\alpha_i\) point for \(i = 1, 2, 3, 4\) if there exists a sequence \(B\) such that 
     \begin{itemize}
-        \item \(\alpha_1\):  \(|A \setminus B| < \aleph_0\) for every \(A \in \xi\);
+        \item \(\alpha_1\):  \(|A - B| < \aleph_0\) for every \(A \in \xi\);
         \item \(\alpha_2\): \(|A \cap B| = \aleph_0\) for every \(A \in \xi\);
         \item \(\alpha_3\): \(|A \cap B| = \aleph_0\) for infinitely many \(A \in \xi\);
         \item \(\alpha_4\): \(A \cap B \neq \nothing\) for infinitely many \(A \in \xi\).
@@ -298,7 +310,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \begin{exam}
     \(S_{\omega}\) is not even \(\alpha_4\). For each \(m \in \omega\) let \(A_m = \{m\} \times (1, \infty)\). Then \(\xi = \{A_m \: : \: m \in \omega\}\) is a countable collection of sequences converging to \(\infty\). Suppose \(B\) is a sequence that converges to \(\infty\) such that \(A\cap B \neq \nothing\) for infinitely many \(A \in \xi\). In particular let \(\alpha \leq \omega\) be such that \(A_i \cap B \neq \nothing\) for all \(i \in \alpha\) and let \(f:\alpha \to \omega\) be defined by \(f(k) \in B \cap A_k\) for all \(k \in \alpha\). Then 
     \[
-    U = \left(\bigcup_{k \in \alpha} \{k\} \times (f(k) + 1, \infty]\right)\times \left(\bigcup_{m \in \omega\setminus\alpha} \{m\} \times (1, \infty]\right)\] 
+    U = \left(\bigcup_{k \in \alpha} \{k\} \times (f(k) + 1, \infty]\right)\times \left(\bigcup_{m \in \omega-\alpha} \{m\} \times (1, \infty]\right)\] 
     is such that \(|B \cap U^C| = \aleph_0\), hence \(B\) does not converge to \(\infty\). 
 
 \end{exam}
@@ -307,13 +319,13 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
     X is \(\alpha_2\) iff whenever \(\xi\) is a countable collection of sequences converging to \(x\) there exists \(B \to x\) such \(A \cap B \neq \nothing\) for all many \(A \in \xi\).
 \end{exercise}
 \begin{soln}
-    The forward direction is obvious. Conversely, let \(\xi =\{A_1, A_2, \dots\}\) be a countable collection of sequences converging to \(x\). For every \(n\in \omega\) let \(\{a_{nm} \: : \: m \in \omega\}\) enumerate the elements of \(A_n\) and define \(A_{nm} = A_n \setminus \{a_{n1}, a_{n2}, \dots, a_{n,m-1}\}\) for each \(n,m \in \omega\). Then the \(A_{nm}\) still convege to \(x\) and  \(\A = \{A_{nm} \: : \: n,m \in \omega \}\) is a sheaf at \(x\). By hypothesis there exists a \(B\) converging to \(x\) that meets each \(A_{nm}\), and thus meets each \(A_n\) in an infinite set.
+    The forward direction is obvious. Conversely, let \(\xi =\{A_1, A_2, \dots\}\) be a countable collection of sequences converging to \(x\). For every \(n\in \omega\) let \(\{a_{nm} \: : \: m \in \omega\}\) enumerate the elements of \(A_n\) and define \(A_{nm} = A_n - \{a_{n1}, a_{n2}, \dots, a_{n,m-1}\}\) for each \(n,m \in \omega\). Then the \(A_{nm}\) still convege to \(x\) and  \(\A = \{A_{nm} \: : \: n,m \in \omega \}\) is a sheaf at \(x\). By hypothesis there exists a \(B\) converging to \(x\) that meets each \(A_{nm}\), and thus meets each \(A_n\) in an infinite set.
 \end{soln}
 
 \subsection{\(\Psi\)-like spaces}
 
 \begin{defn}
-    Let \(D\) be a countable set and let \(\A \subset \P(D)\) be an ADF. Define a topology on \(X = D \cup \A\) such that the points of \(D\) are isolated and \(D\) is dense in \(X\). Then for every \(A \in \A\) attach a point \(z_A\) where the nbhds of \(z_A\) consist of all sets of the form \(B(A, F) = \{z_A\} \cup (A \setminus F)\) where \(F \subset A\) is finite.
+    Let \(D\) be a countable set and let \(\A \subset \P(D)\) be an ADF. Define a topology on \(X = D \cup \A\) such that the points of \(D\) are isolated and \(D\) is dense in \(X\). Then for every \(A \in \A\) attach a point \(z_A\) where the nbhds of \(z_A\) consist of all sets of the form \(B(A, F) = \{z_A\} \cup (A - F)\) where \(F \subset A\) is finite.
 \end{defn}
 
 \begin{prop}
@@ -321,7 +333,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \end{prop}
 
 \begin{proof}
-    To check Hausdorffness it suffices to show \(Z = X\setminus D\) is Hausdorff. Let \(z_1, z_2 \in Z\). Then \(z_1, z_2\) correspond to sets \(A_1, A_2\) such that \(A_1 \cap A_2 = I\) is finite. Then \(B(A_1, I)\) and \(B(A_2, I)\) are disjoint open sets containing \(z_1, z_2\) respectively. 
+    To check Hausdorffness it suffices to show \(Z = X- D\) is Hausdorff. Let \(z_1, z_2 \in Z\). Then \(z_1, z_2\) correspond to sets \(A_1, A_2\) such that \(A_1 \cap A_2 = I\) is finite. Then \(B(A_1, I)\) and \(B(A_2, I)\) are disjoint open sets containing \(z_1, z_2\) respectively. 
 
     To see that \(X\) is locally compact, note that \(\{x\}\) is a compact neighbourhood base for all \(x \in D\). Local compactness of \(Z\) follows from the fact that by design each \(z_A \in Z\) is the limit of \(A\) viewed as a sequence. In other words, whenever \(B(A_z, F)\) is a basic nbhd of \(z_A\), any open cover will have a smaller nbhd \(B(A_z, F')\) that omits only finitely many points.
 \end{proof}
@@ -333,7 +345,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \subsection{Constructing Examples of \(\alpha_i\) Spaces}
 \subsubsection{Squares of \(\alpha_i\) Spaces} 
 \begin{exam}
-    If \(X, Y\) are \(\alpha_1\), then so is \(X \times Y\). Let \(\xi = \langle \xi_n \: : \: n \in \omega \rangle \) be a  sheaf at some \(x\times y \in X \times Y\). Then \(\pi_i(\xi) := \langle \pi_i(\xi_n) \: : \: n \in \omega\rangle\) is a sheaf at \(\pi_i(x\times y)\) in \(X, Y\) respectively for \(i = 1, 2\). Hence there exists \(\alpha_1\) sequences \(B_x, B_y\) for \(\pi_i(\xi)\). Letting \(M_n = \max\{k \in \omega \: : \: x_{n,k} \not \in \pi_1(\xi_n) \vee y_{n,k} \not \in \pi_2(\xi_n)\} \) for each \(n \in \omega\), the sequence \(B = \bigcup_{n \in \omega}B_x \cap (\xi_n\setminus {x_{n1}, \dots, x_{n, M_n}}) \times B_y \cap (\xi_n\setminus {y_{n1}, \dots, y_{n, M_n}})\) is as desired.
+    If \(X, Y\) are \(\alpha_1\), then so is \(X \times Y\). Let \(\xi = \langle \xi_n \: : \: n \in \omega \rangle \) be a  sheaf at some \(x\times y \in X \times Y\). Then \(\pi_i(\xi) := \langle \pi_i(\xi_n) \: : \: n \in \omega\rangle\) is a sheaf at \(\pi_i(x\times y)\) in \(X, Y\) respectively for \(i = 1, 2\). Hence there exists \(\alpha_1\) sequences \(B_x, B_y\) for \(\pi_i(\xi)\). Letting \(M_n = \max\{k \in \omega \: : \: x_{n,k} \not \in \pi_1(\xi_n) \vee y_{n,k} \not \in \pi_2(\xi_n)\} \) for each \(n \in \omega\), the sequence \(B = \bigcup_{n \in \omega}B_x \cap (\xi_n- {x_{n1}, \dots, x_{n, M_n}}) \times B_y \cap (\xi_n- {y_{n1}, \dots, y_{n, M_n}})\) is as desired.
 \end{exam}
 
 \subsubsection{Misc \(\alpha_i\) Spaces}
@@ -359,7 +371,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
     
     To see that \(\F\) is a \(\pi\)-network, let \(U\) be an open nbhd of \(\infty\). Then \(U = \bigcup_{k \in \omega} \{k\} \times (f(k), \infty]\) for some \(f \in \, ^{\omega}\omega\). Letting \(m = f(1) + 1\) and \(n = f(m) + 1\), then \(F_m^n \subset U\).
 
-    Suppose \(\G \subset \F\) converges to \(\infty\). Then since \(V_n = S_{\omega}\setminus \left(\{1\} \times (1, n]\right)\) is an open nbhd of \(\infty\) for each \(n \in \omega\), we see that the sets \(\{G \in \G \: : \: G \not \subset V_n\}\) are each finite. In particular, this shows that there are only finitely many \(G \in \G\) that meet each column, hence for each \(n \in \omega\) there exists \(a_n \in \omega\) such that for all \(b \geq a_n\), \(F_n^b \not \in \G\). Letting \(g:\omega \to \omega\) be defined by \(g(n) = a_n\) we obtain the open nbhd \(W = \bigcup_{n \in \omega} \{n\} \times (g(k), \infty]\) which is such that \(G \not \in W\) for all \(G \in \G\), i.e. \(\{G \in \G \: : \: G \not \subset W\}\) is infinite so that \(\G\) does not converge to \(\infty\).
+    Suppose \(\G \subset \F\) converges to \(\infty\). Then since \(V_n = S_{\omega}- \left(\{1\} \times (1, n]\right)\) is an open nbhd of \(\infty\) for each \(n \in \omega\), we see that the sets \(\{G \in \G \: : \: G \not \subset V_n\}\) are each finite. In particular, this shows that there are only finitely many \(G \in \G\) that meet each column, hence for each \(n \in \omega\) there exists \(a_n \in \omega\) such that for all \(b \geq a_n\), \(F_n^b \not \in \G\). Letting \(g:\omega \to \omega\) be defined by \(g(n) = a_n\) we obtain the open nbhd \(W = \bigcup_{n \in \omega} \{n\} \times (g(k), \infty]\) which is such that \(G \not \in W\) for all \(G \in \G\), i.e. \(\{G \in \G \: : \: G \not \subset W\}\) is infinite so that \(\G\) does not converge to \(\infty\).
 \end{exam}
 \begin{prop}
     If \(X\) is first countable then \(X\) is FUF.
@@ -380,7 +392,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
     Let \(\F\) be a filter on \([\omega]^{\omega}\). If \(\F\) is countably generated then \(\F\) has pseudo-intersection.
 \end{lem}
 %\begin{proof}
-%    Suppose \(\{F_n : n < \omega\}\) generates \(\F\). Let \%(a_n \in (\bigcap_{i < n}F_i)\setminus\{a_i:i<n\}\). Then \%(\{a_n:n<\omega\} \asubset F\) for all \(F \in \F\).
+%    Suppose \(\{F_n : n < \omega\}\) generates \(\F\). Let \%(a_n \in (\bigcap_{i < n}F_i)-\{a_i:i<n\}\). Then \%(\{a_n:n<\omega\} \asubset F\) for all \(F \in \F\).
 %\end{proof}
 
 \begin{prop}
@@ -424,7 +436,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
  
 %Topological groups provide a natural way of defining uniform covers on \(G\). Fix \(V\) an open set containing \(e\) and let \(\U = \{gV \: : \: g \in G\}\). Then \(G\) is a uniform cover. (check this)
 
-We will often construct topological groups from topological space. Take \(X = \{\infty\} \cup \omega\) with the points of \(\omega\) isolated and let \(\F\) a filter on \(\omega\). Then \(G = [\omega]^{<\omega}\) with the operation symmetric difference \(\Delta: G \times G \to G\) defined by \(a\Delta b = a\setminus b \cup b\setminus a\) and \(\nothing\) the identity will be our group. For each \(U \in \F\) set \(V_U \subset [\omega]^{<\omega}\) where \(V_U = \{a \in [\omega]^{<\omega}: a \subset U\}\). Then \(\V = \{V_U : U \in \F\}\) is a nbhd base at \(\nothing\) and \(\tau_{\F} = \{a\Delta V_U : a \in [\omega]^{<\omega}, U 
+We will often construct topological groups from topological space. Take \(X = \{\infty\} \cup \omega\) with the points of \(\omega\) isolated and let \(\F\) a filter on \(\omega\). Then \(G = [\omega]^{<\omega}\) with the operation symmetric difference \(\Delta: G \times G \to G\) defined by \(a\Delta b = a- b \cup b- a\) and \(\nothing\) the identity will be our group. For each \(U \in \F\) set \(V_U \subset [\omega]^{<\omega}\) where \(V_U = \{a \in [\omega]^{<\omega}: a \subset U\}\). Then \(\V = \{V_U : U \in \F\}\) is a nbhd base at \(\nothing\) and \(\tau_{\F} = \{a\Delta V_U : a \in [\omega]^{<\omega}, U 
 \in \F\}\) is a base for a topology on \(G\).
 
 \begin{prop}
@@ -450,6 +462,19 @@ We will often construct topological groups from topological space. Take \(X = \{
 Let \(x \in X\) be a point chosen before the start of game. On turn zero, player 1 chooses an open nbhd \(U_0\) of \(x\) and player 2 chooses a point \(x_0 \in U_0\); on the \(n\)'th turn player one chooses an open nbhd \(U_n\) of \(x\) and player 2 chooses a point \(x_n \in U_n\). Player 1 wins if the sequence of points \(\{x_n \: : \: n \in \omega\}\) converges to \(x\).
 
 Formally, we can describe a strategy for player 1 as a mapping \(\sigma: [X]^{<\omega} \to \O_x\) from finite sequences in \(X\) to the collection of open sets containing \(x\) where \(\sigma(\nothing) = X\). In particular we say that \(\langle x_n \: : \: n \in \omega\rangle\) is a \(\sigma\)-sequence provided \(x_{n + 1} \in \sigma(\{x_1, \dots, x_n\})\) for all \(n\). We say that \(\sigma\) is a winning strategy if every \(\sigma\)-sequence converges to \(x\).
+
+
+%\begin{figure}[h]
+%    \centering
+%    \begin{tabular}{|c|c|c|c|c|c|c|}
+%        \hline
+%        \textbf{Open}  & \([G_0]_+^{<\omega}\) & & \([G_1]_%+{<\omega}\) & & & \dots \\
+%        \hline
+%        \textbf{Point} & & \(s_0\) & & \(s_1\) & & \dots \\
+%        \hline
+%    \end{tabular}
+%\end{figure}
+
 
 A strategy for play 2 is a mapping \(\tau: \S(x) \times \O_x \to X\) such that \(\tau(F, U) \in U\) for all \(F \in \S(x)\) and \(U \in \O_x\).
 
@@ -521,11 +546,20 @@ This game is due to Bell and is described as follows. Let \((X, \D)\) be a unifo
     As the elements of \(\D\) are symmetric, we have both \(x \in \ \rho\left(\langle x_1, \dots, x_n\rangle\right)[x_{n + 1}]\) and \(x \in \rho\left(\langle x_1, \dots, x_{n - 1}\rangle\right)[x_n]\), which implies \(x_{n + 1} \in \left(\rho\left(\langle x_1, \dots, x_n\rangle\right) +  \rho\left(\langle x_1, \dots, x_{n - 1}\rangle\right)\right)[x_n]\). Thus \(x_{n + 1} \in \rho\left(\langle x_1, \dots, x_{n - 1}\rangle\right)[x_n]\) as \(\rho\left(\langle x_1, \dots, x_{n - 1}\rangle\right) \supset \rho\left(\langle x_1, \dots, x_n\rangle\right)\) since \(\rho\) is a well defined strategy. Hence \(\langle x_n : n \in \omega \rangle\) is a \(\rho\)-sequence and \(x \in \bigcap_{n \in \omega}\rho\left(\langle x_1, \dots, x_{n - 1}\rangle\right)[x_n]\), which implies that \(\langle x_n \in \omega \: : \: n \in \omega\rangle\) must converge to \(x\), which follows by our assumption that \(X\) is Hausdorff.
 \end{proof}
 
-\begin{rem}[Proximal Game on Topological Groups]
-    The game is played the same but we note that the uniformities chosen by player 1 are formed as follows. On any given turn player 1 picks \(U \in \F\) which corresponds to \(D_U = \bigcup_{a \in [\omega]^{<\omega}}\left(a\Delta V_U\right)^2\). In terms of uniform covers we might can also talk about \(\U_U = \{(a\Delta V_U):a \in [\omega]^{<\omega}\}\). The game then proceeds as usual.
-\end{rem}
+\subsection{Proximal Game on Topological Groups}
 
+The game is played the same but we note that the uniformities chosen by player 1 are formed as follows. On any given turn player 1 picks \(U \in \F\) which corresponds to \(D_U = \bigcup_{a \in [\omega]^{<\omega}}\left(a\Delta V_U\right)^2\). In terms of uniform covers we might can also talk about \(\U_U = \{(a\Delta V_U):a \in [\omega]^{<\omega}\}\). The game then proceeds as usual.
 
+\begin{exam}
+    \((\bR, +)\) is Proximal. A winning strategy for player 1 consists of picking uniform covers of radius \(\frac{1}{2^k}\) on turn \(k\).
+\end{exam}
+
+\begin{prop}
+    There exists a first countable topological group \(\tau_{\F}\), where \(\F\) is FUF, that is not Proximal. 
+\end{prop}
+\begin{proof}
+    Let \(\F\) be the cofinite filter on \(\omega\) and consider \(\tau_{\F}\). First observe that for any \(p \in [\omega]^{< \omega}\) and any \(F \in \F\) that \(\st(p, \U_F) = [\omega]^{< \omega}\): let \(x \in [\omega]^{< \omega}\), let \(\alpha = = p \cap F^C\), let \(\beta = x \cap \alpha^C \cap F^C\). Then \(x, p \in (\beta\Delta\alpha)\Delta [F]^{< \omega}\). Thus any seqeunces of points and covers \(x_n\) and \(\U_{F_n}\) is such that \(\bigcap \st(x_n, \U_{F_n}) = [\omega]^{<\omega} (\neq \nothing)\) and player 2 is free to play an alternating sequence that doesn't converge (for example alternating between \(\{1\}\) and \(\{1, 2\}\)).
+\end{proof}
 \section{Musings}
 The point of this section is to keep track of thoughts relating to problems whose solutions are maybe not be clear or known (yet). 
 
@@ -542,19 +576,31 @@ The point of this section is to keep track of thoughts relating to problems whos
     \item \(x_n \to x \iff \{x_n\}\) is a network for \(\F\).
 \end{itemize}
 \begin{prop}
-    Let \(\F\) be cofinite filter on \(\omega\) and let \(\langle x_n :n < \omega\} \subset [\omega]^{<\omega}\) such that there exists \(k \in \omega\) such that 
+    Let \(\F\) be cofinite filter on \(\omega\) and let \(\langle x_n :n < \omega\} \subset [\omega]^{<\omega}\) such that \(x_n \to x\) for some \(x \in [\omega]^{<\omega}\). There exists \(k \in \omega\) such that \(x = \bigcap_{n > k}x_n\).
 \end{prop}
 \begin{proof}
-    
+    We show first that there exists \(k \in \omega\) such that \(x \subset \bigcap_{n > k}x_n\) and then show that the inclusion cannot be proper. Let \(p \in x\) and assume there is no \(k\) such that \(x \in  \bigcap_{n > k}x_n\). Then we can find a subsequence \(y_n\) such that \(p \not \in y_n\) for all \(n\). Let \(F = \omega- p\). Then \(p \in a\) for all \(a \in x\Delta V_F\), so that \(y_n \not \in x\Delta V_F\) for all \(n \in \omega\), contradiction. 
+
+    We have a \(k\) such that \(x \subset \bigcap_{n > k}x_n\). Suppose there's a \(b \in \bigcap_{n > k}x_n\) but \(b \not \in x\). Let \(F = \omega -\bigcap_{n > k}x_n\). Then \(b \not \in a\) for all \(a \in x\Delta V_F\) so that \(x_n \not \in x\Delta V_F\) for all \(n > k\).
 \end{proof}
+\begin{rem}
+    The above proposition goes only one way. Take 
+    \[
+        x_n = \begin{dcases}
+        \{1\} &  n \text{ is odd}\\
+        \{1, 2\} & n \text{ is even.}
+        \end{dcases}
+    \]
+    Then \(\bigcap_{n > k}x_n = \{1\}\) for all \(k < \omega\) but \(x_n \not \to \{1\}\) (or \(\{1, 2\}\)) . In fact \(x_n\) doesn't converge to anything. Firstly, take \(F = \omega - \{1, 2\}\), then \(2 \not \in a\) for all \(a \in \{1\}\Delta V_F\) but \(2 \in a\) for all \(a \in \{1, 2\}\Delta V_F\) so that neither \(\langle x_n \rangle \asubset \{1\}\Delta V_F\) nor \(\langle x_n \rangle \asubset \{1,2\}\Delta V_F\). Moreover, its clear that \(\langle x_n \rangle \not\asubset p\Delta V_F\) for any other \(p \in [\omega]^{<\omega}\).
+\end{rem}
 \subsubsection*{\dots of Stars}
 
-Let \(p \in [\omega]^{<\omega}\), let \(F \in \F\). What does \(S :=\st(p, V_F)\) look like?
+Let \(p \in [\omega]^{<\omega}\), let \(F \in \F\). What does \(S =\st(p, \U_F)\) look like?
 
 If \(p \subset F\), then
 \begin{itemize}
     \item \( p \in a\Delta V_F \iff p \not \subset a\)
-    \item \([\omega\setminus p]^{<\omega} \subset S\) (take \(x \in [\omega\setminus p]^{<\omega}\) and let \(a = x\cap F^C, b = x\cap F\), then \(x = a\Delta b\) and \(b \in V_F\) so \(x \in S\)).
+    \item \([\omega- p]^{<\omega} \subset S\) (take \(x \in [\omega- p]^{<\omega}\) and let \(a = x\cap F^C, b = x\cap F\), then \(x = a\Delta b\) and \(b \in V_F\) so \(x \in S\)).
 \end{itemize}
 If \(p \not\subset F\), then
 \begin{itemize}
@@ -566,7 +612,16 @@ Actually for any \(F \in \F\) and any \(p \in [\omega]^{<\omega}\), \(\st(p, V_F
 \begin{rem}
     The above shows that the only way for player 1 to wins in the proximal game on \(\tau_{\F}\) is for the sequence of points picked by player 2 to converges, i.e., the intersection of the stars will just always be the entire space. 
 \end{rem}
-
+\begin{rem}
+    Actually \(\tau_{\F}\) is not Proximal (at least when \(\F\) is the cofinite filter). Since the star of any point w.r.t. any \(F \in \F\) is always equal the entire space, there is nothing to prevent player 2 from picking a divergent sequence. So there is a first countable topological group that is not proximal.
+\end{rem}
+\textcolor{red}{\textbf{THE ABOVE IS ALL WRONG}}
+\begin{enumerate}
+    \item Due to the imlicit assumption that \(\nothing \in a\Delta V_F \forall a\in\oml\forall F \in \F\) I was wrong about \(\st(p, \U_F) = \oml\)
+    \item Actually for \(p \in \oml\) and \(F \in \F\), \(\st(p, \U_F) = z\Delta V_F\) where \(z = p - F\)
+    \item Note that for \(F \in \F\), \(V_F\) is a subgroup of \(\tau_{\F}\) and thus \(\U_F = \{a\Delta V_F\}\) is a partition of \(\tau_F\) (read set of cosets of \(\tau_F\)).
+    \item thus when player 2 picks points \(a_{n + 1} \in \st(a_n, \U_{F_n})\) it is really the case that player 2 is picking \(a_{n + 1}\) such that \(a_{n + 1} \equiv z_n \pmod {F_n}\) where \(z_n = a_n - F_n\)
+\end{enumerate}
 \subsubsection*{\dots of Intersections}
 
 Suppose \(\langle a_n:n < \omega\rangle \subset  [\omega]^{<\omega}\) and \(\langle F_n : n < \omega\rangle \subset \F\) and \(b \in \bigcap_{n < \omega} a_n \Delta V_{F_n}\). 
@@ -576,8 +631,37 @@ Suppose \(\langle a_n:n < \omega\rangle \subset  [\omega]^{<\omega}\) and \(\lan
     \item On the other hand, if \(b \in \bigcap_{n < \omega} a_n \Delta V_{F_n}\) and we want \(a_n \to b\), this would only be possible if \(b \not \subset F_n\) for all \(n > k\) for some \(k\).
 \end{itemize}
 
+\begin{lem}
+    Let \(\F\) be countable generated filter on \(\omega\), let \(\langle F_n : n < \omega\rangle\) be a sequence of generating sets, and let \(\langle a_n : n < \omega\rangle \subset \oml\). If the following holds for all \(n < \omega\):
+    \begin{itemize}
+        \item \(F_{n + 1} \cap a_n = \nothing\);
+        \item \(a_{n + 1} \equiv z_n \pmod {F_n}\) where \(z_n = a_n - F_n\)
+    \end{itemize}
+    then 
+    \begin{enumerate}
+        \item[a)] if \(\bigcap z_n\) is finite, then \(\langle a_n \rangle\) is a convergent sequence;
+        \item[b)] if \(\bigcap z_n\) is infinite, then \(\bigcap \st(a_n, \U_{F_n}) = \nothing\).
+    \end{enumerate}
+\end{lem}
+\begin{proof}
+    \leavevmode
+    \begin{enumerate}
+        \item[a)] If \(\bigcap z_n = \nothing\), then
+        \item[b)] 
+    \end{enumerate}
+\end{proof}
 \subsubsection*{\dots of Filters}
-The choice of \(\F\) directly determines the topological properties of \(\tau_{\F}\). Thus if \(\F\) is a countably generated filter then \(\tau_{\F}\) is first countable and it follows that \(\tau_{\F}\) is Proximal. \textcolor{red}{TODO: describe the winning strategy for player 1, it has to exist.}
+The choice of \(\F\) directly determines the topological properties of \(\tau_{\F}\). \sout{Thus if \(\F\) is a countably generated filter then \(\tau_{\F}\) is first countable and it follows that \(\tau_{\F}\) is Proximal.} \textcolor{red}{\sout{TODO: describe the winning strategy for player 1, it has to exist.}} \textbf{FIRST COOUNTABLE DOES NOT IMPLY PROXIMAL!}
+\textcolor{red}{...however second countable + metrizable \textit{does}, so in fact the strike through text is correct}
+
+%\subsubsection*{\dots of Covers}
+%Given that our favourite topological group is %essentially useless in terms of uniform covers and the %proximal game, check to see if theres another way to go %about dealing with uniformities in top groups or a way %of modifying the Proximal game in order to obtain more %meaningfull properties. 
+
+\subsection{(partial) Results}
+
+We know that secound countable and metrizable implies proximal, thus if \(\F\) is a countably generated filter on \(\omega\), it must be the case that \(\tau_F\) is Proximal. 
+
+Define a strategy for player 1 in the proximal game on \(\tau_F\) as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newpage
