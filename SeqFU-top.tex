@@ -154,16 +154,31 @@ ladder systems (more generally on so called square-sequence) described in two
 \subsection*{Wednesday June 25}
 \begin{enumerate}
     \item Due to the imlicit assumption that \(\nothing \in a\Delta V_F \forall a\in\oml\forall F \in \F\) I was wrong about \(\st(p, V_F) = \oml\), in fact it is equal to \(z\Delta V_F\) where \(z = p - F\). 
-    \item Task: describe what the winning strategy for player 1 looks like in the proximal game on \(\tau_{\F}\) when \(\F\) is  countable generated:
+    \item Task:  \checkmark describe what the winning strategy for player 1 looks like in the proximal game on \(\tau_{\F}\) when \(\F\) is  countable generated:
     \begin{itemize}
-        \item \(\{F_n: n < \omega\}\) generated \(\F\)
+        \item \(\{F_n: n < \omega\}\) generated \(\F\) 
         \item Game has 3 data: \((F_n, a_n, z_n)\), where \(z_n = a_n - F_n\)
         \item Player 1 player \(F_{n_{k+1}} \subset F_{n_k}\) such that \(F_{n_{k+1}}\cap a_k = \nothing\)
         \item 3 cases: \(\bigcap z_n = \nothing, < \aleph_0, = \aleph_0\)
     \end{itemize}
-    \item Prove that \(\tau_{\F}\) is not proximal when \(\F\) is uncountably generated
+    \item Prove that \(\tau_{\F}\) is not proximal when \(\F\) is uncountably generated \checkmark
     \item with the above established, and a clearer picture of what \(\tau_{\F}\) looks like, attack Paul's questions.
     
+\end{enumerate}
+
+\subsection*{Monday June 30}
+\begin{enumerate}
+    \item "correct" way to think about strategies and counterstrategies is to not think of them as functions, but rather to think of a play of the game as an infinite tree where each branch corresponds to a possible play by either player 1 or 2: Player 1 then has a winning strategy (proximal) if every path of the tree wins and Player 2 loses (semiproximal) if there exists at leat one path that wins for Player 1.
+    \item The goal now is to construct an uncountable filter that is semiproximal: 
+    \begin{itemize}
+        \item start again with the cofinite filter
+        \item at stage \(\alpha < \omega_1\) we have the sets added to the filter at each previous step \(\A = \{A_{\beta}: \beta < \alpha\}\) as well as a countable collection of sequences \(\B = \{B_{\beta} : \beta < \alpha\}\) 
+        \item still on stage \(\alpha\), we look at some "partial" strategy \(\rho\) for player 2 (i.e. a function defined on the elements of the filter existing so far)and look at the tree of all possible plays of the game w.r.t. \(\rho\)  and extend the filter (add a new element \(A_{\alpha}\)) such that there exists a bramnch of the decision tree corresponding to a a convergent sequence
+        \item Thhrough this process we essentially acountb for all partial sequences
+        \item The resulting filter is therefore semiproxiaml since we know any strategy for player 2 corresponds to a partial strategy which has a branch with a convergent seqeunces (i.e. losing for player 2) that would have been preserved after all remaining steps of construction
+        \item the previous item isn't exactly clear and may require more than CH, in partocular require \(\diamond\)
+    \end{itemize}
+    \item Look into \(\diamond\).
 \end{enumerate}
 \section{Set Theory}
 %\subsection{Ordinals and Cardinal}
@@ -554,12 +569,12 @@ The game is played the same but we note that the uniformities chosen by player 1
     \((\bR, +)\) is Proximal. A winning strategy for player 1 consists of picking uniform covers of radius \(\frac{1}{2^k}\) on turn \(k\).
 \end{exam}
 
-\begin{prop}
-    There exists a first countable topological group \(\tau_{\F}\), where \(\F\) is FUF, that is not Proximal. 
-\end{prop}
-\begin{proof}
-    Let \(\F\) be the cofinite filter on \(\omega\) and consider \(\tau_{\F}\). First observe that for any \(p \in [\omega]^{< \omega}\) and any \(F \in \F\) that \(\st(p, \U_F) = [\omega]^{< \omega}\): let \(x \in [\omega]^{< \omega}\), let \(\alpha = = p \cap F^C\), let \(\beta = x \cap \alpha^C \cap F^C\). Then \(x, p \in (\beta\Delta\alpha)\Delta [F]^{< \omega}\). Thus any seqeunces of points and covers \(x_n\) and \(\U_{F_n}\) is such that \(\bigcap \st(x_n, \U_{F_n}) = [\omega]^{<\omega} (\neq \nothing)\) and player 2 is free to play an alternating sequence that doesn't converge (for example alternating between \(\{1\}\) and \(\{1, 2\}\)).
-\end{proof}
+%\begin{prop}
+%    There exists a first countable topological group \(\tau_{\F}%\), where \(\F\) is FUF, that is not Proximal. 
+%\end{prop}
+%\begin{proof}
+%    Let \(\F\) be the cofinite filter on \(\omega\) and %consider \(\tau_{\F}\). First observe that for any \(p \in %[\omega]^{< \omega}\) and any \(F \in \F\) that \(\st(p, %\U_F) = [\omega]^{< \omega}\): let \(x \in [\omega]^{< %\omega}\), let \(\alpha = = p \cap F^C\), let \(\beta = x %\cap \alpha^C \cap F^C\). Then \(x, p \in %(\beta\Delta\alpha)\Delta [F]^{< \omega}\). Thus any %seqeunces of points and covers \(x_n\) and \(\U_{F_n}\) is %such that \(\bigcap \st(x_n, \U_{F_n}) = [\omega]^{<\omega} %(\neq \nothing)\) and player 2 is free to play an %alternating sequence that doesn't converge (for example %alternating between \(\{1\}\) and \(\{1, 2\}\)).
+%\end{proof}
 \section{Musings}
 The point of this section is to keep track of thoughts relating to problems whose solutions are maybe not be clear or known (yet). 
 
