@@ -112,8 +112,6 @@ ladder systems (more generally on so called square-sequence) described in two
     %\item paul says that in general there should be extra conditions on \(X\) in order that proximal implies W
     \item Exercises:
     \begin{itemize}
-        \item If \(X\) semi-proximal then is FUF?  \textcolor{red}{turns out this isn't known (yet)}
-        %\item \(X\) with one non-isolated point is such that Proximal implies W
         \item Is double arrow space Proximal?\checkmark
         \item Semi Proximal is \(\alpha_2\). \checkmark
     \end{itemize}
@@ -126,7 +124,7 @@ ladder systems (more generally on so called square-sequence) described in two
     \item Discussed impliciations of conditions on filter \(\F\) when going from top space to top group 
     \item Questions:
     \begin{itemize}
-        \item If \(\F\) is FUF, is \(\tau_{\F}\) semiproximal? \textcolor{red}{no??? see prop 5.11}
+        \item If \(\F\) is FUF, is \(\tau_{\F}\) semiproximal? \sout{\textcolor{red}{no??? see prop 5.11}}
         \item If \(\tau_{\F}\) is semiproximal, is \(\F\) countable generated?
         \item Assuming CH, does there exist filters \(\F_0, \F_1\) both FUF neither countably generated where \(\tau_{\F_0}\) is semiproximal but \(\tau_{\F_1}\) isn't.
     \end{itemize}    
@@ -176,9 +174,9 @@ ladder systems (more generally on so called square-sequence) described in two
         \item still on stage \(\alpha\), we look at some "partial" strategy \(\rho\) for player 2 (i.e. a function defined on the elements of the filter existing so far)and look at the tree of all possible plays of the game w.r.t. \(\rho\)  and extend the filter (add a new element \(A_{\alpha}\)) such that there exists a bramnch of the decision tree corresponding to a a convergent sequence
         \item Thhrough this process we essentially acountb for all partial sequences
         \item The resulting filter is therefore semiproxiaml since we know any strategy for player 2 corresponds to a partial strategy which has a branch with a convergent seqeunces (i.e. losing for player 2) that would have been preserved after all remaining steps of construction
-        \item the previous item isn't exactly clear and may require more than CH, in partocular require \(\diamond\)
+        \item the previous item isn't exactly clear and may require more than CH, in partocular require \(\diamondsuit\)
     \end{itemize}
-    \item Look into \(\diamond\).
+    \item Learn about \(\diamondsuit\).
 \end{enumerate}
 \section{Set Theory}
 %\subsection{Ordinals and Cardinal}
@@ -194,7 +192,7 @@ ladder systems (more generally on so called square-sequence) described in two
 %CH is indepenet of ZFC: first shown by Gödel to not be inconsistent with ZFC and later shown by Cohen that its %negation is also consistent. Alternatively we can formulatie of CH as: \(\omega_1 = \P(\omega) = \mathfrak{c}\) %where \(\mathfrak{c} = |\bR|\).
 
 \subsection{Some Interesting Cardinals}
-\subsubsection{Subsets of $^\omega\omega$ and Almost Disjoint Familes}
+\subsubsection{Subsets of ${}^\omega\omega$ and Almost Disjoint Familes}
 
 \begin{defn}
     Let \(\A\) be an infinite family of infinite subsets of \(\omega\). The family \(\A\) is said to be an almost disjoint family (ADF) of subsets of \(\omega\) if \(A \cap B \) is finite for any \(A,B \in \mathcal{A}\) with \(A \ne B\). By Zorn's lemma we can assume \(\A\) lives inside of a maximal (w.r.t. inclusion) family that is also pairwise disjoint. Such a family is a maximal almost disjoint family (MADF).
@@ -411,6 +409,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 %\end{proof}
 
 \begin{prop}
+\label{prop: uncountable FUF filter}
     Assume CH. Then there exists a FUF filter \(\F\) that is not countably generated.
 \end{prop}
 \begin{proof}
@@ -652,7 +651,7 @@ Suppose \(\langle a_n:n < \omega\rangle \subset  [\omega]^{<\omega}\) and \(\lan
 
 %\subsubsection*{\dots of Covers}
 %Given that our favourite topological group is %essentially useless in terms of uniform covers and the %proximal game, check to see if theres another way to go %about dealing with uniformities in top groups or a way %of modifying the Proximal game in order to obtain more %meaningfull properties. 
-
+\newpage
 \subsection{(partial) Results}
 
 \begin{observation}
@@ -692,7 +691,7 @@ In general, \textbf{Player I} plays covers from \(\A\) and on turn \(k+1\) \text
 \begin{proof}
     \leavevmode
     \begin{enumerate}
-        \item[a)] If \(\bigcap z_n = \nothing\), then
+        \item[a)] If \(\bigcap z_n = \nothing\), then \(a_n \subset F_n\) for all \(n < \omega\) and converge to \(\nothing\), as the \(F_n\) are a (decreasing) neighboourhood base at \(\nothing\). By similar reasoning, if \(\bigcup z_n = b \neq \nothing\) then the \(a_n\) converges to \(b\) by definition of the nbhd base at \(b\).
         \item[b)] Since \(z_n\cap F_n = \nothing\) for all \(n \in \omega\), \(b \in z_n \Delta F_n\) means that \(z_n \subset b\). Thus if there exists \(b \in \bigcap \st(a_n, \U_{F_n}) = \bigcap z_n\Delta F_n\), then \(z_n \subset b\) for all \(n\). Since the \(z_n\) are increasing and their union is infinite we have that \(b\) must be infinite, a contradiction since \(b \in \oml\).
     \end{enumerate}
 \end{proof}
@@ -723,6 +722,50 @@ In general, \textbf{Player I} plays covers from \(\A\) and on turn \(k+1\) \text
     \(\bigcap\st(a_n, \U_{F_n}) \neq\nothing\), or there is a minimum \(k\) such that \(F_k \neq \oml\), in which case \(z = a_k - F_k \neq \nothing\) and \(a_n \subset F_n\) for all \(n > k\) and \(z \in \bigcap\st(a_n, \U_{F_n})\). 
     \textcolor{red}{TODO:clean up and make more readable}
 \end{proof}
+
+\begin{prop}
+    Assuming CH, there exists an uncountably generated Semi Proximal filter \(\F\).
+\end{prop}
+\begin{proof}
+Start with \(\F_0\) any countably generated filter on \(\omega\), where \(\F_0\) is generated by \(\E_0 = \langle E_n^0:n < \omega\rangle\). Let \(\Sigma\) be the set of all of strategies for \textbf{Player II} on \(\tau_{\F_0}\) restricted to \(\E_0\), where \(\Sigma\) is enumerated as \(\{\sigma_{\alpha}:\alpha < \omega_1\}\). We build \(\F\) by recursion on \(\Sigma\).
+
+Fix \(\sigma_0 \in \Sigma\) and note that it loses for \textbf{Player II} since \(\F_0\) is Proximal and \textbf{Player I} has the winning strategy of playing inside of \(\E_0\). More precisely, there is a sequence \(\langle E_{n_k}^0: k < \omega \rangle \subset \E_0\) such that \(\langle \sigma_0\left(E_{n_k}^0\right):k < \omega\rangle\) converges with respect to \(\F_0\). Let \(B_0\) denote the convergent sequence and  let \(A_0 = E_0^0\cap B_0\), which is not an element of \(\F_0\).
+
+At stage \(\alpha\) assume that:
+\begin{enumerate}
+    \item[(1)] \(\A_{\alpha} = \{A_{\beta}:\beta < \alpha\}\) is such that \(A_i \not \subset A_j\) whenever \(i < j\);
+    \item[(2)] \(\F_{\beta} = \F_0\cup\left(\A_{\alpha}\setminus\{A_{\gamma}\}_{\gamma \geq \beta}\right)\) for all \(\beta < \alpha\) and each \(\F_{\beta}\) is generated by \(\E_{\beta} =\langle E_n^{\beta}:n < \omega\rangle\);
+    \item[(3)] \(\B_{\alpha} = \{B_{\beta}:\beta < \alpha\}\) where \(B_{\beta} = \langle \sigma_{\beta}(E_{n_k}^{\beta}):k < \omega\rangle\) converges to \(\F_{\beta}\) and \(B_{\beta} \asubset  A_{\gamma}\) for any \(\beta \leq \gamma < \alpha\).
+    %\item \(\Sigma_{\beta}\) is the set of all strategies for \textbf{Player II} on \(\F_{\beta}\) for \(\beta < \alpha\).
+\end{enumerate}
+Let \(\F_{\alpha} = \F_0 \cup \A_{\alpha}\) and let \(\Sigma_{\alpha} = \{\text{strategies on $\tau_{\F_\alpha}$}\}\). \(\F_{\alpha}\) is  generated by \(\E_{\alpha} = \langle E_n^{\alpha}: n < \omega \rangle\) and \textbf{Player I} can play from \(\E_{\alpha}\) to defeat any \(\sigma' \in \Sigma_{\alpha}\) since \(\F_{\alpha}\) is Proximal. However, in order to guarantee that \textbf{Player I} has enough winning counter strategies available in the future, we will insist that \textbf{Player I} plays from \(\E_{\beta}\) to defeat \textbf{Player II} any time \(\sigma'\) extends a \(\sigma_{\beta} \in \Sigma\) from a previous stage \(\beta\).  In particular, if \(\beta < \alpha\) and \(\sigma'\upharpoonright \F_{\beta} = \sigma_{\beta}\), then \(B_{\beta}\to\F_{\beta}\) and hence loses for \textbf{Player II} on \(\F_{\beta}\). By (3), we know that \textbf{Player I} can stick to their previous strategy by playing from \(\E_{\beta}\) to defeat \(\sigma'\) on \(\F_{\alpha}\) since \(B_{\beta} \to \F_{\alpha}\).
+
+Let \(\sigma_{\alpha} \in \Sigma\). We continue the construction by fixing \(\sigma \in \Sigma_{\alpha}\) such that \(\sigma\) extends \(\sigma_{\alpha}\). Let \(\langle E_{n_k}^{\alpha}: k < \omega \rangle \subset \E_{\alpha}\) be such that \(B_{\alpha} = \langle \sigma(E_{n_k}^{\alpha}): k < \omega \rangle\) converges to \(\F_{\alpha}\) and let \(A_{\alpha} = \bigcup_{n \in \omega}B_n \cap E_n^{\alpha}\) which is not in \(\F_{\alpha}\).
+
+Let \(\A = \{A_{\alpha}:\alpha < \omega_1\}\) and let \(\F = \F_0\cup\A\) be the resulting filter. Now any strategy \(\sigma\) for \textbf{Player II} on \(\tau_{\F}\) must agree with some \(\sigma_{\alpha}\) on \(\F_0\), so there is a \(B_{\alpha}\) that converges with respect to \(\F_{\alpha}\), and hence also \(\F\). So by playing inside of \(\E_{\alpha}\) \textbf{Player I} defeats \(\sigma\).
+
+%Thus \(\sigma\upharpoonright\F_0 = \sigma_{\alpha}\) for some \(\alpha\), so there is \(B_{\alpha} = \langle\sigma_{\alpha}(E_{n_k}^{\alpha}):k<\omega\rangle\) which converges with respect to \(\F_{\alpha}\), hence also \(\F\), and \textbf{Player I} defeats \(\sigma\).
+\end{proof}
+%\begin{proof}
+%Start with \(\F_0\) any countably generated filter on \(\omega\) and using %recurison on \(\Sigma_0 = \{\text{strategies on $\tau_{\F_0}$}\} = \{\sigma_{\alpha}%:\alpha < \omega_1\}\) we will construct our desired filter \(\F\).
+%
+%At stage 0 fix \(\sigma_0 \in \Sigma_0\) and note that since \(\F_0\) is generated %by \(\{E_n^0:n < \omega\}\) \(\sigma_0\) loses. In particular there exists a %sequence \(\langle E_{n_k}^0: k < \omega \rangle\) such that \(B_0 = \langle %\sigma_0(E_{n_k}^0):k < \omega\rangle\) converges with respect to \(\F_0\). Also, %let \(A_0 = E_0\cap B_0\).
+%
+%At stage \(\alpha\) assume that we have a collection of sets \(\A_{\alpha} = \{A_%{\beta}:\beta < \alpha\}\) such that if \(\F_{\beta} = \F_0\cup\left(\bigcup_%{i<\beta} \{A_i\}\right)\) then \(A_{\gamma} \not\in \F_{\beta}\) if \(\gamma > %\beta\). Note that \(\F_{\beta}\) is countably generated by \(\langle E_n^{\beta}:n %< \omega\rangle\) at each stage \(\beta < \alpha\). Assume also that we have a %collection of convergent sequences \(\B_{\alpha} = \{B_{\beta}:\beta < \alpha\}\) %were \(B_{\beta} \to \F_{\gamma}\) for any \(\beta \leq \gamma < \alpha\). Now, let %\(\F_{\alpha} = \F_0 \cup \A_{\alpha}\) and let \(\Sigma_{\alpha} = \{\text%{strategies on $\tau_{\F_\alpha}$}\}\). We fix \(\sigma_{\alpha} \in \Sigma_0\) and %check all those \(\sigma' \in \Sigma_{\alpha}\) such that either 
+%\begin{enumerate}
+    %\item[(1)] \(\sigma'\) extends \(\sigma_{\beta}\) where \(\beta < \alpha\); or
+    %\item[(2)] \(\sigma'\) extends \(\sigma_{\alpha}\).
+%\end{enumerate}
+%In the first case we note that since \(\sigma'\upharpoonright \F_{\beta} = \sigma_%{\beta}\) and \(B_{\beta} = \langle \sigma_{\beta}(E_{n_k}^{\beta}):k < %\omega\rangle\) (and hence loses for \textbf{Player II} on \(\F_{\beta}\)) that %\textbf{Player I} can stick to playing \(\langle E_{n_k}^{\beta}:k<\omega\rangle\) %to defeat \(\sigma'\) on \(\F_{\alpha}\). In the second case, since \(\F_{\alpha}\) %is countably generated there exists a sequence \(\langle E_{n_k}^{\alpha}: k < %\omega \rangle\) such that \(B_{\alpha} = \langle \sigma'(E_{n_k}^{\alpha}):k < %\omega\rangle\) converges with respect to \(\F_{\alpha}\) (and hence any \(\F_%{\beta}\), \(\beta < \alpha\)). We let \(A_{\alpha} = \bigcup_{n \in \omega}B_n %\cap E_n^{\alpha}\).
+%
+%Now let \(\F = \F_0\cup\A\) where \(\A = \{A_{\alpha}:\alpha < \omega_1\}\). Then %any strategy for \textbf{Player II} on \(\tau_{\F}\) \(\sigma: \F \to \oml\) must %agree with some \(\sigma_{\alpha}\) on \(\F_0\). Thus \(\sigma\upharpoonright\F_0 = %\sigma_{\alpha}\) for some \(\alpha\)  and hence \(B_{\alpha} = \langle\sigma_%{\alpha}^0(E_{n_k}^{\alpha}):k<\omega\rangle\) converges with respect to \(\F\). So %\textbf{Player I} knows that playing \(\langle E_{n_k}^{\alpha}:k<\omega\rangle\) %defeats \textbf{Player II} on \(\F_{\alpha}\) and sticks to the same strategy to %defeat \textbf{Player II} on \(\F\).
+%
+%
+%
+%    %The construction is similar to \ref{prop: uncountable FUF filter} with the %difference %that we do recursion on \({}^{<\omega_1}\omega = \{\sigma:\alpha %\to \omega: \alpha< %\omega_1\}\) (which are really the partial functions \%(\sigma: S(\F) \to \oml\), where %\(S(\F)\) are sequences of elements of \(\F_%{\alpha}^{\ast}\)) and that at stage \%(\alpha\) we are justified in finding a %convergent sequence \(B_{\alpha}\) since \%(\F\) is countably generated at each %stage (and is therefore proximal). Once the %construction is complete we know %that every partial function is
+%
+%    %\textcolor{red}{To complete the proof we will perhaps require $\diamondsuit$ %since %ultimately there are \(\P(\omega_1)\) many strategies available to %\textbf{Player II} %and we require a method to associate to each strategy \%(\sigma\) a partial function \%(\sigma'\) which  was dealt with at some stage \%(\alpha\) and therefore loses because %there is a convergent sequence \(B_%{\alpha}\).}
+%\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newpage
 %\bibliographystyle{plain}
