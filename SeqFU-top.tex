@@ -16,23 +16,68 @@
 
 
 \begin{document}
-\section{Introduction}
-\subsection{Outline of proposed research project}
 
-The text Counterexamples in Topology by Steen and Seebach has been a fabulous resource for students and
-researchers in Topology since its publication in 1970. The book was the product of an undergraduate research
-project funded by NSF and supervised by Steen and Seebach (and including then student Gary Gruenhage) to
-systematically survey important topological counterexamples. More recently James Dabbs has implemented a
-database on Github based on the Steen and Seebach textbook called Pi-Base (see \href{https://topology.pi-base.org/}{https://topology.pi-base.org/})
-and it is currently being maintained by Dabbs and Stephen Clontz. This resource has great potential to both
-researchers and advanced undergraduate and graduate students at the start of their research careers. There are
-still big gaps in the database's subject matter, especially in relation to research in and around Frechet-Urysohn
-spaces. There is a significant body of work, and especially interesting counterexamples, concerning Michael's
-class of bisequential spaces, Arhangel'skii's alpha-i spaces and several game theoretic formulations of
-convergence which do not yet appear in the Pi-Base. The project has two goals. The first, and most accessible,
-is to give a systematic survey of the recent research which will be implemented into the Pi-Base database. The
-second half of the project will be devoted to open problems related to a recent class of examples defined from
-ladder systems (more generally on so called square-sequence) described in two 
+\begin{titlepage}
+    \centering
+    \vfill
+    \vfill
+    \vfill
+    {\bfseries \LARGE
+        Sequential Spaces and Infinite Topological Games 
+    } 
+    \\
+    \vspace*{1cm}
+    {\large \bfseries  Nicolas Andrews \\ Supervised by Paul Szeptycki 
+    }   
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.6]{Graphics/cattails2.png}
+    \end{figure}
+    \vfill
+    {\large \bfseries  York University  \\ August 2025
+    }
+    \vfill
+    \vfill
+\end{titlepage}
+
+
+
+
+\tableofcontents
+
+
+
+
+\newpage
+%\section{Overview}
+\section{Introduction}
+
+The following notes document my progress learning the topology and set theory related to the study of sequential spaces in the summer of 2025. This was made possible by a NSERC USRA award and the generous help of my advisor Paul Szeptycki who met with me frequently to answer my questions and share with me his knowledge. I learned an incredible amount and hope to continue learning more in the future. The notes are mostly incomplete since I was often jumping from one topic to another and would abruptly cut an idea short. I wouldn't be surprised if there are many mistakes as well. Also I didn't bother to write \textit{everything} since I wasn't trying to write a self contained article. So if there's something missing its probably because its easy to find in a textbook.  My goal however was to capture most of the important definitions, and figure out for myself the proofs of certain examples of properties or spaces, or in the case where I was confronted with a difficult (or cryptically written) result, rewrite the proof in my own words. Paul also shared with me some questions that were interesting to him, and I did my best to work on those as well. Maybe this will lead to some new results, which is pretty cool, but if not, ultimately I am still very happy with all that I have learned. 
+
+
+
+%\subsection{Outline of proposed research project}
+
+%The text Counterexamples in Topology by Steen and Seebach has been a fabulous resource for students and
+%researchers in Topology since its publication in 1970. The book was the product of an undergraduate research
+%project funded by NSF and supervised by Steen and Seebach (and including then student Gary Gruenhage) to
+%systematically survey important topological counterexamples. More recently James Dabbs has implemented a
+%database on Github based on the Steen and Seebach textbook called Pi-Base (see \href{https://topology.pi-base.org/}{https://topology.pi-base.%org/})
+%and it is currently being maintained by Dabbs and Stephen Clontz. This resource has great potential to both
+%researchers and advanced undergraduate and graduate students at the start of their research careers. There are
+%still big gaps in the database's subject matter, especially in relation to research in and around Frechet-Urysohn
+%spaces. There is a significant body of work, and especially interesting counterexamples, concerning Michael's
+%class of bisequential spaces, Arhangel'skii's alpha-i spaces and several game theoretic formulations of
+%convergence which do not yet appear in the Pi-Base. The project has two goals. The first, and most accessible,
+%is to give a systematic survey of the recent research which will be implemented into the Pi-Base database. The
+%second half of the project will be devoted to open problems related to a recent class of examples defined from
+%ladder systems (more generally on so called square-sequence) described in two 
+
+
 
 \section{Meeting Log}
 \subsection*{Monday April 21} 
@@ -70,7 +115,6 @@ ladder systems (more generally on so called square-sequence) described in two
     \begin{itemize}
         \item \(\alpha_i\) and if \(\alpha_i\) then \(\alpha_{i + 1}\)
         \item bisequential
-        \item v-space (w-space exists already)
         \item if 1st countable then \(\alpha_1\) Frechet
         \item if bisequential then Frechet
         \item w-space iff Frechet and \(\alpha_2\)   
@@ -178,25 +222,75 @@ ladder systems (more generally on so called square-sequence) described in two
     \end{itemize}
     \item Learn about \(\diamondsuit\).
 \end{enumerate}
+\subsection*{Wednesday July 2}
+\begin{enumerate}
+    \item Ultimately \(\diamondsuit\) isn't necesaary for the construction of the uncountably generated semiproximal filter
+    \item start with countably generated filter, enumerate the strategies defined only on the sequences on the generateing 
+    \item CH is enough here since any strategy on full filter will extend one of the inital strategies
+    \item Discussion led to Paul conjecturing that it is possible to use MA to build uncountably generated filter that isn't semi proximal
+    \item Learn about \(\MA\) \checkmark 
+\end{enumerate}
+
+\subsection*{Monday July 7}
+\begin{enumerate}
+    \item We discussed the construction of the uncountably generated SP filter: everything seems fine
+    \item We talked about MA and the Baire category theorem
+    \item Exercise: Use \(\MA_{\omega_1}\) to show that uncountably generated filters have pseudo intersection. (Paul gave me much of the details I just need to verify them)
+    \item Once I show Paul I understand the basic ideas and constructions using MA we will be able to talk about the ideas he has regarding the uncoutnably generated not SP filter
+    \item Also we talked a bit about what a my poster presentation might look like for the NSERC conference: probably just give some definitions and pictures describing convergence, give some examples of sequences and neat spaces, like the Frechet fan, maybe I can describe the gruenhage game as well.
+\end{enumerate}
+
+\subsection*{Friday July 11}
+\begin{enumerate}
+    \item We chatted a bit about the nice community of set theorists in Toronto. The weekly set theory seminar at the Fields institute was started by Franklin Tall which played and continues to play an important role in the community of Set Theoriests in Toronto.
+    \item Increasignly Paul thinks that it must be the case that FUF implies SP
+    \item there is a result somewhere, maybe by Nyikos, that says that if \(\kappa < \mathfrak{c}\) and \(\F\) is a \(\kappa\)-generated filter, then \(\F\) is FUF.
+    \item Question: If player 2 has a winning strategy, then is it the case that the winning strategy can be translated so that the points picked by player 2 never "stick out" of the sets chosen by playuer 1
+    \item learn about \(\gamma\)-sets \checkmark
+    \item MA implies every \(X \subset \bR\) such that \(|X| < \mathfrak{c}\) is a \(\gamma\)-set
+    \item \(2^{\omega}\) with the product topology is the Cantor set and can essentially be view as a subset of \(\bR\), thus \(X \subset \bR\) would be a \(\gamma\)-set
+    \item exercise: there exists \(f:2^{\omega} \to [0, 1]\) that is at most 2 to 1.
+    \item fun fact: the cantor set is constructed by deleting intervals. Howqever the endpoints of those intervals remain, for example \(\frac{1}{9}\) and \(\frac{2}{3}\) are in the cantor set. By identifying the enpoints of each removed interval together (for example identify \(\frac{1}{3}\) with \(\frac{2}{3}\)) we obtain a quotient space that homeomorphic to the unit interval. Whats weird about this is that the cantor set has no interior, but by glueing those points together we recover the lost interior. Strange.
+    \item Two different topologies on \(2^{\omega}\)
+    \begin{itemize}
+        \item[(1)] an open set of \(f \in 2^{\omega}\) looks like \(U_f = \{g \in 2^{\omega}: f=^{\ast}g\}\cup\{g \in 2^{<\omega} : g=^{\ast}f\} \). The points of \(2^{\omega}\) are isolated. Note that the points of \(2^{\omega}\) are just given the product topology sincve they must agree at only finitely many coordinates.
+        \item[(2)] the open sets of \(f \in 2^{\omega}\) looks like \(U_f(n) = \{f\upharpoonright [n, \omega)\}\) ranging over the \(n\). Essentially taking the "final segments" of \(f\). Note that this space is Hausdorff (\(f\neq g \implies \exists m (f(m) \neq g(m))\), just take \(U_f(m)\) and \(U_g(m)\) as disjoint open sets). Its also locally compact, as each of the elements form a convergent space. 
+    \end{itemize}
+    \item Take the 2nd topology above. This is the space we now care about. We form a kind of \(\Psi\)-space from it by taking the 1 point compactification of it. The nbhds of \(\infty\) are those sets who are compact: removing finitely many \(f \in 2^{\omega}\) plus the intial \(\alpha\) levels of the tree would make an open nbhd of \(\infty\). 
+    \item Let \(X \subset 2^{\omega}\) and let \(I_X\) be the collection of all sets containing finitely many \(f \in X\) plus the intial \(\alpha\) levels of the tree, i.e. sets of the form \(\{A\cup 2^{\alpha}: A \subset X \text{ is finite}, \alpha < \omega\}\). This is an ideal. Let \(\F_X = I_X^{\ast}\) be its dual ideal. In his paper on the Cantor tree, Nyikos showed that this filter is FUF iff \(X\) is a \(\gamma\)-set. \textcolor{red}{does this answers point 2?}
+    \item Let \(X \subset 2^{\omega}\) be a \(\gamma\)-set and let \(\tau_{\F_X}\) be the topological group created from \(\F_X\) as defined above. Is \(\tau_{\F_X}\) Semi Proximal?
+\end{enumerate}
+\subsection*{Friday July 18}
+\begin{enumerate}
+    \item \(\gamma\)-sets to seems to be really important. Something to look at now is \(C_p(X)\), the space of continuous real valued functions from \(X\) with the topology of pointwise converge (or \(\bR^X\) with the product topology, same thing)
+    \item Paul showed me one direction of proof that \(C_p(X)\) is Frechet iff \(X\) is a \(\gamma\)-set.
+    \item The proof above involves an example of so called "selection" principles, which has to do with taking a collection of covers and selecting one set per cover in such a way as to produce a new cover. 
+    \item There exists (yet another) game that has to so with \(\omega\)-covers: In the \(n\)'th inning playr 1 picks \(\U_n\), an \(\omega\)-cover of \(X\), and player 2 picks \(A_n \in \U_n\). Player 2 wins if \(\{A_n\}_{n < \omega}\) is \textit{not} an \(\omega\)-cover of \(X\). 
+    \item This led Paul to the conjecture that the Proximal game on a \(\tau_{\F}\) might be equivalent to the \(\omega\)-game.
+    \item In fact, due to the similarity between many of the ideas we have seen Paul thinks it might be the case for any toplogical group that frechet is equivalent to semi proximal
+    \item Otherwise, we talked talked about the future of the project, as the summmer is coming slowly to an end. He said that we could work throughtout the upcoming school year.
+\end{enumerate}
+
+\newpage
 \section{Set Theory}
-%\subsection{Ordinals and Cardinal}
-%\begin{defn}
-%    \(\aleph_1 = \omega_1\) (not definition but kind of?)
-%\end{defn}
-%\begin{thm}
-%    \(|\P(\omega)| = |\bR|\).
-%\end{thm}
-%\begin{defn}[Continuum Hypothesis]
-%    CH is the statement \(2^{\aleph_0} = \aleph_1\).
-%\end{defn}
-%CH is indepenet of ZFC: first shown by Gödel to not be inconsistent with ZFC and later shown by Cohen that its %negation is also consistent. Alternatively we can formulatie of CH as: \(\omega_1 = \P(\omega) = \mathfrak{c}\) %where \(\mathfrak{c} = |\bR|\).
+
+\subsection{Ideals, Filters, Almost Disjoint Families}
+
+An ideal \(\I\) on a set \(X\) is a non-empty collection of subsets such that it is closed under finite unions and the taking of finite unions and that \(X \not\in \I\). Similarly, a filter is a collection of sets closed under finite intersections and the taking of supersets and doesn't contain the empty set. 
+
+If \(\I\) is an ideal, then we call \(\I^{\ast}\) the dual filter, where \(\I^{\ast} = \{X\setminus A : A \in \I\}\) and we call \(\I^+\) the collection of \(\I\)-positive sets, where \(\I^+ = \P(X)\setminus \I\).
+
+\begin{defn}
+    Let \(\A\) be an infinite family of infinite subsets of \(\omega\). The family \(\A\) is called an almost disjoint (AD) family of subsets of \(\omega\) if \(A \cap B \) is finite for any \(A,B \in \mathcal{A}\) with \(A \ne B\).
+\end{defn}
+By the Zorn-Kuratowski lemma we can assume \(\A\) lives inside of a maximal AD family \(\A'\), where by maximal it is meant: if \(B \not \in \A'\) then \(A\cap B\) is infinite for all \(A\in \A'\). Such a family is a maximal almost disjoint (MAD) family.
+
+Let \(\A\) be an AD family. We call \(\I(\A) = \{X \subset \omega : X \asubset \bigcup\B \text{ for some } \B \in [\A]^{<\omega}\}\) the ideal generated by \(\A\).
+If it is the case that for all \(X \in \I^+(\A) = \P(\omega) \setminus \I(\A)\) there is an infinite subset \(B \subset X\) such that \(B\) is almost disjoint from every \(A \in \A\), then \(\A\) is said to be \textit{nowehere MAD}. 
 
 \subsection{Some Interesting Cardinals}
 \subsubsection{Subsets of ${}^\omega\omega$ and Almost Disjoint Familes}
 
-\begin{defn}
-    Let \(\A\) be an infinite family of infinite subsets of \(\omega\). The family \(\A\) is said to be an almost disjoint family (ADF) of subsets of \(\omega\) if \(A \cap B \) is finite for any \(A,B \in \mathcal{A}\) with \(A \ne B\). By Zorn's lemma we can assume \(\A\) lives inside of a maximal (w.r.t. inclusion) family that is also pairwise disjoint. Such a family is a maximal almost disjoint family (MADF).
-\end{defn}
 \begin{defn}
     Define an order \(\leq^{\ast}\) on \(^\omega\omega\) where \(f <^{\ast} g\) if \(f(n) < g(n)\) for all but finitely many \(n \in  \omega\)
 \end{defn}
@@ -206,7 +300,7 @@ ladder systems (more generally on so called square-sequence) described in two
 \begin{defn}
     \leavevmode
     \begin{itemize}
-        \item \(\mathfrak{a} = \min\{|\A| \: : \: \A \text{ is infinte } \text{MADF}\}\)
+        \item \(\mathfrak{a} = \min\{|\A| \: : \: \A \text{ is infinte } \text{MAD family}\}\)
         \item \(\mathfrak{b} = \min\{|B| \: : \: B \text{ is } \leq^{\ast}\text{-unbounded subset of }^\omega\omega\}\)
         \item \(\mathfrak{d} = \min\{|D| \: : \: D \text{ is } \leq^{\ast}\text{-cofinal in } ^\omega\omega
         \}\)
@@ -248,6 +342,73 @@ ladder systems (more generally on so called square-sequence) described in two
         \item \(\mathfrak{p} = \min\{|\P| \: : \: \P \subset [\omega]^\omega\text{ is a family with the SFIP that has no pseudo-intersection}\}\)
     \end{itemize}
 \end{defn}
+\subsection{Martin's Axiom}
+Most of the following definitions are just copied from Kunen.
+\begin{defn}
+    A Forcing Poset \(\bP\) is a poset with maximum element \(\bO\). In other words, a kind of upside down rooted tree.
+\end{defn}
+\begin{defn}
+    A filter on a forcing poset \(\bP\) is a set \(G \subset \bP\) such that 
+    \begin{enumerate}
+        \item[(1)] \(\bO \in G\)
+        \item[(2)] \(p,q \in G \implies \exists r \in G\) such that \(r \leq p, q\)
+        \item[(3)] \(p \in G\) and \(p \leq q \implies q \in G\).
+    \end{enumerate}
+\end{defn}
+\begin{defn}
+    A set \(D \subset \bP\) is dense if for all \(p \in \bP\) there is \(q \in D\) such that \(q \leq p\).
+\end{defn}
+\begin{defn}
+    \(p, q \in \bP\) are said to be comparable if there exists \(r \in \bP\) such that \(r \leq p, q\). If no such \(r\) exists then \(p, q\) are called incomparable.
+
+    \(A \subset \bP\) has the countable chain condition (ccc) if the elements of \(A\) are pairwise incomparable.
+\end{defn}
+The term antichain is quite picturesque and comes from the poset \((\P(X), \subset)\) where incomparable just means disjoint. So anti chain is literally the opposite of chain.
+\begin{defn}[Martin's Axiom]
+    \leavevmode
+    \begin{itemize}
+        \item \(\MA_{\kappa}\) is the statement "For any forcing poset with the ccc, if \(\D\) is collection of \(\kappa\) many dense sets, then there exists a filter \(G\) that meets every \(D \in \D\)."
+        \item MA is the statement "\(\MA_{\kappa}\) holds for all \(\kappa < \mathfrak{c}\).
+    \end{itemize}
+\end{defn}
+ The filter in the above definition has a special name: it is called "Generic with respect to \(\D\)"
+
+ The usefulness of MA is that is allows to carry out constructions using "finite approximation". In contrast, the \(\diamondsuit\) principle allows "approximate" recursion, in the sense that we can give  properties to \(\omega_1\) many objects in only \(\omega\) steps. MA is similar, in that we use it to build objects with \(\omega_1\) many properties, but this without recurison. Instead, we use forcing posets and familes of dense subsets (which guarantee some kind of conditions) and use the existence of generic filter to obtain our desired object. 
+
+ \begin{exam}
+    \(\MA_{\omega_1}\) implies that every uncountably generated filter has pseudo-intersection. 
+ \end{exam}
+ \begin{proof}
+    Let \(\F\) be uncountably generated filter. Let \(P = \{(s, A) : s \in \oml, A \in \omm\}\) and say that \((s, A) \leq (t, B)\) if 
+    \begin{enumerate}
+        \item[(1)] \(s \supset t\)
+        \item[(2)] \(A \supset B\)
+        \item[(3)] \(s - t \subset \bigcap_{\beta \in B} F_{\beta}\).
+    \end{enumerate}
+    Let \(E_n = \{(s, A): |s| > n\}\) and let \(D_{\alpha} = \{(s, A) : \alpha \in A\}\). Each \(E_n\) is dense since for any \(p = (s, A) \in \bP\), if \(|s| < n\) then we can  pick enough points from \(\omega - s\) and add them to \(s\) to obtain \(s'\) so that \(|s'| > n\). THen \(E_n \ni p' = (s', A) < p\). Similary, the \(D_{\alpha}'s\) are dense since \(D_{\alpha} \ni p' = (s, A') < p\) where \(A' = A \cup \{\alpha\}\).
+
+    By MA there is a filter \(G\) in \(\bP\) such that \(G\) meets each \(E_n\) and \(D_{\alpha}\).  Letting \(X = \{s : \exists A((s,A))\)
+ \end{proof}
+
+\subsection{Trees}
+
+Trees are similar to posets, the difference being that for any element, the set of initial segments must form a chain. In other words
+
+\begin{defn}
+    A tree \(T\) is poset \((T, <_T)\) such that for any \(t \in T\) the set \(t^{\uparrow} = \{t' \in T: t' \leq t\}\) is a chain. We refer often to the levels of a tree where the \(\alpha\)'th level is \(\L_{\alpha} = \{t \in T: \type(t) = \alpha\}\).
+\end{defn}
+ 
+\begin{exam}
+    Let \(T = 2^{< \omega}\) be the set of all finite binary strings. We can identify the cantor set \(C\) with \(2^{\omega}\) if in the ternary expansion of any element \(p \in C\) we rplace the 2s with 1s. The \textit{Cantor Tree} is \(C_T = T \cup C\). We can view an point of \(C\) as sitting "above" the chain of finite partial sequences which converges to that point in the regular sense. 
+\end{exam}
+There are several different ways to topologize a tree, but the most common is to use the \textit{interval} (or \textit{tree}) topology which has as a base all sets of the form \((s, t] = \{s < t' \leq t\) or \(\{t\}\) in the case where \(t\) is a minimal element of \(T\).
+
+\begin{exam}
+    Let \(C_T\) be the Cantor tree with the interval topology and consider \(C_T + \infty\), its one point compactification. As usual, nbhds of \(\infty\) look like compliments of compact sets, so in this case a nbhd will look like the compliment of a finite collection of branches or levels. 
+\end{exam}
+ Another topology is the Cone Topology, where instead  of taking the tails of branches, we instead take the "cones" of succesors. This topology has as a base sets of the form
+
+\newpage
 \section{Topology}
 \subsection{Sequential and Fréchet Spaces}
 
@@ -265,10 +426,13 @@ ladder systems (more generally on so called square-sequence) described in two
 \end{fact}
 
 \begin{defn}
-    A space \(X\) is said to be Fréchet if \(\seqcl{A} = \overline{A}\) for all \(A \subset X\).
+    A space \(X\) is Fréchet if \(\seqcl{A} = \overline{A}\) for all \(A \subset X\).
 \end{defn}
 \begin{exam}
     Let \(X = \omega_1 + 1\) with the order topology. \(X\) is not Fréchet, since any sequence \((x_n) \in \omega_1\) cannot converge to \(\infty\), as otherwise \(\omega_1 = \sup\{x_n \: : \: n \in \bN\}\), a contradiction.
+\end{exam}
+\begin{exam}
+    The one point compactification of the Cantor Tree \(C_T + \infty\) is Frechet.
 \end{exam}
 \begin{defn}
     A space \(X\) is sequential if any closed set \(A \subset X\) is equal to its total sequential closure.
@@ -297,6 +461,7 @@ The following example shows that the converse is not true.
 
 As the following example shows, the product of Fréchet spaces need not be Fréchet.
 \begin{exam}
+    \label{ex: Frechet Product 1}
     Let \(X = (\omega + 1) \times S_\omega\), and consider the set \(A = \{(m, (m, n))\: : \:  m, n \in \omega\}\). If \(\infty^{\ast}\) is the identified point of \(S_{\omega}\), let \(\infty = \{\omega + 1\} \times \infty^{\ast}\). Then \(\infty \in \overline{A}\) but \(\infty \not \in \seqcl{A}\). The open neighboourhoods of \(\infty\) are are of the form \((\alpha, \omega + 1] \times\left(\bigcup_{m \in \omega}\{m\} \times (f(m), \infty^{\ast}]\right)\), which clearly always has non emtpy intersection with \(A\). Hence \(\infty \in \overline{A}\). To see that \(\infty \not \in \seqcl{A}\), suppose \(\gamma\) is a sequence in \(A\) that converges to \(\infty\). Since the sets \(U_k = (k, \omega + 1] \times\left(\bigcup_{m \in \omega}\{m\} \times (f(m), \infty^{\ast}]\right)\) are open neighbourhoods of \(\infty\) it must be the case that \(|\gamma - U_k | < \aleph_0\) for all \(k \in \omega\). Thus  \(\gamma\cap\left(\{k\}\times\{k\}\times(1,\omega + 1]\right)\) is finite for every \(k\). Let \(h:\omega \to \omega\) be defined by \(h(k) = \max\{\pi_3(\gamma\cap\left(\{k\}\times\{k\}\times(1,\infty^{\ast}]\right)\} + 1\) for \(k \in \omega\). Pictorially, \(h\) is picking the point on each spine beyond which no elements of \(\gamma\) exist. Thus 
     \[
     W = (1, \omega + 1] \times\left(\bigcup_{n \in \omega}\{n\}\times(h(n), \infty^{\ast}]\right)
@@ -321,7 +486,7 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \end{defn}
 
 \begin{exam}
-    \(S_{\omega}\) is not even \(\alpha_4\). For each \(m \in \omega\) let \(A_m = \{m\} \times (1, \infty)\). Then \(\xi = \{A_m \: : \: m \in \omega\}\) is a countable collection of sequences converging to \(\infty\). Suppose \(B\) is a sequence that converges to \(\infty\) such that \(A\cap B \neq \nothing\) for infinitely many \(A \in \xi\). In particular let \(\alpha \leq \omega\) be such that \(A_i \cap B \neq \nothing\) for all \(i \in \alpha\) and let \(f:\alpha \to \omega\) be defined by \(f(k) \in B \cap A_k\) for all \(k \in \alpha\). Then 
+    \(S_{\omega}\) is not even \(\alpha_4\). For each \(m \in \omega\) let \(A_m = \{m\} \times (1, \infty)\). Then \(\xi = \{A_m \: : \: m \in \omega\}\) is a countable collection of sequences converging to \(\infty\). Suppose \(B\) is a sequence that converges to \(\infty\) such that \(A\cap B \neq \nothing\) for infinitely many \(A \in \xi\). In particular let \(\alpha < \omega\) be such that \(A_i \cap B \neq \nothing\) for all \(i \in \alpha\) and let \(f:\alpha \to \omega\) be defined by \(f(k) \in B \cap A_k\) for all \(k \in \alpha\). Then 
     \[
     U = \left(\bigcup_{k \in \alpha} \{k\} \times (f(k) + 1, \infty]\right)\times \left(\bigcup_{m \in \omega-\alpha} \{m\} \times (1, \infty]\right)\] 
     is such that \(|B \cap U^C| = \aleph_0\), hence \(B\) does not converge to \(\infty\). 
@@ -334,11 +499,12 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 \begin{soln}
     The forward direction is obvious. Conversely, let \(\xi =\{A_1, A_2, \dots\}\) be a countable collection of sequences converging to \(x\). For every \(n\in \omega\) let \(\{a_{nm} \: : \: m \in \omega\}\) enumerate the elements of \(A_n\) and define \(A_{nm} = A_n - \{a_{n1}, a_{n2}, \dots, a_{n,m-1}\}\) for each \(n,m \in \omega\). Then the \(A_{nm}\) still convege to \(x\) and  \(\A = \{A_{nm} \: : \: n,m \in \omega \}\) is a sheaf at \(x\). By hypothesis there exists a \(B\) converging to \(x\) that meets each \(A_{nm}\), and thus meets each \(A_n\) in an infinite set.
 \end{soln}
+\subsection{Examples of Spaces}
 
-\subsection{\(\Psi\)-like spaces}
+\subsubsection{\(\Psi\) spaces}
 
 \begin{defn}
-    Let \(D\) be a countable set and let \(\A \subset \P(D)\) be an ADF. Define a topology on \(X = D \cup \A\) such that the points of \(D\) are isolated and \(D\) is dense in \(X\). Then for every \(A \in \A\) attach a point \(z_A\) where the nbhds of \(z_A\) consist of all sets of the form \(B(A, F) = \{z_A\} \cup (A - F)\) where \(F \subset A\) is finite.
+    Let \(D\) be a countable set and let \(\A\) be an AD family on \(D\). Define a topology on \(X = D \cup \A\) such that the points of \(D\) are isolated and the nbhds of any point \(A \in \A\) looks like \(B(A, F) = \{A\} \cup (A - F)\) where \(F \subset A\) is finite. Such a space is called a \(\Psi\) space (or also a Mrowka space) and is denoted \(\Psi(D, \A)\), or just \(\Psi(\A)\) if \(D\) is clear from context.
 \end{defn}
 
 \begin{prop}
@@ -350,12 +516,46 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
 
     To see that \(X\) is locally compact, note that \(\{x\}\) is a compact neighbourhood base for all \(x \in D\). Local compactness of \(Z\) follows from the fact that by design each \(z_A \in Z\) is the limit of \(A\) viewed as a sequence. In other words, whenever \(B(A_z, F)\) is a basic nbhd of \(z_A\), any open cover will have a smaller nbhd \(B(A_z, F')\) that omits only finitely many points.
 \end{proof}
-
+The one point compactification of a \(\Psi\) space \(\Psi(\A)\) is called Franklin Compactum and is denoted \(F(\A)\).
 \begin{prop}
-    The one point compactification of a \(\Psi\)-like space of cardinality \(<\mathfrak{a}\) is Fréchet. 
+    \label{prop: Franklin Compactum}
+    Let \(\A\) be an AD family and let \(F(\A)\) be its Franklin Compactum. The following are equivalent:
+    \begin{enumerate}
+        \item[a)] \(F(\A)\) is Fréchet. 
+        \item[b)] \(\A\) is nowehere MAD.
+        \item[c)] \(|F(\A)| < \mathfrak{a}\).
+    \end{enumerate}
 \end{prop}
 
-\subsection{Constructing Examples of \(\alpha_i\) Spaces}
+%\textbf{Simon's "Barely Frechet" Compacta}
+
+In \ref{ex: Frechet Product 1} was given an example of a space that is the product of two Frechet spaces yet not Frechet. However one of the factors, \(S_{\omega}\), is not compact since the cover consisiting of the sets \(U_n = S_{\omega}-\{(m, 0): m \in \omega, m \neq n \}\) has no finite subcover. Simon's "Barely Frechet" Compacta is serves as interesting example for two reasons: (1) its is the product of two compact Frechet spaces that is not Frechet, and (2) both factors are \(\alpha_4\) but not \(\alpha_3\). First a Lemma:
+
+\begin{lem}
+    Let \(\A\) be a MAD family. There exists a partition of \(\A\) such that \(\A = \A_0 \sqcup \A_1\) such that both \(\A_1\) and \(\A_2\). 
+\end{lem}
+
+\begin{exam}
+    Let \(\A\) be a MAD family and partition it into two pieces \(\A_0\) and \(\A_1\) as in the lemma. Then \(F(\A_i)\) is Frechet by ~\ref{prop: Franklin Compactum} and \(\alpha_4\) but not \(\alpha_3\) for \(i = 0, 1\). Simon's "Barely Frechet" Compacta is the product \(X = F(\A_0)\times F(\A_1)\) and it is not Frechet. 
+\end{exam}
+
+\subsubsection{The \(\alpha_{i}\) Properties are distinct}
+
+We have already seen examples of spaces that are either \(\alpha_1\) or not even \(\alpha_4\). Also, in the construction of Simons "Barely Frechet" Compactum we encountered a space that is \(\alpha_4\) but not \(\alpha_3\). The following is a space that is \(\alpha_3\) but not \(\alpha_2\). 
+
+\begin{prop}
+    Let \(C_T + \infty\) be the one point compactification of the Cantor Tree. It is \(\alpha_3\) but not \(\alpha_2\).
+\end{prop}
+\begin{proof}
+    Let \(D\) be a countable dense subset of the Cantor set (it exists since seperability is hereditary in metric spaces). If \(d \in D\), let \(d_n\) be the partial sequence in \(T\) of length \(n\) so that \(\langle d_n: n < \omega\rangle\) converges to \(d\). For each \(d \in D\) recursively define a sequence \(\langle x_n : n < \omega\rangle\) where \(x_0 = d_0\) and \(x_{n + 1}^d = d_n^{\,\,\,\frown}(-d_{n + 1})\) where \(-d_i = 1\) iff \(d_i = 0\). So each \(x_n^d\) is the succesor of \(d_n\) that went down the other branch. Now the Cantor set set is first category and so the Baire Category Theorem applies, we use this fact to show that if \(\sigma\) is a sequence converging to \(\infty\) then there is at least one \(d\) for which \(\sigma \cap x_n^d < \aleph_0\). For each \(n\) let
+    \[
+        A_n = \{t \in C: V(t, n)\cap\sigma = \nothing\} \quad \text{where } V(t, n) = t^{\uparrow}\cap \left(\bigcup_{\alpha > n} \L(\alpha)\right). 
+    \]
+    Note that \(p \in C \setminus \bigcup A_n\) would imply that \(\sigma \to p\) which contradicts that \(C_T\) is Hausdorff, hence \(C = \bigcup A_n\). The BCT implies that not all the \(A_n\) can be nowhere dense, so there is an inteval \(J \subset C\) and an \(n\) such that \(A_n\) is dense in \(A_n\). Now for any \(d \in D\cap J\), \(\sigma \cap x_n^d\) must be finite since they can meet only above the \(n\)'th level of \(C_T\).
+
+
+\end{proof}
+
 \subsubsection{Squares of \(\alpha_i\) Spaces} 
 \begin{exam}
     If \(X, Y\) are \(\alpha_1\), then so is \(X \times Y\). Let \(\xi = \langle \xi_n \: : \: n \in \omega \rangle \) be a  sheaf at some \(x\times y \in X \times Y\). Then \(\pi_i(\xi) := \langle \pi_i(\xi_n) \: : \: n \in \omega\rangle\) is a sheaf at \(\pi_i(x\times y)\) in \(X, Y\) respectively for \(i = 1, 2\). Hence there exists \(\alpha_1\) sequences \(B_x, B_y\) for \(\pi_i(\xi)\). Letting \(M_n = \max\{k \in \omega \: : \: x_{n,k} \not \in \pi_1(\xi_n) \vee y_{n,k} \not \in \pi_2(\xi_n)\} \) for each \(n \in \omega\), the sequence \(B = \bigcup_{n \in \omega}B_x \cap (\xi_n- {x_{n1}, \dots, x_{n, M_n}}) \times B_y \cap (\xi_n- {y_{n1}, \dots, y_{n, M_n}})\) is as desired.
@@ -436,8 +636,51 @@ As the following example shows, the product of Fréchet spaces need not be Fréc
     where \(E \circ E  = \{(x, y) \in E \times E: \exists z \in E\,((x,z) \in E \wedge (z, y) \in E)\}\) and \(D^{-1} = \{(y, x): (x, y) \in D\}\). Note that \(E\circ E\) will often be abreviated \(E^2\) and we may at times go so far as to use \(E^4 = (E^2)^2 = E\circ E\circ E\circ E\). Also, whenever \(D \in \D\) is such that \(D = D^{-1}\) we will say that \(D\) is symmetric. A diagonal uniformity can be generated by filterbase consisting of symmetric sets \(D\) each containing the diagonal. The pair \((X, \D)\) will be called a uniform space.
 
     If \((X, \D)\) is a uniform space then for any \(x \in X\) and \(D \in \D\) we say that \(D[x] = \{y \in X:(x, y) \in D\}\) is the section of \(D\) at \(x\). More generally, we can also talk about \(D[A]=\{y \in X:(x, y) \in D, x \in A\}\). Although the former is used quite frequantily because the collection \(\tau_{\D} = \{D[x]:x \in X, D \in \D\}\) is a base for a topology on \(X\), and the most natural way to pass from uniform to topological spaces.
-\subsubsection{Uniform Covers}
+\subsection{Covers and Selection Principles}
+\begin{defn} 
+    Let \(X\) be a space and let \(\U\) be open cover of \(X\).
+    \begin{enumerate}
+        \item[a)] If every finite subset of \(X\) is contained in some element of \(\U\), then \(\U\) is called an \(\omega\)-cover.
+        \item[b)] If every every point of \(X\) is contained in all but finitely many elements of \(\U\), then \(\U\) is called an \(\gamma\)-cover 
+        \item[c)] If every \(\omega\)-cover on \(X\) has \(\gamma\)-subcover then \(X\) is called a \(\gamma\)-set.
+    \end{enumerate}
+\end{defn}
+The definitions of \(\omega/\gamma\)-covers and \(\gamma\)-sets were introduced by Gerlitz and Nagy in their paper that investigated properties of \(C_p(X)\) (the space of continuous real valued functions from \(X\) with the topology of pointwise convergence). We can also talk about \(n\)-covers (where each set of cardinality \(n\) is contained in an element of the cover): Then a cover is an \(\omega\)-cover iff it is an \(n\)-cover for all \(n\). Thus the term \(\omega\)-cover is analagous to the term FUF, since the FUF property holds on \(X\) iff \(X\) is \(n\)-FUF for all \(n\). The term \(\gamma\)-set/cover gets its namesake from the fact that it was initially listed as property \(\gamma\) from a list of properties \(\alpha\) through \(\epsilon\).
 
+One of the intersting results from that paper is that \(C_p(X)\) is Frechet iff \(X\) is a \(\gamma\)-set. It required the following definition and lemma. 
+
+\begin{defn}[Strictly Frechet]
+    Let \(p \in X\) and suppose \(A_n \subset X\) with \(p \in \overline{A_n}\) for all \(n \in \omega\). If there exists points \(a_n \in A_n\) for all \(n\) such that \(a_n \to p\) then \(X\) is striclty Frecht at \(p\). If this property holds at all \(p \in X\) then \(X\) is Strictly Frechet. 
+\end{defn}
+Note that if \(p \in \overline{A}\), then by taking the sequence \(A_n = A - \{a_1, \dots, a_{n-1}\}\) in the definition of Striclty Frechet we obtain a sequence \(\langle a_n : n < \omega\rangle \subset A\) that covnerges to \(p\). Thus Strictly Frechet implies Frechet.
+\begin{lem}
+\label{lem: gamma set}
+    If \(X\) is a \(\gamma\)-set, then whenever \(\langle\U_n:n < \omega\rangle\) is a sequence of \(\omega\)-covers of \(X\) there exists a sequence \(\langle A_n : n < \omega, A_n \in \U_n\rangle\) that is a \(\gamma\)-cover of \(X\)
+\end{lem}
+\begin{prop}
+    If \(X\) is normal, then \(C_p(X)\) is Frechet iff \(X\) is a \(\gamma\)-set.
+\end{prop}
+\begin{proof} 
+    If \(C_p(X)\) is Frechet, let \(\U\) be an \(\omega\)-cover of \(X\) and let 
+    \[
+    \Phi = \{f \in C_p(X):\text{ there exists } U \in \U \text{ such that if } |f(x)| < 1 \text{ then } x \in U\}.
+    \] 
+    Let \(\mathbf{0}\) be the constant zero function, and let \(V\) be a nbhd of \(\mathbf{0}\), which is of the form \(V = \{f: |f(x)|< \ep \,\forall x \in F\}\) for \(\ep > 0\) and \(F\) a finite (hence closed) subset of \(X\). There exists a \(U \in \U\) that contains \(F\), and by normality there is \(f \in C_p(X)\) where 
+    \begin{align*}
+        f(x)  = \begin{dcases}
+        0 &  x \in F\\
+        1 & x \in X - U.
+        \end{dcases}
+    \end{align*}
+    So \(f \in \Phi\cap V\) which implies that \(f \in \overline{\Phi}\).  By Frechetness of \(C_p(X)\) there exists \(\langle f_n \in \Phi : n < \omega\rangle\) that converges to \(\mathbf{0}\). Pick \(U_n \in \U\) such that \(|f_n(x)| < 1\) implies \(x \in U_n\). The pointwise convergence of \(f_n\) implies that \(\langle U_n: n < \omega\rangle\) is a \(\gamma\)-set.
+
+    On the other hand, suppose that \(X\) is a \(\gamma\)-set. We show \(C_p(X)\) is Strictly Frechet. Pick \(\Phi_n \in C_p(X)\) such that \(\mathbf{0} \in \overline{\Phi}\) for \(n \in \omega\). For each \(n\) let \(\U_n = \{\{x \in X : |f(x)| < \frac{1}{2^n}\}: f \in \Phi_n\}\) and note that \(\U_n\) is an \(\omega\)-cover. Indeed, for \(F \subset X\) finite, the nbhd \(V(F, \frac{1}{2^n})\) of \(\mathbf{0}\) meets \(\Phi_n\) (since \(\mathbf{0} \in \overline{\Phi_n}\)) so that \(F \in \U_n\). By the above lemma, we can choose \(A_n \in \U_n\) such that \(\langle A_n \in \U_n : n < \omega, \rangle\) that is a \(\gamma\)-cover of \(X\). Each \(A_n\) is of the form \(\{x \in X : |f(x)| < \frac{1}{2^n}\}\) for \(f \in \Phi_n\) hence there is \(f_n \in \Phi_n\) such that \(f_n(x) < \frac{1}{2^n}\) for all \(x \in A_n\). Then the \(f_n\) converge to \(\mathbf{0}\).
+\end{proof}
+\begin{rem}
+    \(C_p(X)\) is a topological group and thus homogeneous. Thus we can assume without loss of generality that any convergent sequence is a seqeunce converging to  \(\mathbf{0}\). This is why in the above proof we look only at \(\mathbf{0}\).
+\end{rem}
+
+Lemma ~\ref{lem: gamma set} is an example of a \textit{Selection Principle}. In fact it is a specific case of the selection principle \(S_1(\A, \B)\) which says that if \(\A\) and \(\B\) are collections of covers, given a sequence of covers\(\langle A_n : n < \omega\rangle\) in \(\A\) there exists an exists a set \(\{B_n \in A_n : n < \omega\}\) that is an element of \(\B\). Thus, if \(\Omega\) (\(\Gamma\)) denotes the set of all \(\omega\)-covers (\(\gamma\)-covers), then  Lemma ~\ref{lem: gamma set} can be restated: "If \(X\) is a \(\gamma\)-set then \(X\) has the property \(S_1(\Omega, \Gamma)\)". The topic of selection principles has been covered extensively by M. Scheepers in a series of papers (at least 8) titled "The Combinatorics of Open Covers". Other families of covers that are studied are \(\O\) and \(\Lambda\), the classes of all open covers and "Large" covers. (Large means each point is in infinitely many elements of the cover).
 \subsection{Topological Groups}
 \begin{defn}
     A topological group \(G\) is a group whose underlying set has a topology such that 
@@ -468,8 +711,13 @@ We will often construct topological groups from topological space. Take \(X = \{
 \begin{exam}
     If \(\F\) is the cofinite filter on \(\omega\) then in the group \(\tau_{\F}\) the sequence defined by \(x_n^m = \{n, n + 1, \dots, n + m\}\), for any \(m < \omega\),  converges to \(\nothing\). Letting \(m = 1\) and using the homogeneity of \(\tau_{\F}\) we obtain a simple recipe to construct sequences converging to any point \(p \in [\omega]^{<\omega}\); just take \(y_n = x_n^1 \Delta p\) for all \(n \in \omega\).
 \end{exam}
-
-\section{Topological Games}
+\begin{exam}
+    Recall \(C_T\) the Cantor Tree and \(C_T + \infty\) its one point compactification. Take \(A \subset C\) and let \(T \cup \{\infty\}\) be a subspace of \(T \cup A + \infty\). Denote by \(\tau_A\) the topological group (made in the same way as before) with the points being finite subsets of \(T\) and the base consisting of all finite subsets of the nbhds of \(\infty\) in \(T \cup \{\infty\}\).
+\end{exam}
+\begin{prop}
+    Let \(A \subset C\) and consider \(\tau_A\) as above. Then \(\tau_A\) is Frechet iff \(A\) is a \(\gamma\)-set.
+\end{prop}
+\section{Infinite Games}
 %In this chpater we assume \(X\) to always be Hausdorff.
 \subsection{Gruenhage Game}
 
@@ -574,13 +822,22 @@ The game is played the same but we note that the uniformities chosen by player 1
 %\begin{proof}
 %    Let \(\F\) be the cofinite filter on \(\omega\) and %consider \(\tau_{\F}\). First observe that for any \(p \in %[\omega]^{< \omega}\) and any \(F \in \F\) that \(\st(p, %\U_F) = [\omega]^{< \omega}\): let \(x \in [\omega]^{< %\omega}\), let \(\alpha = = p \cap F^C\), let \(\beta = x %\cap \alpha^C \cap F^C\). Then \(x, p \in %(\beta\Delta\alpha)\Delta [F]^{< \omega}\). Thus any %seqeunces of points and covers \(x_n\) and \(\U_{F_n}\) is %such that \(\bigcap \st(x_n, \U_{F_n}) = [\omega]^{<\omega} %(\neq \nothing)\) and player 2 is free to play an %alternating sequence that doesn't converge (for example %alternating between \(\{1\}\) and \(\{1, 2\}\)).
 %\end{proof}
+
+\subsection{Selection Principle Game}
+Another game is \(G_1(\A, \B)\), which is based on the selection principle \(S_1(\A, \B)\). It is played as follows: in the \(n'th\) inning \textbf{Player I} plays an element \(A_n \in \A\) and \textbf{Player II} plays an element of \(s_n \in A_n\). \textbf{Player 2} wins if the set \(\{s_n : n \in \omega\}\) is an element of \(\B\). In particular, we care about the game \(G_1(\Omega, \Omega)\). By Lemma ~\ref{}
+
+
+
+
+
+\newpage
 \section{Musings}
 The point of this section is to keep track of thoughts relating to problems whose solutions are maybe not be clear or known (yet). 
 
 
 
 %Let \(\F\) be a FUF filter and let \(\tau_{\F}\) be the corresponding topological group.
-\subsection{Behaviour \dots}
+\subsection{Behaviour of \dots}
 
 \subsubsection*{\dots of Sequences}
 
@@ -651,7 +908,7 @@ Suppose \(\langle a_n:n < \omega\rangle \subset  [\omega]^{<\omega}\) and \(\lan
 
 %\subsubsection*{\dots of Covers}
 %Given that our favourite topological group is %essentially useless in terms of uniform covers and the %proximal game, check to see if theres another way to go %about dealing with uniformities in top groups or a way %of modifying the Proximal game in order to obtain more %meaningfull properties. 
-\newpage
+
 \subsection{(partial) Results}
 
 \begin{observation}
@@ -724,7 +981,7 @@ In general, \textbf{Player I} plays covers from \(\A\) and on turn \(k+1\) \text
 \end{proof}
 
 \begin{prop}
-    Assuming CH, there exists an uncountably generated Semi Proximal filter \(\F\).
+    CH implies the existence of an uncountably generated Semi Proximal filter.
 \end{prop}
 \begin{proof}
 Start with \(\F_0\) any countably generated filter on \(\omega\), where \(\F_0\) is generated by \(\E_0 = \langle E_n^0:n < \omega\rangle\). Let \(\Sigma\) be the set of all of strategies for \textbf{Player II} on \(\tau_{\F_0}\) restricted to \(\E_0\), where \(\Sigma\) is enumerated as \(\{\sigma_{\alpha}:\alpha < \omega_1\}\). We build \(\F\) by recursion on \(\Sigma\).
@@ -738,14 +995,18 @@ At stage \(\alpha\) assume that:
     \item[(3)] \(\B_{\alpha} = \{B_{\beta}:\beta < \alpha\}\) where \(B_{\beta} = \langle \sigma_{\beta}(E_{n_k}^{\beta}):k < \omega\rangle\) converges to \(\F_{\beta}\) and \(B_{\beta} \asubset  A_{\gamma}\) for any \(\beta \leq \gamma < \alpha\).
     %\item \(\Sigma_{\beta}\) is the set of all strategies for \textbf{Player II} on \(\F_{\beta}\) for \(\beta < \alpha\).
 \end{enumerate}
-Let \(\F_{\alpha} = \F_0 \cup \A_{\alpha}\) and let \(\Sigma_{\alpha} = \{\text{strategies on $\tau_{\F_\alpha}$}\}\). \(\F_{\alpha}\) is  generated by \(\E_{\alpha} = \langle E_n^{\alpha}: n < \omega \rangle\) and \textbf{Player I} can play from \(\E_{\alpha}\) to defeat any \(\sigma' \in \Sigma_{\alpha}\) since \(\F_{\alpha}\) is Proximal. However, in order to guarantee that \textbf{Player I} has enough winning counter strategies available in the future, we will insist that \textbf{Player I} plays from \(\E_{\beta}\) to defeat \textbf{Player II} any time \(\sigma'\) extends a \(\sigma_{\beta} \in \Sigma\) from a previous stage \(\beta\).  In particular, if \(\beta < \alpha\) and \(\sigma'\upharpoonright \F_{\beta} = \sigma_{\beta}\), then \(B_{\beta}\to\F_{\beta}\) and hence loses for \textbf{Player II} on \(\F_{\beta}\). By (3), we know that \textbf{Player I} can stick to their previous strategy by playing from \(\E_{\beta}\) to defeat \(\sigma'\) on \(\F_{\alpha}\) since \(B_{\beta} \to \F_{\alpha}\).
+Let \(\F_{\alpha} = \F_0 \cup \A_{\alpha}\) and let \(\Sigma_{\alpha} = \{\text{strategies on $\tau_{\F_\alpha}$}\}\). \(\F_{\alpha}\) is  generated by \(\E_{\alpha} = \langle E_n^{\alpha}: n < \omega \rangle\) and \textbf{Player I} can play from \(\E_{\alpha}\) to defeat any \(\sigma' \in \Sigma_{\alpha}\) since \(\F_{\alpha}\) is Proximal. However, in order to guarantee that \textbf{Player I} has enough winning counter strategies available in the future, we will insist that \textbf{Player I} plays from \(\E_{\beta}\) to defeat \textbf{Player II} any time \(\sigma'\) extends a \(\sigma_{\beta} \in \Sigma\) from a previous stage \(\beta\).  In other words, if \(\beta < \alpha\) and \(\sigma'\upharpoonright \F_0 = \sigma_{\beta}\), then \(B_{\beta}\to\F_{\beta}\) exists and hence \(\sigma'\) loses for \textbf{Player II} on \(\F_{\beta}\). By (3), we know that \textbf{Player I} can stick to their previous strategy of playing inside \(\E_{\beta}\) to defeat \(\sigma'\) on \(\F_{\alpha}\).
 
 Let \(\sigma_{\alpha} \in \Sigma\). We continue the construction by fixing \(\sigma \in \Sigma_{\alpha}\) such that \(\sigma\) extends \(\sigma_{\alpha}\). Let \(\langle E_{n_k}^{\alpha}: k < \omega \rangle \subset \E_{\alpha}\) be such that \(B_{\alpha} = \langle \sigma(E_{n_k}^{\alpha}): k < \omega \rangle\) converges to \(\F_{\alpha}\) and let \(A_{\alpha} = \bigcup_{n \in \omega}B_n \cap E_n^{\alpha}\) which is not in \(\F_{\alpha}\).
 
-Let \(\A = \{A_{\alpha}:\alpha < \omega_1\}\) and let \(\F = \F_0\cup\A\) be the resulting filter. Now any strategy \(\sigma\) for \textbf{Player II} on \(\tau_{\F}\) must agree with some \(\sigma_{\alpha}\) on \(\F_0\), so there is a \(B_{\alpha}\) that converges with respect to \(\F_{\alpha}\), and hence also \(\F\). So by playing inside of \(\E_{\alpha}\) \textbf{Player I} defeats \(\sigma\).
+Let \(\A = \{A_{\alpha}:\alpha < \omega_1\}\) and let \(\F = \F_0\cup\A\) be the resulting filter. Now any strategy \(\sigma\) for \textbf{Player II} on \(\tau_{\F}\) must agree with some \(\sigma_{\alpha}\) on \(\F_0\), so there is a \(B_{\alpha}\) that converges with respect to \(\F_{\alpha}\), and hence also \(\F\). So by playing inside of \(\E_{\alpha}\) \textbf{Player I} defeats \(\sigma\) on \(\F\).
 
 %Thus \(\sigma\upharpoonright\F_0 = \sigma_{\alpha}\) for some \(\alpha\), so there is \(B_{\alpha} = \langle\sigma_{\alpha}(E_{n_k}^{\alpha}):k<\omega\rangle\) which converges with respect to \(\F_{\alpha}\), hence also \(\F\), and \textbf{Player I} defeats \(\sigma\).
 \end{proof}
+
+
+
+
 %\begin{proof}
 %Start with \(\F_0\) any countably generated filter on \(\omega\) and using %recurison on \(\Sigma_0 = \{\text{strategies on $\tau_{\F_0}$}\} = \{\sigma_{\alpha}%:\alpha < \omega_1\}\) we will construct our desired filter \(\F\).
 %
@@ -770,5 +1031,10 @@ Let \(\A = \{A_{\alpha}:\alpha < \omega_1\}\) and let \(\F = \F_0\cup\A\) be the
 %\newpage
 %\bibliographystyle{plain}
 %\bibliography{bibliography}{}
+
+
+
+
+
 
 \end{document}
